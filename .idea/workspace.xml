@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="苍穹外卖项目初始工程">
-      <change beforePath="$PROJECT_DIR$/sky-take-out/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/.gitignore" afterDir="false" />
-    </list>
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="苍穹外卖项目初始工程" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1681782281638</updated>
       <workItem from="1681782282843" duration="220000" />
-      <workItem from="1681782530832" duration="3284000" />
+      <workItem from="1681782530832" duration="3626000" />
     </task>
     <task id="LOCAL-00001" summary="苍穹外卖项目初始工程">
       <created>1681783606550</created>
@@ -123,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681786143209</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="苍穹外卖项目初始工程">
+      <created>1681786550976</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681786550976</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
