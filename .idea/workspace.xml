@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="苍穹外卖项目初始工程" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="新控制部分 xml 文件" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1681782281638</updated>
       <workItem from="1681782282843" duration="220000" />
-      <workItem from="1681782530832" duration="2363000" />
+      <workItem from="1681782530832" duration="2658000" />
     </task>
     <task id="LOCAL-00001" summary="苍穹外卖项目初始工程">
       <created>1681783606550</created>
@@ -92,7 +92,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681784269966</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary=".gitignore 文件添加 github 模板内容">
+      <created>1681785570423</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681785570423</updated>
+    </task>
+    <task id="LOCAL-00004" summary="新控制部分 xml 文件">
+      <created>1681785667250</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681785667250</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +136,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="苍穹外卖项目初始工程" />
-    <option name="LAST_COMMIT_MESSAGE" value="苍穹外卖项目初始工程" />
+    <MESSAGE value=".gitignore 文件添加 github 模板内容" />
+    <MESSAGE value="新控制部分 xml 文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="新控制部分 xml 文件" />
   </component>
 </project>
