@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="启用、禁用分类完成">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="逻辑删除分类完成，完善之前模块的逻辑删除状态判断">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/CategoryController.java" afterDir="false" />
@@ -294,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681930421426</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="逻辑删除分类完成，完善之前模块的逻辑删除状态判断">
+      <created>1681931403209</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1681931403209</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +340,8 @@
     <MESSAGE value="分类修改完成" />
     <MESSAGE value="分类分页查询，完善 order by" />
     <MESSAGE value="启用、禁用分类完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="启用、禁用分类完成" />
+    <MESSAGE value="逻辑删除分类完成，完善之前模块的逻辑删除状态判断" />
+    <option name="LAST_COMMIT_MESSAGE" value="逻辑删除分类完成，完善之前模块的逻辑删除状态判断" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
