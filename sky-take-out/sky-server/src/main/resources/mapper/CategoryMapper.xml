@@ -17,6 +17,7 @@
         where id = #{id}
     </update>
 
+    <!--分类条件查询-->
     <select id="selectByNameOrType" resultType="com.sky.entity.Category">
         select *
         from category
@@ -32,10 +33,14 @@
                 #{type}
             </if>
         </where>
+        order by update_time desc
     </select>
+
+    <!--分类全部查询-->
     <select id="selectAll" resultType="com.sky.entity.Category">
         select *
         from category
+        order by update_time desc
     </select>
 
 </mapper>
