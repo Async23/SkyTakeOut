@@ -45,9 +45,23 @@ public class CategoryController {
      * @return
      */
     @PostMapping
-    @ApiOperation(("新增分类 \\^o^/"))
+    @ApiOperation("新增分类 \\\\^o^/")
     public Result insert(@RequestBody CategoryDTO categoryDTO) {
         categoryService.insert(categoryDTO);
+
+        return Result.success();
+    }
+
+    /**
+     * 修改分类
+     *
+     * @param categoryDTO
+     * @return
+     */
+    @PutMapping
+    @ApiOperation("修改分类 (￣_,￣ )")
+    public Result update(@RequestBody CategoryDTO categoryDTO) {
+        categoryService.update(categoryDTO);
 
         return Result.success();
     }

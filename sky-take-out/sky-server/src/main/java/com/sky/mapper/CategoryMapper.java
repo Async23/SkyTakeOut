@@ -1,5 +1,6 @@
 package com.sky.mapper;
 
+import com.sky.dto.CategoryDTO;
 import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
 import org.apache.ibatis.annotations.Insert;
@@ -19,4 +20,6 @@ public interface CategoryMapper {
     List<Category> selectAll();
 
     void insert(Category category);
+
+    void update(CategoryDTO categoryDTO);
 }

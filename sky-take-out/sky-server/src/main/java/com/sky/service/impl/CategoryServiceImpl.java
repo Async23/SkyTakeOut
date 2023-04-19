@@ -11,7 +11,6 @@ import com.sky.exception.BaseException;
 import com.sky.mapper.CategoryMapper;
 import com.sky.result.PageResult;
 import com.sky.service.CategoryService;
-import org.aspectj.weaver.BCException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -70,11 +69,11 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void insert(CategoryDTO categoryDTO) {
         if (categoryDTO == null) {
-            throw new BaseException(MessageConstant.CATEGORY_ILLEGAL_ARGUMENT);
+            throw new BaseException(MessageConstant.CATEGORY_INSERT_ILLEGAL_ARGUMENT);
         }
 
         if (categoryDTO.getName() == null || categoryDTO.getSort() == null || categoryDTO.getType() == null) {
-            throw new BaseException(MessageConstant.CATEGORY_ILLEGAL_ARGUMENT);
+            throw new BaseException(MessageConstant.CATEGORY_INSERT_ILLEGAL_ARGUMENT);
         }
 
         Category category = Category.builder()
@@ -84,7 +83,26 @@ public class CategoryServiceImpl implements CategoryService {
                 .createUser(BaseContext.getCurrentId())
                 .updateUser(BaseContext.getCurrentId())
                 .build();
-        BeanUtils.copyProperties(categoryDTO,category);
+        BeanUtils.copyProperties(categoryDTO, category);
         categoryMapper.insert(category);
+    }
+
+    /**
+     * 修改分类
+     *
+     * @param categoryDTO
+     * @return
+     */
+    @Override
+    public void update(CategoryDTO categoryDTO) {
+        if (categoryDTO == null) {
+            throw new BaseException(MessageConstant.CATEGORY_UPDATE_ILLEGAL_ARGUMENT);
+        }
+
+        if (categoryDTO.getName() == null || categoryDTO.getSort() == null || categoryDTO.getId() == null) {
+            throw new BaseException(MessageConstant.CATEGORY_UPDATE_ILLEGAL_ARGUMENT);
+        }
+
+        categoryMapper.update(categoryDTO);
     }
 }

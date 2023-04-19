@@ -8,4 +8,6 @@ public interface CategoryService {
     PageResult selectPage(CategoryPageQueryDTO categoryPageQueryDTO);
 
     void insert(CategoryDTO categoryDTO);
+
+    void update(CategoryDTO categoryDTO);
 }
