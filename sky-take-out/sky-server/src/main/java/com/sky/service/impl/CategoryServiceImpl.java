@@ -123,4 +123,19 @@ public class CategoryServiceImpl implements CategoryService {
 
         categoryMapper.startOrStop(status, id);
     }
+
+    /**
+     * 删除分类
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public void logicDelete(Long id) {
+        if (id == null) {
+            throw new BaseException(MessageConstant.CATEGORY_DELETE_ILLEGAL_ARGUMENT);
+        }
+
+        categoryMapper.logicDelete(id);
+    }
 }

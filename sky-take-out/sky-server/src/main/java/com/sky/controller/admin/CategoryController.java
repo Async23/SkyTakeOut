@@ -67,6 +67,20 @@ public class CategoryController {
     }
 
     /**
+     * 删除分类
+     *
+     * @param id
+     * @return
+     */
+    @DeleteMapping
+    @ApiOperation("删除分类 ⊙﹏⊙∥")
+    public Result logicDelete(Long id) {
+        categoryService.logicDelete(id);
+
+        return Result.success();
+    }
+
+    /**
      * 启用、禁用分类
      *
      * @param status

@@ -15,12 +15,21 @@
         set name=#{name},
             sort=#{sort}
         where id = #{id}
+          and is_delete = 1
     </update>
 
     <!--启用、禁用分类-->
     <update id="startOrStop">
         update category
         set status=#{status}
+        where id = #{id}
+          and is_delete = 1
+    </update>
+
+    <!--逻辑删除分类-->
+    <update id="logicDelete" parameterType="java.lang.Long">
+        update category
+        set is_delete=0
         where id = #{id}
     </update>
 
@@ -39,6 +48,7 @@
                 and type =
                 #{type}
             </if>
+            and is_delete = 1
         </where>
         order by update_time desc
     </select>
@@ -47,6 +57,7 @@
     <select id="selectAll" resultType="com.sky.entity.Category">
         select *
         from category
+        where is_delete = 1
         order by update_time desc
     </select>
 

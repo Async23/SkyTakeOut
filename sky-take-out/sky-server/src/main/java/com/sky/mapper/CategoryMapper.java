@@ -25,4 +25,6 @@ public interface CategoryMapper {
     void update(CategoryDTO categoryDTO);
 
     void startOrStop(@Param("status") Integer status, @Param("id") Long id);
+
+    void logicDelete(Long id);
 }
