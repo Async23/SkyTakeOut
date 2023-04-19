@@ -2,6 +2,7 @@ package com.sky.mapper;
 
 import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface CategoryMapper {
     List<Category> selectByNameOrType(String name, Integer type);
 
     List<Category> selectAll();
+
+    void insert(Category category);
 }

@@ -166,10 +166,6 @@ public class EmployeeServiceImpl implements EmployeeService {
      */
     @Override
     public void update(EmployeeDTO employeeDTO) {
-        Employee employee = employeeMapper.selectByUsername(employeeDTO.getUsername());
-        if (employee != null && !employee.getUsername().equals(employeeDTO.getUsername())) {
-            throw new BaseException("用户名" + employeeDTO.getUsername() + "已存在");
-        }
         employeeMapper.update(employeeDTO);
     }
 

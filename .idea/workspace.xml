@@ -5,19 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="已完成：新增员工，员工分页查询，启用禁用员工账号，编辑员工">
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/CategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/CategoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/CategoryPageQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/CategoryPageQueryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/PasswordEditDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/PasswordEditDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/CategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
