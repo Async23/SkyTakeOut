@@ -105,4 +105,22 @@ public class CategoryServiceImpl implements CategoryService {
 
         categoryMapper.update(categoryDTO);
     }
+
+    /**
+     * 启用、禁用分类
+     *
+     * @param status
+     * @param id
+     * @return
+     */
+    @Override
+    public void startOrStop(Integer status, Long id) {
+        boolean statusNotValid = status == null || (status != 0 && status != 1);
+        boolean idNotValid = id == null;
+        if (statusNotValid || idNotValid) {
+            throw new BaseException(MessageConstant.CATEGORY_START_OR_STOP_ILLEGAL_ARGUMENT);
+        }
+
+        categoryMapper.startOrStop(status, id);
+    }
 }

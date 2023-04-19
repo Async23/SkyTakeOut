@@ -5,6 +5,7 @@ import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -22,4 +23,6 @@ public interface CategoryMapper {
     void insert(Category category);
 
     void update(CategoryDTO categoryDTO);
+
+    void startOrStop(@Param("status") Integer status, @Param("id") Long id);
 }

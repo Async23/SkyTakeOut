@@ -17,6 +17,13 @@
         where id = #{id}
     </update>
 
+    <!--启用、禁用分类-->
+    <update id="startOrStop">
+        update category
+        set status=#{status}
+        where id = #{id}
+    </update>
+
     <!--分类条件查询-->
     <select id="selectByNameOrType" resultType="com.sky.entity.Category">
         select *

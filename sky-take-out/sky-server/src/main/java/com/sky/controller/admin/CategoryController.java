@@ -65,4 +65,19 @@ public class CategoryController {
 
         return Result.success();
     }
+
+    /**
+     * 启用、禁用分类
+     *
+     * @param status
+     * @param id
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    @ApiOperation("启用、禁用分类 ＞︿＜")
+    public Result startOrStop(@PathVariable Integer status, Long id) {
+        categoryService.startOrStop(status, id);
+
+        return Result.success();
+    }
 }

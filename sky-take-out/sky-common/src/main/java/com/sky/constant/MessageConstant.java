@@ -19,6 +19,7 @@ public class MessageConstant {
     public static final String CATEGORY_QUERY_PAGE_ILLEGAL_ARGUMENT = "分类分页查询参数有误";
     public static final String CATEGORY_INSERT_ILLEGAL_ARGUMENT = "新增分类参数有误";
     public static final String CATEGORY_UPDATE_ILLEGAL_ARGUMENT = "修改分类参数有误";
+    public static final String CATEGORY_START_OR_STOP_ILLEGAL_ARGUMENT = "启用、禁用分类参数有误";
 
 
     public static final String SHOPPING_CART_IS_NULL = "购物车数据为空，不能下单";
