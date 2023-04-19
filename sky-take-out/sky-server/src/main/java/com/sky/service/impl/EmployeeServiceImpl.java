@@ -8,6 +8,7 @@ import com.sky.context.BaseContext;
 import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.dto.EmployeePageQueryDTO;
+import com.sky.dto.PasswordEditDTO;
 import com.sky.entity.Employee;
 import com.sky.exception.AccountLockedException;
 import com.sky.exception.AccountNotFoundException;
@@ -16,16 +17,14 @@ import com.sky.exception.PasswordErrorException;
 import com.sky.mapper.EmployeeMapper;
 import com.sky.result.PageResult;
 import com.sky.service.EmployeeService;
-import com.sky.vo.EmployeeLoginVO;
-import org.apache.ibatis.annotations.Param;
+import com.sky.utils.JwtUtil;
+import org.junit.Test;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static com.sky.constant.PasswordConstant.DEFAULT_PASSWORD;
@@ -67,7 +66,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             throw new PasswordErrorException(MessageConstant.PASSWORD_ERROR);
         }
 
-        if (employee.getStatus() == StatusConstant.DISABLE) {
+        if (employee.getStatus().equals(StatusConstant.DISABLE)) {
             // 账号被锁定
             throw new AccountLockedException(MessageConstant.ACCOUNT_LOCKED);
         }
@@ -86,7 +85,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public PageResult selectPage(EmployeePageQueryDTO employeePageQueryDTO) {
         // name 有效，忽略分页参数，根据 username 条件查询
         if (!(employeePageQueryDTO.getName() == null || "".equals(employeePageQueryDTO.getName().trim()))) {
-            List<Employee> employeeList = employeeMapper.selectByUsername(employeePageQueryDTO.getName().trim());
+            List<Employee> employeeList = employeeMapper.selectByName(employeePageQueryDTO.getName().trim());
             return new PageResult(employeeList.size(), employeeList);
         }
 
@@ -151,7 +150,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @return
      */
     @Override
-    public Employee selectById(Integer id) {
+    public Employee selectById(Long id) {
         if (id == null) {
             throw new BaseException("员工 id 参数有误");
         }
@@ -167,11 +166,35 @@ public class EmployeeServiceImpl implements EmployeeService {
      */
     @Override
     public void update(EmployeeDTO employeeDTO) {
-        Employee employee = employeeMapper.selectByUsernameOne(employeeDTO.getUsername());
+        Employee employee = employeeMapper.selectByUsername(employeeDTO.getUsername());
         if (employee != null && !employee.getUsername().equals(employeeDTO.getUsername())) {
             throw new BaseException("用户名" + employeeDTO.getUsername() + "已存在");
         }
         employeeMapper.update(employeeDTO);
+    }
+
+    /**
+     * 修改密码
+     *
+     * @param passwordEditDTO
+     * @return
+     */
+    @Override
+    public void updatePassword(PasswordEditDTO passwordEditDTO) {
+        // PasswordEditDTO 对象数据非法
+        if (passwordEditDTO == null || passwordEditDTO.getOldPassword() == null || passwordEditDTO.getNewPassword() == null) {
+            throw new BaseException(MessageConstant.PASSWORD_EDIT_FAILED);
+        }
+
+        // 若原密码不正确
+        passwordEditDTO.setEmpId(BaseContext.getCurrentId());
+        if (!employeeMapper.selectPasswordById(passwordEditDTO.getEmpId()).equals(DigestUtils.md5DigestAsHex(passwordEditDTO.getOldPassword().getBytes()))) {
+            throw new BaseException(MessageConstant.PASSWORD_ERROR);
+        }
+
+        // 原密码正确
+        passwordEditDTO.setNewPassword(DigestUtils.md5DigestAsHex(passwordEditDTO.getNewPassword().getBytes()));
+        employeeMapper.updatePassword(passwordEditDTO);
     }
 
 }

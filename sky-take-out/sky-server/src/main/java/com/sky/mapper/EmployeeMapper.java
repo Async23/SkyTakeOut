@@ -2,6 +2,7 @@ package com.sky.mapper;
 
 import com.github.pagehelper.Page;
 import com.sky.dto.EmployeeDTO;
+import com.sky.dto.PasswordEditDTO;
 import com.sky.entity.Employee;
 import org.apache.ibatis.annotations.*;
 
@@ -27,11 +28,11 @@ public interface EmployeeMapper {
     @Select("select id, name,username,phone,status,update_time from employee")
     Page<Employee> selectAll();
 
-    @Select("select id, name,username,phone,status,update_time from employee where username like concat('%',#{username},'%')")
-    List<Employee> selectByUsername(String username);
+    @Select("select id, name,username,phone,status,update_time from employee where name like concat('%',#{name},'%')")
+    List<Employee> selectByName(String name);
 
     @Select("select id, name,username,phone,status,update_time from employee where username = #{username}")
-    Employee selectByUsernameOne(String username);
+    Employee selectByUsername(String username);
 
     void insert(Employee employee);
 
@@ -39,7 +40,25 @@ public interface EmployeeMapper {
     void startOrStop(@Param("status") Integer status, @Param("id") Integer id);
 
     @Select("select  id,username,name,phone,sex,id_number from employee where id=#{id}")
-    Employee selectById(Integer id);
+    Employee selectById(Long id);
 
     void update(EmployeeDTO employeeDTO);
+
+    /**
+     * 修改密码
+     *
+     * @param passwordEditDTO
+     * @return
+     */
+    @Update("update employee set password=#{newPassword} where id=#{empId}")
+    void updatePassword(PasswordEditDTO passwordEditDTO);
+
+    /**
+     * 根据 id 查询 password
+     *
+     * @param id
+     * @return
+     */
+    @Select("select password from employee where id=#{id}")
+    String selectPasswordById(Long id);
 }

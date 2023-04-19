@@ -4,31 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="day01 环境搭建完成">
-      <change afterPath="$PROJECT_DIR$/.idea/GrepConsole.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_2_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="已完成：新增员工，员工分页查询，启用禁用员工账号，编辑员工">
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/CategoryMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/properties/JwtProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/properties/JwtProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/result/PageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/result/PageResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/result/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/result/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/EmployeePageQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/EmployeePageQueryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/entity/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/SkyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/SkyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/config/WebMvcConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/CategoryPageQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/CategoryPageQueryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/PasswordEditDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/PasswordEditDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/handler/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/interceptor/JwtTokenAdminInterceptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/EmployeeMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/EmployeeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/EmployeeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/EmployeeMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -109,6 +100,22 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SkyApplication">
+    <configuration name="CategoryServiceImpl.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sky-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sky.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sky.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.sky.service.impl.CategoryServiceImpl" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EmployeeController.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sky-server" />
       <extension name="coverage">
@@ -141,6 +148,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EmployeeServiceImpl.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sky-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sky.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sky.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.sky.service.impl.EmployeeServiceImpl" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SkyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="sky-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sky.SkyApplication" />
@@ -150,6 +173,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CategoryServiceImpl.test" />
+        <item itemvalue="JUnit.EmployeeServiceImpl.test" />
         <item itemvalue="JUnit.EmployeeController.test3" />
         <item itemvalue="JUnit.EmployeeController.test1" />
       </list>
@@ -168,7 +193,7 @@
       <workItem from="1681787012833" duration="11041000" />
       <workItem from="1681810300854" duration="14950000" />
       <workItem from="1681837650435" duration="699000" />
-      <workItem from="1681863998104" duration="35608000" />
+      <workItem from="1681863998104" duration="44419000" />
     </task>
     <task id="LOCAL-00001" summary="苍穹外卖项目初始工程">
       <created>1681783606550</created>
@@ -233,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681787259258</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="已完成：新增员工，员工分页查询，启用禁用员工账号，编辑员工">
+      <created>1681911656930</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681911656930</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +298,8 @@
     <MESSAGE value="新控制部分 xml 文件" />
     <MESSAGE value="苍穹外卖项目初始工程" />
     <MESSAGE value=".gitignore 增加" />
-    <option name="LAST_COMMIT_MESSAGE" value=".gitignore 增加" />
+    <MESSAGE value="已完成：新增员工，员工分页查询，启用禁用员工账号，编辑员工" />
+    <option name="LAST_COMMIT_MESSAGE" value="已完成：新增员工，员工分页查询，启用禁用员工账号，编辑员工" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

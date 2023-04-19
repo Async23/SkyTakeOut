@@ -7,11 +7,11 @@ import java.io.Serializable;
 @Data
 public class CategoryPageQueryDTO implements Serializable {
 
-    //页码
-    private int page;
+    //页码（已修改：int => Integer）
+    private Integer page;
 
-    //每页记录数
-    private int pageSize;
+    //每页记录数（已修改：int => Integer）
+    private Integer pageSize;
 
     //分类名称
     private String name;
