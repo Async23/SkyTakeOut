@@ -29,4 +29,6 @@ public interface CategoryMapper {
     Integer selectIsDeleteByName(String name);
 
     void updateByName(Category category);
+
+    List<Category> selectAllByType(Integer type);
 }

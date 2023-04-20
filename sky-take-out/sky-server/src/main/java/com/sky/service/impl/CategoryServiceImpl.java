@@ -148,4 +148,19 @@ public class CategoryServiceImpl implements CategoryService {
 
         categoryMapper.logicDelete(id);
     }
+
+    /**
+     * 根据 type 查询所有 category
+     *
+     * @param type
+     * @return
+     */
+    @Override
+    public List<Category> selectAllByType(Integer type) {
+        if (type == null) {
+            throw new BaseException(MessageConstant.CATEGORY_QUERY_BY_TYPE_ILLEGAL_ARGUMENT);
+        }
+
+        return categoryMapper.selectAllByType(type);
+    }
 }

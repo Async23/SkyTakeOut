@@ -17,6 +17,7 @@ public class MessageConstant {
     public static final String CATEGORY_BE_RELATED_BY_SETMEAL = "当前分类关联了套餐,不能删除";
     public static final String CATEGORY_BE_RELATED_BY_DISH = "当前分类关联了菜品,不能删除";
     public static final String CATEGORY_QUERY_PAGE_ILLEGAL_ARGUMENT = "分类分页查询参数有误";
+    public static final String CATEGORY_QUERY_BY_TYPE_ILLEGAL_ARGUMENT = "根据类型查询分类参数有误";
     public static final String CATEGORY_INSERT_ILLEGAL_ARGUMENT = "新增分类参数有误";
     public static final String CATEGORY_UPDATE_ILLEGAL_ARGUMENT = "修改分类参数有误";
     public static final String CATEGORY_START_OR_STOP_ILLEGAL_ARGUMENT = "启用、禁用分类参数有误";

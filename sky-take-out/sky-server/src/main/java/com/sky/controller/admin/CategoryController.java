@@ -2,6 +2,7 @@ package com.sky.controller.admin;
 
 import com.sky.dto.CategoryDTO;
 import com.sky.dto.CategoryPageQueryDTO;
+import com.sky.entity.Category;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.CategoryService;
@@ -10,6 +11,8 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 分类管理
@@ -93,5 +96,19 @@ public class CategoryController {
         categoryService.startOrStop(status, id);
 
         return Result.success();
+    }
+
+    /**
+     * 根据 type 查询所有 category
+     *
+     * @param type
+     * @return
+     */
+    @GetMapping("/list")
+    @ApiOperation("根据 type 查询所有 category (ಥ _ ಥ)")
+    public Result selectAllByType(Integer type) {
+        List<Category> categoryList = categoryService.selectAllByType(type);
+
+        return Result.success(categoryList);
     }
 }
