@@ -20,6 +20,21 @@
         </collection>
     </resultMap>
 
+    <!--新增菜品(dish)-->
+    <insert id="insertDish" parameterType="com.sky.dto.DishDTO" useGeneratedKeys="true" keyProperty="id">
+        insert into dish
+            (name, category_id, price, image, description, status) value
+            (#{name}, #{categoryId}, #{price}, #{image}, #{description}, #{status})
+    </insert>
+    <!--新增菜品(dish_flavor)-->
+    <insert id="insertDishFlavor" parameterType="java.util.List">
+        insert into dish_flavor
+        (dish_id, name, value) values
+        <foreach collection="dishFlavors" item="dishFlavor" separator=",">
+                (#{dishFlavor.dishId}, #{dishFlavor.name}, #{dishFlavor.value})
+        </foreach>
+    </insert>
+
     <select id="selectFlavors" resultType="com.sky.entity.DishFlavor" parameterType="java.lang.Long">
         select id, dish_id, name, value
         from dish_flavor

@@ -1,5 +1,6 @@
 package com.sky.controller.admin;
 
+import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
@@ -52,7 +53,17 @@ public class DishController {
         return Result.success(dishVO);
     }
 
-    // @PostMapping
-    // @ApiOperation("新增菜品 ^_~")
-    // public Result
+    /**
+     * 新增菜品
+     *
+     * @param dishDTO
+     * @return
+     */
+    @PostMapping
+    @ApiOperation("新增菜品 ^_~")
+    public Result insert(@RequestBody DishDTO dishDTO) {
+        dishService.insert(dishDTO);
+
+        return Result.success();
+    }
 }

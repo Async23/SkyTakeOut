@@ -3,8 +3,9 @@ package com.sky.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sky.constant.MessageConstant;
+import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
-import com.sky.entity.Dish;
+import com.sky.entity.DishFlavor;
 import com.sky.exception.BaseException;
 import com.sky.mapper.DishMapper;
 import com.sky.result.PageResult;
@@ -75,5 +76,25 @@ public class DishServiceImpl implements DishService {
         }
 
         return dishMapper.selectById(id);
+    }
+
+    /**
+     * 新增菜品
+     *
+     * @param dishDTO
+     * @return
+     */
+    @Override
+    public void insert(DishDTO dishDTO) {
+        if (dishDTO == null) {
+            throw new BaseException(MessageConstant.DISH_INSERT_ILLEGAL_ARGUMENT);
+        }
+
+        // Mapper 层
+        dishMapper.insertDish(dishDTO);
+        List<DishFlavor> flavors = dishDTO.getFlavors();
+        flavors.forEach(dishFlavor -> dishFlavor.setDishId(dishDTO.getId()));
+        // Mapper 层
+        dishMapper.insertDishFlavor(flavors);
     }
 }
