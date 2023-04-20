@@ -16,4 +16,6 @@ public interface DishMapper {
     List<Dish> selectByNameOrCategoryIdOrStatus(String name, Integer categoryId, Integer status);
 
     List<DishVO> selectAll();
+
+    DishVO selectById(Long id);
 }

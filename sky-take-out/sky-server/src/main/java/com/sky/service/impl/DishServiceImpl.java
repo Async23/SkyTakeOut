@@ -61,4 +61,19 @@ public class DishServiceImpl implements DishService {
         Page<DishVO> dishPage = (Page<DishVO>) dishMapper.selectAll();
         return new PageResult(dishPage.getTotal(), dishPage.getResult());
     }
+
+    /**
+     * 根据 id 查询
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public DishVO selectById(Long id) {
+        if (id == null) {
+            throw new BaseException(MessageConstant.DISH_QUERY_ILLEGAL_ARGUMENT);
+        }
+
+        return dishMapper.selectById(id);
+    }
 }
