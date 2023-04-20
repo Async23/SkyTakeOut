@@ -9,6 +9,7 @@ import com.sky.exception.BaseException;
 import com.sky.mapper.DishMapper;
 import com.sky.result.PageResult;
 import com.sky.service.DishService;
+import com.sky.vo.DishVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,7 +58,7 @@ public class DishServiceImpl implements DishService {
 
         // 名称、分类、状态 均无效，分页参数有效，执行正常分页查询
         PageHelper.startPage(dishPageQueryDTO.getPage(), dishPageQueryDTO.getPageSize());
-        Page<Dish> dishPage = (Page<Dish>) dishMapper.selectAll();
+        Page<DishVO> dishPage = (Page<DishVO>) dishMapper.selectAll();
         return new PageResult(dishPage.getTotal(), dishPage.getResult());
     }
 }

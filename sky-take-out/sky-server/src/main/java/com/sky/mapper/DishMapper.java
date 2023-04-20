@@ -1,6 +1,7 @@
 package com.sky.mapper;
 
 import com.sky.entity.Dish;
+import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -14,5 +15,5 @@ import java.util.List;
 public interface DishMapper {
     List<Dish> selectByNameOrCategoryIdOrStatus(String name, Integer categoryId, Integer status);
 
-    List<Dish> selectAll();
+    List<DishVO> selectAll();
 }
