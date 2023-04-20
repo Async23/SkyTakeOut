@@ -39,7 +39,7 @@ public class DishController {
     }
 
     /**
-     * 根据 id 查询
+     * 根据 id 查询（修改按钮）
      *
      * @param id
      * @return

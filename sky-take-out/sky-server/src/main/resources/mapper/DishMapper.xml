@@ -80,7 +80,7 @@
     </select>
 
     <!--根据 id 查询-->
-    <select id="selectById" resultType="com.sky.vo.DishVO" parameterType="java.lang.Long">
+    <select id="selectById" resultMap="dishVO" parameterType="java.lang.Long">
         select d.id          as id,
                d.name        as name,
                d.category_id as categoryId,
@@ -89,9 +89,14 @@
                d.description as description,
                d.status      as status,
                d.update_time as updateTime,
-               c.name        as categoryName
+               c.name        as categoryName,
+               df.id         as flavorId,
+               df.dish_id    as dishId,
+               df.name       as dfName,
+               df.value      as value
         from dish as d
                  left outer join category as c on d.category_id = c.id
+                 left outer join dish_flavor as df on d.id = df.dish_id
         where d.is_delete = 0
           and d.id = #{id}
     </select>
