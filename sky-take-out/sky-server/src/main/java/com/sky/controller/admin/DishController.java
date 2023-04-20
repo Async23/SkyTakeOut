@@ -51,4 +51,8 @@ public class DishController {
 
         return Result.success(dishVO);
     }
+
+    // @PostMapping
+    // @ApiOperation("新增菜品 ^_~")
+    // public Result
 }

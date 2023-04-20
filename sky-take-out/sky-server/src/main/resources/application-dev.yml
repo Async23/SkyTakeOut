@@ -11,11 +11,16 @@ sky:
     port: 6379
     database: 1
     password: 123456
+#  alioss:
+#    endpoint: oss-cn-hangzhou.aliyuncs.com
+#    access-key-id: LTAI5tPeFLzsPPT8gG3LPW64
+#    access-key-secret: U6k1brOZ8gaOIXv3nXbulGTUzy6Pd7
+#    bucket-name: sky-take-out
   alioss:
-    endpoint: oss-cn-hangzhou.aliyuncs.com
-    access-key-id: LTAI5tPeFLzsPPT8gG3LPW64
-    access-key-secret: U6k1brOZ8gaOIXv3nXbulGTUzy6Pd7
-    bucket-name: sky-take-out
+    endpoint: oss-cn-shanghai.aliyuncs.com
+    access-key-id: LTAI5tK8B7TAVqcafVpZsptX
+    access-key-secret: 3Z5B4tsRYhIW0gp5ODKinImZkujKn0
+    bucket-name: async-sky-take-out
   wechat:
     appid: wxffb3637a228223b8
     secret: 84311df9199ecacdf4f12d27b6b9522d
