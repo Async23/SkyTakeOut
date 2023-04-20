@@ -1,6 +1,7 @@
 package com.sky.mapper;
 
 import com.sky.entity.Dish;
+import com.sky.entity.DishFlavor;
 import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -18,4 +19,6 @@ public interface DishMapper {
     List<DishVO> selectAll();
 
     DishVO selectById(Long id);
+
+    List<DishFlavor> selectFlavors(Long flavorId);
 }

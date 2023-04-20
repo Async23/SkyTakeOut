@@ -3,6 +3,29 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sky.mapper.DishMapper">
 
+    <resultMap id="dishVO" type="com.sky.vo.DishVO">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="categoryId" property="categoryId"/>
+        <result column="price" property="price"/>
+        <result column="image" property="image"/>
+        <result column="status" property="status"/>
+        <result column="updateTime" property="updateTime"/>
+        <result column="categoryName" property="categoryName"/>
+        <collection property="flavors" javaType="ArrayList" ofType="com.sky.entity.DishFlavor">
+            <result column="flavorId" property="id"/>
+            <result column="dishId" property="dishId"/>
+            <result column="dfName" property="name"/>
+            <result column="value" property="value"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectFlavors" resultType="com.sky.entity.DishFlavor" parameterType="java.lang.Long">
+        select id, dish_id, name, value
+        from dish_flavor
+        where id = #{flavorId}
+    </select>
+
     <!--名称、分类、状态条件查询-->
     <select id="selectByNameOrCategoryIdOrStatus" resultType="com.sky.vo.DishVO">
         select
@@ -36,25 +59,7 @@
     </select>
 
     <!--查询所有-->
-    <!--方式一-->
-    <select id="selectAll1" resultType="com.sky.vo.DishVO">
-        select d.id                                                as id,
-               d.name                                              as name,
-               category_id,
-               price,
-               image,
-               description,
-               d.status                                            as status,
-               d.update_time                                       as update_time,
-               c.name                                              as categoryName,
-               (select * from dish_flavor where df.dish_id = d.id) as flavors
-        from dish as d
-                 left join category as c on d.category_id = c.id
-                 left join dish_flavor as df on d.id = df.dish_id
-        where d.is_delete = 0
-    </select>
-    <!--方式二-->
-    <select id="selectAll" resultType="com.sky.vo.DishVO">
+    <select id="selectAll" resultMap="dishVO">
         select d.id          as id,
                d.name        as name,
                d.category_id as categoryId,
@@ -63,16 +68,15 @@
                d.description as description,
                d.status      as status,
                d.update_time as updateTime,
-               c.name        as categoryName
+               c.name        as categoryName,
+               df.id         as flavorId,
+               df.dish_id    as dishId,
+               df.name       as dfName,
+               df.value      as value
         from dish as d
                  left outer join category as c on d.category_id = c.id
+                 left outer join dish_flavor as df on d.id = df.dish_id
         where d.is_delete = 0
-    </select>
-    <!--方式三-->
-    <select id="selectAll3" resultType="com.sky.vo.DishVO">
-        select *
-        from dish
-        where is_delete = 0
     </select>
 
     <!--根据 id 查询-->

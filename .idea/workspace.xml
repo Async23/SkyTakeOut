@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:Category 模块中增加：根据 type 查询所有 category（仅返回给前端 id, type, name, sort, status）">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:DishMapper 中，selectByNameOrCategoryIdOrStatus 方法返回值修改(Dish =&gt; DishVO)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/DishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/DishMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/DishMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +184,7 @@
       <workItem from="1681810300854" duration="14950000" />
       <workItem from="1681837650435" duration="699000" />
       <workItem from="1681863998104" duration="44419000" />
-      <workItem from="1681950422928" duration="13743000" />
+      <workItem from="1681950422928" duration="18051000" />
     </task>
     <task id="LOCAL-00001" summary="苍穹外卖项目初始工程">
       <created>1681783606550</created>
@@ -339,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681974489646</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="fix:DishMapper 中，selectByNameOrCategoryIdOrStatus 方法返回值修改(Dish =&gt; DishVO)">
+      <created>1681975319435</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1681975319435</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,7 +392,8 @@
     <MESSAGE value="update:DishVO 中加注解     @JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)" />
     <MESSAGE value="add:菜品根据 id 查询（仍未包含 flavors）" />
     <MESSAGE value="add:Category 模块中增加：根据 type 查询所有 category（仅返回给前端 id, type, name, sort, status）" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:Category 模块中增加：根据 type 查询所有 category（仅返回给前端 id, type, name, sort, status）" />
+    <MESSAGE value="fix:DishMapper 中，selectByNameOrCategoryIdOrStatus 方法返回值修改(Dish =&gt; DishVO)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:DishMapper 中，selectByNameOrCategoryIdOrStatus 方法返回值修改(Dish =&gt; DishVO)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
