@@ -15,7 +15,7 @@
         set name=#{name},
             sort=#{sort}
         where id = #{id}
-          and is_delete = 1
+          and is_delete = 0
     </update>
 
     <!--启用、禁用分类-->
@@ -23,7 +23,7 @@
         update category
         set status=#{status}
         where id = #{id}
-          and is_delete = 1
+          and is_delete = 0
     </update>
 
     <!--逻辑删除分类-->
@@ -38,8 +38,9 @@
         select *
         from category
         <where>
+            is_delete = 0
             <if test="name != null">
-                name like concat('%',
+                and name like concat('%',
                 #{name},
                 '%'
                 )
@@ -48,7 +49,6 @@
                 and type =
                 #{type}
             </if>
-            and is_delete = 1
         </where>
         order by update_time desc
     </select>
@@ -57,7 +57,7 @@
     <select id="selectAll" resultType="com.sky.entity.Category">
         select *
         from category
-        where is_delete = 1
+        where is_delete = 0
         order by update_time desc
     </select>
 
