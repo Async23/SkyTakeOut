@@ -47,7 +47,7 @@ public class DishServiceImpl implements DishService {
 
         // 名称、分类、状态 任一有效，则忽略分页参数，根据相应条件查询
         if (!(nameNotValid && categoryNotValid && statusNotValid)) {
-            List<Dish> dishList = dishMapper.selectByNameOrCategoryIdOrStatus(trimName, dishPageQueryDTO.getCategoryId(), dishPageQueryDTO.getStatus());
+            List<DishVO> dishList = dishMapper.selectByNameOrCategoryIdOrStatus(trimName, dishPageQueryDTO.getCategoryId(), dishPageQueryDTO.getStatus());
             return new PageResult(dishList.size(), dishList);
         }
 

@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:菜品根据 id 查询（仍未包含 flavors）">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:Category 模块中增加：根据 type 查询所有 category（仅返回给前端 id, type, name, sort, status）">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/CategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/DishMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +183,7 @@
       <workItem from="1681810300854" duration="14950000" />
       <workItem from="1681837650435" duration="699000" />
       <workItem from="1681863998104" duration="44419000" />
-      <workItem from="1681950422928" duration="12912000" />
+      <workItem from="1681950422928" duration="13743000" />
     </task>
     <task id="LOCAL-00001" summary="苍穹外卖项目初始工程">
       <created>1681783606550</created>
@@ -337,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681973325270</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add:Category 模块中增加：根据 type 查询所有 category（仅返回给前端 id, type, name, sort, status）">
+      <created>1681974489646</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1681974489646</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,7 +383,8 @@
     <MESSAGE value="fix:逻辑删除导致的“新增分类”名称重复异常：调整 Service 层逻辑，增加 Mapper 层 selectIsDeleteByName 方法" />
     <MESSAGE value="update:DishVO 中加注解     @JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)" />
     <MESSAGE value="add:菜品根据 id 查询（仍未包含 flavors）" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:菜品根据 id 查询（仍未包含 flavors）" />
+    <MESSAGE value="add:Category 模块中增加：根据 type 查询所有 category（仅返回给前端 id, type, name, sort, status）" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:Category 模块中增加：根据 type 查询所有 category（仅返回给前端 id, type, name, sort, status）" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

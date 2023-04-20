@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Mapper
 public interface DishMapper {
-    List<Dish> selectByNameOrCategoryIdOrStatus(String name, Integer categoryId, Integer status);
+    List<DishVO> selectByNameOrCategoryIdOrStatus(String name, Integer categoryId, Integer status);
 
     List<DishVO> selectAll();
 
