@@ -1,9 +1,7 @@
 package com.sky.mapper;
 
 import com.sky.dto.CategoryDTO;
-import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -22,9 +20,13 @@ public interface CategoryMapper {
 
     void insert(Category category);
 
-    void update(CategoryDTO categoryDTO);
+    void updateById(CategoryDTO categoryDTO);
 
     void startOrStop(@Param("status") Integer status, @Param("id") Long id);
 
     void logicDelete(Long id);
+
+    Integer selectIsDeleteByName(String name);
+
+    void updateByName(Category category);
 }
