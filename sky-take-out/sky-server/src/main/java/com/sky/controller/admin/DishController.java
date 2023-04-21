@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.*;
  */
 @Slf4j
 @RestController
-@Api(tags = "菜品管理 （＾∀＾●）ﾉｼ")
 @RequestMapping("/admin/dish")
+@Api(tags = "菜品管理 （＾∀＾●）ﾉｼ")
+// TODO: 2023/4/21 菜品停售 => 套餐停售
+// TODO: 2023/4/21 菜品被套餐使用 => 菜品无法删除
 public class DishController {
     @Autowired
     private DishService dishService;
@@ -34,6 +36,7 @@ public class DishController {
     @GetMapping("/page")
     @ApiOperation("分页查询 (○｀ 3′○)")
     public Result selectPage(DishPageQueryDTO dishPageQueryDTO) {
+        log.warn(Thread.currentThread().getName());
         PageResult pageResult = dishService.selectPage(dishPageQueryDTO);
 
         return Result.success(pageResult);
