@@ -9,7 +9,7 @@
         <result column="categoryId" property="categoryId"/>
         <result column="price" property="price"/>
         <result column="image" property="image"/>
-        <result column="description" property="description"/>
+        <result column="description" property="description"/> 
         <result column="status" property="status"/>
         <result column="updateTime" property="updateTime"/>
         <result column="categoryName" property="categoryName"/>
