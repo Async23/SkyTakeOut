@@ -26,8 +26,9 @@ public class MessageConstant {
     /**
      * 菜品
      */
-    public static final String DISH_ON_SALE = "起售中的菜品不能删除";
-    public static final String DISH_BE_RELATED_BY_SETMEAL = "当前菜品关联了套餐,不能删除";
+    public static final String DISH_ON_SALE = "启售中的菜品不能删除";
+    // 已修改：原为 "当前菜品关联了套餐,不能删除"
+    public static final String DISH_BE_RELATED_BY_SETMEAL = "关联了套餐的菜品不能删除";
     public static final String DISH_QUERY_PAGE_ILLEGAL_ARGUMENT = "菜品分页查询参数有误";
     public static final String DISH_QUERY_ILLEGAL_ARGUMENT = "菜品查询参数有误";
     public static final String DISH_INSERT_ILLEGAL_ARGUMENT = "新增菜品参数有误";

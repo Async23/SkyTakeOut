@@ -8,9 +8,9 @@ import com.sky.enumeration.OperationType;
 import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 菜品管理
@@ -41,5 +41,7 @@ public interface DishMapper {
 
     void startOrStop(@Param("status") Integer status, @Param("id") Integer id);
 
-    void delete(List<Integer> ids);
+    void deleteByIds(List<Long> ids);
+
+    List<Map<String, Object>> selectStatusAndRelatedCountsByIds(List<Long> ids);
 }

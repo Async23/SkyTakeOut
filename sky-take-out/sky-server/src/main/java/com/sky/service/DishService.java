@@ -21,5 +21,5 @@ public interface DishService {
 
     void startOrStop(Integer status, Integer id);
 
-    void delete(List<Integer> ids);
+    void delete(List<Long> ids);
 }

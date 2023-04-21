@@ -31,4 +31,6 @@ public interface CategoryMapper {
     void updateByName(Category category);
 
     List<Category> selectAllByType(Integer type);
+
+    Integer selectRelatedDishesCounts(Long id);
 }

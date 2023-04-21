@@ -29,7 +29,7 @@
     <!--逻辑删除分类-->
     <update id="logicDelete" parameterType="java.lang.Long">
         update category
-        set is_delete=0
+        set is_delete=1
         where id = #{id}
     </update>
 
@@ -90,6 +90,13 @@
         where is_delete = 0
           and type = #{type}
         order by update_time desc
+    </select>
+
+    <!--关联菜品数量-->
+    <select id="selectRelatedDishesCounts" parameterType="java.lang.Long" resultType="java.lang.Integer">
+        select count(id)
+        from dish
+        where category_id = #{id}
     </select>
 
 </mapper>

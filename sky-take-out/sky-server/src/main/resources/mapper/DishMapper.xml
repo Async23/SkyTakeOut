@@ -20,6 +20,13 @@
             <result column="value" property="value"/>
         </collection>
     </resultMap>
+    <resultMap id="dishSetmealMap" type="java.util.Map">
+        <id column="id" property="id"/>
+        <result column="status" property="status"/>
+        <collection property="related_id" javaType="ArrayList" ofType="java.lang.Long">
+            <id column="related_id"/>
+        </collection>
+    </resultMap>
 
     <!--新增菜品(dish)-->
     <insert id="insertDish" parameterType="com.sky.entity.Dish" useGeneratedKeys="true" keyProperty="id">
@@ -94,20 +101,50 @@
         </foreach>
     </update>
 
-    <!--批量删除菜品-->
-    <delete id="delete" parameterType="java.util.List">
-        delete
-        from dish
-        where id in
-        <foreach collection="ids" item="id" open="(" separator="," close=")">
-            #{id}
-        </foreach>;
-        delete
-        from dish_flavor
-        where dish_id in
+    <!--批量删除菜品（备份）-->
+    <!--    <delete id="delete" parameterType="java.util.List">
+            delete
+            from dish
+            where id in
+            <foreach collection="ids" item="id" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+            and status = 0;
+
+            delete
+            from dish_flavor
+            where dish_id in
+            <foreach collection="ids" item="id" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </delete>-->
+
+    <!--查询出所有状态信息-->
+    <select id="selectStatusAndRelatedCountsByIds" resultType="java.util.Map" parameterType="java.util.List">
+        select
+        d.id as id,
+        d.name as name,
+        d.status as status,
+        count(sd.id) as relatedCounts
+        from dish as d
+        left join setmeal_dish as sd on d.id = sd.dish_id
+        where d.id in
         <foreach collection="ids" item="id" open="(" separator="," close=")">
             #{id}
         </foreach>
+        group by d.id
+    </select>
+
+    <!--批量删除菜品-->
+    <delete id="deleteByIds" parameterType="java.lang.Long">
+        delete
+        from dish
+        <where>
+            id in ( -1
+            <foreach collection="ids" item="id">
+                ,#{id}
+            </foreach>)
+        </where>
     </delete>
 
     <!--启售、停售菜品-->

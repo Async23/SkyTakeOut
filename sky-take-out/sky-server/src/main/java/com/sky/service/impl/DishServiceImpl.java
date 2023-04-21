@@ -17,7 +17,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -171,11 +171,51 @@ public class DishServiceImpl implements DishService {
      * @return
      */
     @Override
-    public void delete(List<Integer> ids) {
+    public void delete(List<Long> ids) {
         if (ids == null) {
             throw new BaseException(MessageConstant.DISH_DELETE_ILLEGAL_ARGUMENT);
         }
 
-        dishMapper.delete(ids);
+        if (ids.size() == 0) {
+            return;
+        }
+
+        List<Map<String, Object>> results = dishMapper.selectStatusAndRelatedCountsByIds(ids);
+        log.info(results + "");
+
+        List<Long> deleteIds = new ArrayList<>();
+        results.forEach(result -> {
+            if (result.get("relatedCounts").equals(0L) && result.get("status").equals(0)) {
+                deleteIds.add((Long) result.get("id"));
+            }
+        });
+        log.info(deleteIds + "");
+        // Mapper 层
+        dishMapper.deleteByIds(deleteIds);
+
+        StringBuilder msg = new StringBuilder();
+        for (Map<String, Object> result : results) {
+            String str = "";
+            boolean onSale = result.get("status").equals(1);
+            boolean isRelated = !result.get("relatedCounts").equals(0L);
+            if (onSale || isRelated) {
+                str += "无法删除" + result.get("name") + "(";
+            }
+            if (onSale) {
+                str += "为启售状态";
+            }
+            if (isRelated) {
+                str += (onSale ? "且" : "") + "有套餐关联";
+            }
+            if (onSale || isRelated) {
+                str += ")";
+            }
+            msg.append(str);
+        }
+
+        if (!("".equals(msg.toString()))) {
+            throw new BaseException(msg.toString());
+        }
     }
+
 }

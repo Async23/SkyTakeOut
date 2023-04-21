@@ -79,7 +79,7 @@ public class DishController {
      * @return
      */
     @PutMapping
-    @ApiOperation("修改菜品 ^_~")
+    @ApiOperation("修改菜品 ヽ（≧□≦）ノ")
     public Result update(@RequestBody DishDTO dishDTO) {
         dishService.update(dishDTO);
 
@@ -95,6 +95,7 @@ public class DishController {
      */
     @ApiOperation("启售、停售菜品 U_U")
     @PostMapping("/status/{status}")
+    // TODO: 2023/4/21 菜品停售 => 关联套餐停售
     public Result startOrStop(@PathVariable Integer status, Integer id) {
         dishService.startOrStop(status, id);
 
@@ -109,7 +110,7 @@ public class DishController {
      */
     @DeleteMapping
     @ApiOperation("批量删除菜品 (╬▔皿▔)╯")
-    public Result delete(@RequestParam("ids") List<Integer> ids) {
+    public Result delete(@RequestParam("ids") List<Long> ids) {
         dishService.delete(ids);
 
         return Result.success();

@@ -146,6 +146,11 @@ public class CategoryServiceImpl implements CategoryService {
             throw new BaseException(MessageConstant.CATEGORY_DELETE_ILLEGAL_ARGUMENT);
         }
 
+        Integer counts = categoryMapper.selectRelatedDishesCounts(id);
+        if (!(counts.equals(0))) {
+            throw new BaseException(MessageConstant.CATEGORY_BE_RELATED_BY_DISH);
+        }
+
         categoryMapper.logicDelete(id);
     }
 
