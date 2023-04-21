@@ -53,11 +53,11 @@
                 price =
                 #{price},
             </if>
-            <if test="image != null and image != ''">
+            <if test="image != null">
                 image =
                 #{image},
             </if>
-            <if test="description != null and description != ''">
+            <if test="description != null">
                 description =
                 #{description},
             </if>
@@ -76,20 +76,22 @@
         </set>
         where id = #{id}
     </update>
-    <!--更新菜品(dish_flavor)-->
-    <update id="updateDishFlavor" parameterType="java.util.List">
-        insert into dish_flavor
-        (dish_id, name, value) values
-        <foreach collection="dishFlavors" item="dishFlavor" separator=",">
-                (#{dishFlavor.dishId}, #{dishFlavor.name}, #{dishFlavor.value})
-        </foreach>
-    </update>
     <!--删除口味(dish_flavor)-->
     <delete id="deleteDishFlavor" parameterType="java.lang.Long">
         delete
         from dish_flavor
         where dish_id = #{dishId}
     </delete>
+    <!--尝试-->
+    <update id="updateDishFlavor" parameterType="com.sky.dto.DishDTO">
+        delete
+        from dish_flavor
+        where dish_id = #{id};
+        insert into dish_flavor (dish_id, name, value) values
+        <foreach collection="flavors" item="flavor" separator=",">
+                (#{flavor.dishId}, #{flavor.name}, #{flavor.value})
+        </foreach>
+    </update>
 
     <select id="selectFlavors" resultType="com.sky.entity.DishFlavor" parameterType="java.lang.Long">
         select id, dish_id, name, value

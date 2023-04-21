@@ -121,6 +121,10 @@ public class DishServiceImpl implements DishService {
         BeanUtils.copyProperties(dishDTO, dish);
 
         String trimName = dish.getName() == null ? null : dish.getName().trim();
+        if (trimName == null || "".equals(trimName)) {
+            throw new BaseException(MessageConstant.DISH_UPDATE_ILLEGAL_ARGUMENT);
+        }
+
         String trimImage = dish.getImage() == null ? null : dish.getImage().trim();
         String trimDescription = dish.getDescription() == null ? null : dish.getDescription().trim();
         dish.setName(trimName);
@@ -129,12 +133,18 @@ public class DishServiceImpl implements DishService {
 
         // Mapper 层(更新 dish 表)
         dishMapper.updateDish(dish);
-        List<DishFlavor> flavors = dishDTO.getFlavors();
-        flavors.forEach(dishFlavor -> dishFlavor.setDishId(dish.getId()));
-        // TODO: 2023/4/21
-        // Mapper 层(删除 dish_flavor 表)
+
+        // 方法一
+        /*// Mapper 层(删除 dish_flavor 表)
         dishMapper.deleteDishFlavor(dish.getId());
         // Mapper 层(插入 dish_flavor 表)
-        dishMapper.insertDishFlavor(flavors);
+        List<DishFlavor> flavors = dishDTO.getFlavors();
+        flavors.forEach(dishFlavor -> dishFlavor.setDishId(dish.getId()));
+        dishMapper.insertDishFlavor(flavors);*/
+
+        // 方法二
+        // Mapper 层(删除 dish_flavor 表 => 插入 dish_flavor 表)
+        dishDTO.getFlavors().forEach(dishFlavor -> dishFlavor.setDishId(dishDTO.getId()));
+        dishMapper.updateDishFlavor(dishDTO);
     }
 }

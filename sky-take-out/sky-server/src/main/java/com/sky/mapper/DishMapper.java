@@ -1,6 +1,7 @@
 package com.sky.mapper;
 
 import com.sky.annotation.AutoFill;
+import com.sky.dto.DishDTO;
 import com.sky.entity.Dish;
 import com.sky.entity.DishFlavor;
 import com.sky.enumeration.OperationType;
@@ -32,7 +33,7 @@ public interface DishMapper {
     @AutoFill(OperationType.UPDATE)
     void updateDish(Dish dish);
 
-    void updateDishFlavor(List<DishFlavor> dishFlavors);
-
     void deleteDishFlavor(Long dishId);
+
+    void updateDishFlavor(DishDTO dishDTO);
 }
