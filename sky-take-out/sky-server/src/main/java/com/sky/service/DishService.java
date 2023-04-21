@@ -5,6 +5,8 @@ import com.sky.dto.DishPageQueryDTO;
 import com.sky.result.PageResult;
 import com.sky.vo.DishVO;
 
+import java.util.List;
+
 /**
  * @author Async_
  */
@@ -18,4 +20,6 @@ public interface DishService {
     void update(DishDTO dishDTO);
 
     void startOrStop(Integer status, Integer id);
+
+    void delete(List<Integer> ids);
 }

@@ -40,4 +40,6 @@ public interface DishMapper {
     void updateDishFlavor(DishDTO dishDTO);
 
     void startOrStop(@Param("status") Integer status, @Param("id") Integer id);
+
+    void delete(List<Integer> ids);
 }
