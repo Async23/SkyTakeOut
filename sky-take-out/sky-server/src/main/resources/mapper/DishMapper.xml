@@ -93,6 +93,13 @@
         </foreach>
     </update>
 
+    <!--启售、停售菜品-->
+    <update id="startOrStop">
+        update dish
+        set status=#{status}
+        where id = #{id}
+    </update>
+
     <select id="selectFlavors" resultType="com.sky.entity.DishFlavor" parameterType="java.lang.Long">
         select id, dish_id, name, value
         from dish_flavor

@@ -16,4 +16,6 @@ public interface DishService {
     void insert(DishDTO dishDTO);
 
     void update(DishDTO dishDTO);
+
+    void startOrStop(Integer status, Integer id);
 }

@@ -37,7 +37,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("/admin/employee")
-@Api(tags = "EmployeeController (●ˇ∀ˇ●)")
+@Api(tags = "员工管理 (●ˇ∀ˇ●)")
 public class EmployeeController {
 
     @Autowired

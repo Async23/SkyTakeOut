@@ -42,9 +42,9 @@ public class CategoryServiceImpl implements CategoryService {
 
         // 分类名称 与 分类类型 任一有效，则忽略分页参数，根据相应条件查询
         String trimName = categoryPageQueryDTO.getName() == null ? null : categoryPageQueryDTO.getName().trim();
-        boolean nameNotValid = trimName == null || "".equals(trimName);
-        boolean typeNotValid = categoryPageQueryDTO.getType() == null;
-        if (!(nameNotValid && typeNotValid)) {
+        boolean nameInvalid = trimName == null || "".equals(trimName);
+        boolean typeInvalid = categoryPageQueryDTO.getType() == null;
+        if (!(nameInvalid && typeInvalid)) {
             List<Category> categoryList = categoryMapper.selectByNameOrType(trimName, categoryPageQueryDTO.getType());
             return new PageResult(categoryList.size(), categoryList);
         }
@@ -125,9 +125,9 @@ public class CategoryServiceImpl implements CategoryService {
      */
     @Override
     public void startOrStop(Integer status, Long id) {
-        boolean statusNotValid = status == null || (status != 0 && status != 1);
-        boolean idNotValid = id == null;
-        if (statusNotValid || idNotValid) {
+        boolean statusInvalid = status == null || (status != 0 && status != 1);
+        boolean idInvalid = id == null;
+        if (statusInvalid || idInvalid) {
             throw new BaseException(MessageConstant.CATEGORY_START_OR_STOP_ILLEGAL_ARGUMENT);
         }
 

@@ -7,6 +7,8 @@ import com.sky.entity.DishFlavor;
 import com.sky.enumeration.OperationType;
 import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -36,4 +38,6 @@ public interface DishMapper {
     void deleteDishFlavor(Long dishId);
 
     void updateDishFlavor(DishDTO dishDTO);
+
+    void startOrStop(@Param("status") Integer status, @Param("id") Integer id);
 }

@@ -43,13 +43,13 @@ public class DishServiceImpl implements DishService {
             throw new BaseException(MessageConstant.DISH_QUERY_PAGE_ILLEGAL_ARGUMENT);
         }
 
-        boolean nameNotValid = dishPageQueryDTO.getName() == null || "".equals(dishPageQueryDTO.getName().trim());
+        boolean nameInvalid = dishPageQueryDTO.getName() == null || "".equals(dishPageQueryDTO.getName().trim());
         String trimName = dishPageQueryDTO.getName() == null ? null : dishPageQueryDTO.getName().trim();
-        boolean categoryNotValid = dishPageQueryDTO.getCategoryId() == null;
-        boolean statusNotValid = dishPageQueryDTO.getStatus() == null;
+        boolean categoryInvalid = dishPageQueryDTO.getCategoryId() == null;
+        boolean statusInvalid = dishPageQueryDTO.getStatus() == null;
 
         // 名称、分类、状态 任一有效，则忽略分页参数，根据相应条件查询
-        if (!(nameNotValid && categoryNotValid && statusNotValid)) {
+        if (!(nameInvalid && categoryInvalid && statusInvalid)) {
             List<DishVO> dishList = dishMapper.selectByNameOrCategoryIdOrStatus(trimName, dishPageQueryDTO.getCategoryId(), dishPageQueryDTO.getStatus());
             return new PageResult(dishList.size(), dishList);
         }
@@ -146,5 +146,21 @@ public class DishServiceImpl implements DishService {
         // Mapper 层(删除 dish_flavor 表 => 插入 dish_flavor 表)
         dishDTO.getFlavors().forEach(dishFlavor -> dishFlavor.setDishId(dishDTO.getId()));
         dishMapper.updateDishFlavor(dishDTO);
+    }
+
+    /**
+     * 启售、停售菜品
+     *
+     * @param status
+     * @return
+     */
+    @Override
+    public void startOrStop(Integer status, Integer id) {
+        boolean statusInvalid = status == null || !(status == 0 || status == 1);
+        if (statusInvalid || id == null) {
+            throw new BaseException(MessageConstant.DISH_START_OR_STOP_ILLEGAL_ARGUMENT);
+        }
+
+        dishMapper.startOrStop(status, id);
     }
 }
