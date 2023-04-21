@@ -163,19 +163,4 @@ public class DishServiceImpl implements DishService {
 
         dishMapper.startOrStop(status, id);
     }
-
-    /**
-     * 批量删除菜品
-     *
-     * @param ids
-     * @return
-     */
-    @Override
-    public void delete(List<Integer> ids) {
-        if (ids == null) {
-            throw new BaseException(MessageConstant.DISH_DELETE_ILLEGAL_ARGUMENT);
-        }
-
-        dishMapper.delete(ids);
-    }
 }

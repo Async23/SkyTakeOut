@@ -82,8 +82,7 @@
         from dish_flavor
         where dish_id = #{dishId}
     </delete>
-
-    <!--更新口味(dish_flavor)-->
+    <!--尝试-->
     <update id="updateDishFlavor" parameterType="com.sky.dto.DishDTO">
         delete
         from dish_flavor
@@ -93,22 +92,6 @@
                 (#{flavor.dishId}, #{flavor.name}, #{flavor.value})
         </foreach>
     </update>
-
-    <!--批量删除菜品-->
-    <delete id="delete" parameterType="java.util.List">
-        delete
-        from dish
-        where id in
-        <foreach collection="ids" item="id" open="(" separator="," close=")">
-            #{id}
-        </foreach>;
-        delete
-        from dish_flavor
-        where dish_id in
-        <foreach collection="ids" item="id" open="(" separator="," close=")">
-            #{id}
-        </foreach>
-    </delete>
 
     <!--启售、停售菜品-->
     <update id="startOrStop">

@@ -32,7 +32,6 @@ public class MessageConstant {
     public static final String DISH_QUERY_ILLEGAL_ARGUMENT = "菜品查询参数有误";
     public static final String DISH_INSERT_ILLEGAL_ARGUMENT = "新增菜品参数有误";
     public static final String DISH_UPDATE_ILLEGAL_ARGUMENT = "修改菜品参数有误";
-    public static final String DISH_DELETE_ILLEGAL_ARGUMENT = "删除菜品参数有误";
     public static final String DISH_START_OR_STOP_ILLEGAL_ARGUMENT = "启售、停售菜品状态参数有误";
 
     /**
