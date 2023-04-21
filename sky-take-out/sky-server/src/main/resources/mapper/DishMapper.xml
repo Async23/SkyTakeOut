@@ -9,7 +9,7 @@
         <result column="categoryId" property="categoryId"/>
         <result column="price" property="price"/>
         <result column="image" property="image"/>
-        <result column="description" property="description"/> 
+        <result column="description" property="description"/>
         <result column="status" property="status"/>
         <result column="updateTime" property="updateTime"/>
         <result column="categoryName" property="categoryName"/>
@@ -36,6 +36,60 @@
                 (#{dishFlavor.dishId}, #{dishFlavor.name}, #{dishFlavor.value})
         </foreach>
     </insert>
+
+    <!--更新菜品(Dish)-->
+    <update id="updateDish" parameterType="com.sky.entity.Dish">
+        update dish
+        <set>
+            <if test="name != null and name != ''">
+                name =
+                #{name},
+            </if>
+            <if test="categoryId != null">
+                category_id =
+                #{categoryId},
+            </if>
+            <if test="price != null">
+                price =
+                #{price},
+            </if>
+            <if test="image != null and image != ''">
+                image =
+                #{image},
+            </if>
+            <if test="description != null and description != ''">
+                description =
+                #{description},
+            </if>
+            <if test="status != null">
+                status =
+                #{status},
+            </if>
+            <if test="updateTime != null">
+                update_time =
+                #{updateTime},
+            </if>
+            <if test="updateUser != null">
+                update_user =
+                #{updateUser}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <!--更新菜品(dish_flavor)-->
+    <update id="updateDishFlavor" parameterType="java.util.List">
+        insert into dish_flavor
+        (dish_id, name, value) values
+        <foreach collection="dishFlavors" item="dishFlavor" separator=",">
+                (#{dishFlavor.dishId}, #{dishFlavor.name}, #{dishFlavor.value})
+        </foreach>
+    </update>
+    <!--删除口味(dish_flavor)-->
+    <delete id="deleteDishFlavor" parameterType="java.lang.Long">
+        delete
+        from dish_flavor
+        where dish_id = #{dishId}
+    </delete>
 
     <select id="selectFlavors" resultType="com.sky.entity.DishFlavor" parameterType="java.lang.Long">
         select id, dish_id, name, value

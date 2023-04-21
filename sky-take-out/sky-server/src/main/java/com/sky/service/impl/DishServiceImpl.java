@@ -92,14 +92,49 @@ public class DishServiceImpl implements DishService {
             throw new BaseException(MessageConstant.DISH_INSERT_ILLEGAL_ARGUMENT);
         }
 
+        // 包装为 Dish 类型
         Dish dish = new Dish();
-        BeanUtils.copyProperties(dishDTO,dish);
+        BeanUtils.copyProperties(dishDTO, dish);
 
         // Mapper 层
         dishMapper.insertDish(dish);
         List<DishFlavor> flavors = dishDTO.getFlavors();
         flavors.forEach(dishFlavor -> dishFlavor.setDishId(dish.getId()));
         // Mapper 层
+        dishMapper.insertDishFlavor(flavors);
+    }
+
+    /**
+     * 修改菜品
+     *
+     * @param dishDTO
+     * @return
+     */
+    @Override
+    public void update(DishDTO dishDTO) {
+        if (dishDTO == null) {
+            throw new BaseException(MessageConstant.DISH_UPDATE_ILLEGAL_ARGUMENT);
+        }
+
+        // 包装为 Dish 类型
+        Dish dish = new Dish();
+        BeanUtils.copyProperties(dishDTO, dish);
+
+        String trimName = dish.getName() == null ? null : dish.getName().trim();
+        String trimImage = dish.getImage() == null ? null : dish.getImage().trim();
+        String trimDescription = dish.getDescription() == null ? null : dish.getDescription().trim();
+        dish.setName(trimName);
+        dish.setImage(trimImage);
+        dish.setDescription(trimDescription);
+
+        // Mapper 层(更新 dish 表)
+        dishMapper.updateDish(dish);
+        List<DishFlavor> flavors = dishDTO.getFlavors();
+        flavors.forEach(dishFlavor -> dishFlavor.setDishId(dish.getId()));
+        // TODO: 2023/4/21
+        // Mapper 层(删除 dish_flavor 表)
+        dishMapper.deleteDishFlavor(dish.getId());
+        // Mapper 层(插入 dish_flavor 表)
         dishMapper.insertDishFlavor(flavors);
     }
 }
