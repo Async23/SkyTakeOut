@@ -97,7 +97,7 @@ public class CategoryController {
 
     /**
      * 根据 type 查询所有 category<p>
-     * (点击 “套餐管理” 标签时会使用)
+     * (点击 “套餐管理” 和 “新建套餐” 时会使用)
      *
      * @param categoryPageQueryDTO
      * @return
