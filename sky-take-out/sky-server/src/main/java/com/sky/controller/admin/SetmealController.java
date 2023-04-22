@@ -91,7 +91,6 @@ public class SetmealController {
     @PostMapping("/status/{status}")
     @ApiOperation("启售、停售套餐 (p≧w≦q)")
     public Result startOrStop(@PathVariable Integer status, Long id) {
-        // TODO: 2023/4/22 套餐内包含未启售菜品
         setmealService.startOrStop(status, id);
 
         return Result.success();

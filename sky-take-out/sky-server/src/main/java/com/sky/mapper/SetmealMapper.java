@@ -40,4 +40,6 @@ public interface SetmealMapper {
     List<Map<String, Object>> selectStatusByIds(List<Long> ids);
 
     void deleteByIds(List<Long> validIds);
+
+    Integer selectRelatedDishCounts(Long id);
 }

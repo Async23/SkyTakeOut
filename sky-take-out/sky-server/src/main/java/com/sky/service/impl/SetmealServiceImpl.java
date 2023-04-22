@@ -174,6 +174,14 @@ public class SetmealServiceImpl implements SetmealService {
             throw new BaseException(MessageConstant.SETMEAL_START_OR_STOP_ILLEGAL_ARGUMENT);
         }
 
+        // Mapper 层：查询包含的未启售菜品数量
+        Integer counts = setmealMapper.selectRelatedDishCounts(id);
+        if (counts > 0) {
+            // 套餐内包含未启售菜品，无法启售
+            throw new BaseException(MessageConstant.SETMEAL_ENABLE_FAILED);
+        }
+
+        // Mapper 层：启用、停用
         setmealMapper.startOrStop(status, id);
     }
 
@@ -216,6 +224,5 @@ public class SetmealServiceImpl implements SetmealService {
             // 部分启售中的套餐不能删除
             throw new BaseException(msg.toString());
         }
-
     }
 }
