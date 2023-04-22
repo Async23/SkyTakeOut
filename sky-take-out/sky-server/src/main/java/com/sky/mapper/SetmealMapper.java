@@ -10,6 +10,7 @@ import com.sky.vo.SetmealVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 套餐管理
@@ -35,4 +36,8 @@ public interface SetmealMapper {
     void updateSetMealDish(SetmealDTO setmealDTO);
 
     void startOrStop(Integer status, Long id);
+
+    List<Map<String, Object>> selectStatusByIds(List<Long> ids);
+
+    void deleteByIds(List<Long> validIds);
 }

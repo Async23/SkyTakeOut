@@ -17,7 +17,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 套餐管理
@@ -173,5 +175,44 @@ public class SetmealServiceImpl implements SetmealService {
         }
 
         setmealMapper.startOrStop(status, id);
+    }
+
+    /**
+     * 批量删除套餐
+     *
+     * @param ids
+     * @return
+     */
+    @Override
+    public void delete(List<Long> ids) {
+        if (ids == null) {
+            // 删除套餐参数有误
+            throw new BaseException(MessageConstant.SETMEAL_DELETE_ILLEGAL_ARGUMENT);
+        }
+
+        if (ids.size() == 0) {
+            return;
+        }
+
+        // Mapper 层，查询状态
+        List<Map<String, Object>> setmealStatus = setmealMapper.selectStatusByIds(ids);
+        List<Long> validIds = new ArrayList<>();
+        StringBuilder msg = new StringBuilder();
+        for (Map<String, Object> setmeal : setmealStatus) {
+            if (setmeal.get("status").equals(0)) {
+                // 停售状态，将被删除
+                validIds.add((Long) setmeal.get("id"));
+            } else {
+                // 启售状态，加入信息
+                msg.append(setmeal.get("name")).append("无法删除(为启售状态)");
+            }
+        }
+        // Mapper 层，批量删除
+        setmealMapper.deleteByIds(validIds);
+
+        if (!"".equals(msg.toString())) {
+            // 部分启售中的套餐不能删除
+            throw new BaseException(msg.toString());
+        }
     }
 }

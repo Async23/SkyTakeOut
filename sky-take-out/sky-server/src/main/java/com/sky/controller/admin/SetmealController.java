@@ -12,6 +12,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @author Async_
  */
@@ -89,7 +91,22 @@ public class SetmealController {
     @PostMapping("/status/{status}")
     @ApiOperation("启售、停售套餐 (p≧w≦q)")
     public Result startOrStop(@PathVariable Integer status, Long id) {
+        // TODO: 2023/4/22 套餐内包含未启售菜品
         setmealService.startOrStop(status, id);
+
+        return Result.success();
+    }
+
+    /**
+     * 批量删除套餐
+     *
+     * @param ids
+     * @return
+     */
+    @DeleteMapping
+    @ApiOperation("批量删除套餐 {{{(>_<)}}}")
+    public Result delete(@RequestParam List<Long> ids) {
+        setmealService.delete(ids);
 
         return Result.success();
     }

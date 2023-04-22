@@ -81,6 +81,16 @@
         where id = #{id}
     </update>
 
+    <!--批量删除-->
+    <delete id="deleteByIds" parameterType="java.util.List">
+        delete
+        from setmeal
+        where id in
+        <foreach collection="validIds" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
 
     <!--条件查询-->
     <select id="selectByCondition" resultType="com.sky.vo.SetmealVO" parameterType="com.sky.dto.SetmealPageQueryDTO">
@@ -129,5 +139,15 @@
                  left join setmeal_dish as sd on s.id = sd.setmeal_id
                  left join category as c on s.category_id = c.id
         where s.id = #{id}
+    </select>
+
+    <!--查询状态-->
+    <select id="selectStatusByIds" resultType="java.util.Map" parameterType="java.util.List">
+        select id, name, status
+        from setmeal
+        where id in
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
     </select>
 </mapper>
