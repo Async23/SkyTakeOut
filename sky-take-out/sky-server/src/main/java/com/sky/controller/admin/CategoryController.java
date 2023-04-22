@@ -2,7 +2,6 @@ package com.sky.controller.admin;
 
 import com.sky.dto.CategoryDTO;
 import com.sky.dto.CategoryPageQueryDTO;
-import com.sky.entity.Category;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.CategoryService;
@@ -11,8 +10,6 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * 分类管理
@@ -99,16 +96,22 @@ public class CategoryController {
     }
 
     /**
-     * 根据 type 查询所有 category
+     * 根据 type 查询所有 category<p>
+     * (点击 “套餐管理” 标签时会使用)
      *
-     * @param type
+     * @param categoryPageQueryDTO
      * @return
      */
     @GetMapping("/list")
-    @ApiOperation("根据 type 查询所有 category (ಥ _ ಥ)")
-    public Result selectAllByType(Integer type) {
+    @ApiOperation("list 路径的 category 分页查询 (ಥ _ ಥ)")
+    public Result selectPageOne(CategoryPageQueryDTO categoryPageQueryDTO) {
+        PageResult pageResult = categoryService.selectPage(categoryPageQueryDTO);
+
+        return Result.success(pageResult);
+    }
+    /*public Result selectAllByType(Integer type) {
         List<Category> categoryList = categoryService.selectAllByType(type);
 
         return Result.success(categoryList);
-    }
+    }*/
 }

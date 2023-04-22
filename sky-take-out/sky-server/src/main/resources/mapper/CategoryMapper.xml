@@ -85,7 +85,7 @@
 
     <!--根据 type 查询所有 category-->
     <select id="selectAllByType" resultType="com.sky.entity.Category" parameterType="java.lang.Integer">
-        select id, type, name, sort, status
+        select *
         from category
         where is_delete = 0
           and type = #{type}
