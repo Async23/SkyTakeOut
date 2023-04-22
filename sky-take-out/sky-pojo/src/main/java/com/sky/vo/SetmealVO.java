@@ -1,5 +1,6 @@
 package com.sky.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sky.entity.SetmealDish;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,7 +38,8 @@ public class SetmealVO implements Serializable {
     //图片
     private String image;
 
-    //更新时间
+    //更新时间(已修改，加了注解)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updateTime;
 
     //分类名称
