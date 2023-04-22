@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 和 “新建套餐” 时会使用) 修改，弃用 Mapper 方法，使用分页查询的同套流程，信息更全" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:Category 模块中，selectPageOne 方法恢复为 selectAllByType 方法">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/SetmealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/SetmealController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,7 +209,7 @@
       <workItem from="1681863998104" duration="44419000" />
       <workItem from="1681950422928" duration="28867000" />
       <workItem from="1682036961128" duration="16621000" />
-      <workItem from="1682123175421" duration="2031000" />
+      <workItem from="1682123175421" duration="4492000" />
     </task>
     <task id="LOCAL-00001" summary="苍穹外卖项目初始工程">
       <created>1681783606550</created>
@@ -469,7 +477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682125210989</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="fix:Category 模块中，selectPageOne 方法恢复为 selectAllByType 方法">
+      <created>1682125486373</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1682125486373</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="启用、禁用分类完成" />
     <MESSAGE value="逻辑删除分类完成，完善之前模块的逻辑删除状态判断" />
     <MESSAGE value="add:菜品分页查询&#10;update:分类逻辑删除字段反转" />
     <MESSAGE value="fix:逻辑删除导致的“新增分类”名称重复异常：调整 Service 层逻辑，增加 Mapper 层 selectIsDeleteByName 方法" />
@@ -523,7 +537,8 @@
     <MESSAGE value="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 标签时会使用) 修改" />
     <MESSAGE value="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 和 “新建套餐” 时会使用) 修改" />
     <MESSAGE value="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 和 “新建套餐” 时会使用) 修改，弃用 Mapper 方法，使用分页查询的同套流程，信息更全" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 和 “新建套餐” 时会使用) 修改，弃用 Mapper 方法，使用分页查询的同套流程，信息更全" />
+    <MESSAGE value="fix:Category 模块中，selectPageOne 方法恢复为 selectAllByType 方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:Category 模块中，selectPageOne 方法恢复为 selectAllByType 方法" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

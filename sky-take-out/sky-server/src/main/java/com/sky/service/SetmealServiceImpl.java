@@ -4,11 +4,15 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sky.annotation.AutoFill;
 import com.sky.constant.MessageConstant;
+import com.sky.dto.SetmealDTO;
 import com.sky.dto.SetmealPageQueryDTO;
+import com.sky.entity.Setmeal;
+import com.sky.entity.SetmealDish;
 import com.sky.exception.BaseException;
 import com.sky.mapper.SetmealMapper;
 import com.sky.result.PageResult;
 import com.sky.vo.SetmealVO;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,5 +67,40 @@ public class SetmealServiceImpl implements SetmealService {
         PageHelper.startPage(setmealPageQueryDTO.getPage(), setmealPageQueryDTO.getPageSize());
         Page<SetmealVO> setmealVOPage = (Page<SetmealVO>) setmealMapper.selectAll();
         return new PageResult(setmealVOPage.getTotal(), setmealVOPage.getResult());
+    }
+
+    /**
+     * 新增套餐
+     *
+     * @param setmealDTO
+     * @return
+     */
+    @Override
+    public void insert(SetmealDTO setmealDTO) {
+        if (setmealDTO == null) {
+            // 新增套餐参数有误
+            throw new BaseException(MessageConstant.SETMEAL_INSERT_ILLEGAL_ARGUMENT);
+        }
+
+        String trimName = setmealDTO.getName() == null ? null : setmealDTO.getName().trim();
+        boolean nameInvalid = trimName == null || "".equals(trimName);
+        boolean priceInvalid = setmealDTO.getPrice() == null;
+        boolean categoryIdInvalid = setmealDTO.getCategoryId() == null;
+        if (nameInvalid || priceInvalid || categoryIdInvalid) {
+            // 新增套餐参数有误
+            throw new BaseException(MessageConstant.SETMEAL_INSERT_ILLEGAL_ARGUMENT);
+        }
+
+        setmealDTO.setName(trimName);
+        Setmeal setmeal = new Setmeal();
+        BeanUtils.copyProperties(setmealDTO, setmeal);
+        // Mapper 层：插入 setmeal 表
+        setmealMapper.insert(setmeal);
+
+        // Mapper 层：插入 setmeal_dish 表
+        List<SetmealDish> setmealDishes = setmealDTO.getSetmealDishes();
+        setmealDishes.forEach(setmealDish -> setmealDish.setSetmealId(setmeal.getId()));
+        setmealMapper.insertSetMealDish(setmealDishes);
+
     }
 }
