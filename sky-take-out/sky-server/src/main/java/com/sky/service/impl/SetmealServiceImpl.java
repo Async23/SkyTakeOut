@@ -165,7 +165,7 @@ public class SetmealServiceImpl implements SetmealService {
      */
     @Override
     public void startOrStop(Integer status, Long id) {
-        boolean statusInvalid = status == null || !(status == 1L || status == 2L);
+        boolean statusInvalid = status == null || !(status == 1L || status == 0L);
         boolean idInvalid = id == null;
         if (statusInvalid || idInvalid) {
             // 启售、停售套餐参数有误
