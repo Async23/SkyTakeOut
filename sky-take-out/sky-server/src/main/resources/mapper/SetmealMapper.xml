@@ -99,10 +99,12 @@
 
     <!--条件查询-->
     <select id="selectByCondition" resultType="com.sky.vo.SetmealVO" parameterType="com.sky.dto.SetmealPageQueryDTO">
-        select s.id as id,
+        select
+        s.id as id,
         s.category_id as categoryId,
         s.name as name,
         s.price as price,
+        s.status as status,
         s.description as description,
         s.image as image,
         s.update_time as updateTime,
@@ -134,6 +136,7 @@
         select s.id          as id,
                s.category_id as categoryId,
                s.name        as name,
+               s.status      as status,
                s.price       as price,
                s.description as description,
                s.image       as image,
