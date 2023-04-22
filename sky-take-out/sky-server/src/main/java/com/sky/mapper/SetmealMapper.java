@@ -26,4 +26,6 @@ public interface SetmealMapper {
     void insert(Setmeal setmeal);
 
     void insertSetMealDish(List<SetmealDish> setmealDishList);
+
+    SetmealVO selectById(Long id);
 }

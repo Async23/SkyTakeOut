@@ -1,4 +1,4 @@
-package com.sky.service;
+package com.sky.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -11,6 +11,7 @@ import com.sky.entity.SetmealDish;
 import com.sky.exception.BaseException;
 import com.sky.mapper.SetmealMapper;
 import com.sky.result.PageResult;
+import com.sky.service.SetmealService;
 import com.sky.vo.SetmealVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,5 +103,21 @@ public class SetmealServiceImpl implements SetmealService {
         setmealDishes.forEach(setmealDish -> setmealDish.setSetmealId(setmeal.getId()));
         setmealMapper.insertSetMealDish(setmealDishes);
 
+    }
+
+    /**
+     * 根据 id 查询套餐
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public SetmealVO selectById(Long id) {
+        if (id == null) {
+            // 套餐查询参数有误
+            throw new BaseException(MessageConstant.SETMEAL_QUERY_ILLEGAL_ARGUMENT);
+        }
+
+        return setmealMapper.selectById(id);
     }
 }
