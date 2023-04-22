@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:Dish 模块中，根据 categoryId 查询所有菜品 (selectAllByCategoryId 方法，新增套餐时使用) 完成">
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 和 “新建套餐” 时会使用) 修改，弃用 Mapper 方法，使用分页查询的同套流程，信息更全" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,7 +201,7 @@
       <workItem from="1681863998104" duration="44419000" />
       <workItem from="1681950422928" duration="28867000" />
       <workItem from="1682036961128" duration="16621000" />
-      <workItem from="1682123175421" duration="1706000" />
+      <workItem from="1682123175421" duration="2031000" />
     </task>
     <task id="LOCAL-00001" summary="苍穹外卖项目初始工程">
       <created>1681783606550</created>
@@ -458,7 +455,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682124633762</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 标签时会使用) 修改">
+      <created>1682125114016</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1682125114016</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 和 “新建套餐” 时会使用) 修改，弃用 Mapper 方法，使用分页查询的同套流程，信息更全">
+      <created>1682125210989</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1682125210989</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,9 +498,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="分类分页查询，最后操作时间格式完善" />
-    <MESSAGE value="分类修改完成" />
-    <MESSAGE value="分类分页查询，完善 order by" />
     <MESSAGE value="启用、禁用分类完成" />
     <MESSAGE value="逻辑删除分类完成，完善之前模块的逻辑删除状态判断" />
     <MESSAGE value="add:菜品分页查询&#10;update:分类逻辑删除字段反转" />
@@ -512,7 +520,10 @@
     <MESSAGE value="add:Dish 模块中，启售、停售菜品 (startOrStop 方法) 完成" />
     <MESSAGE value="update:Dish 模块中，批量删除菜品 (delete 方法) 完善" />
     <MESSAGE value="add:Dish 模块中，根据 categoryId 查询所有菜品 (selectAllByCategoryId 方法，新增套餐时使用) 完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:Dish 模块中，根据 categoryId 查询所有菜品 (selectAllByCategoryId 方法，新增套餐时使用) 完成" />
+    <MESSAGE value="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 标签时会使用) 修改" />
+    <MESSAGE value="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 和 “新建套餐” 时会使用) 修改" />
+    <MESSAGE value="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 和 “新建套餐” 时会使用) 修改，弃用 Mapper 方法，使用分页查询的同套流程，信息更全" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 和 “新建套餐” 时会使用) 修改，弃用 Mapper 方法，使用分页查询的同套流程，信息更全" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
