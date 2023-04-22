@@ -44,6 +44,7 @@ public class MessageConstant {
     public static final String SETMEAL_QUERY_PAGE_ILLEGAL_ARGUMENT = "套餐分页查询参数有误";
     public static final String SETMEAL_ENABLE_FAILED = "套餐内包含未启售菜品，无法启售";
     public static final String SETMEAL_INSERT_ILLEGAL_ARGUMENT = "新增套餐参数有误";
+    public static final String SETMEAL_UPDATE_ILLEGAL_ARGUMENT = "修改套餐参数有误";
     public static final String SETMEAL_QUERY_ILLEGAL_ARGUMENT = "套餐查询参数有误";
     public static final String SETMEAL_ON_SALE = "起售中的套餐不能删除";
 

@@ -120,4 +120,39 @@ public class SetmealServiceImpl implements SetmealService {
 
         return setmealMapper.selectById(id);
     }
+
+    /**
+     * 修改套餐
+     *
+     * @param setmealDTO
+     * @return
+     */
+    @Override
+    public void update(SetmealDTO setmealDTO) {
+        if (setmealDTO == null) {
+            // 修改套餐参数有误
+            throw new BaseException(MessageConstant.SETMEAL_UPDATE_ILLEGAL_ARGUMENT);
+        }
+
+        String trimName = setmealDTO.getName() == null ? null : setmealDTO.getName().trim();
+        boolean nameInvalid = trimName == null || "".equals(trimName);
+        boolean priceInvalid = setmealDTO.getPrice() == null;
+        boolean categoryIdInvalid = setmealDTO.getCategoryId() == null;
+        if (nameInvalid || priceInvalid || categoryIdInvalid) {
+            // 修改套餐参数有误
+            throw new BaseException(MessageConstant.SETMEAL_UPDATE_ILLEGAL_ARGUMENT);
+        }
+
+        setmealDTO.setName(trimName);
+        Setmeal setmeal = new Setmeal();
+        BeanUtils.copyProperties(setmealDTO, setmeal);
+        // Mapper 层：修改 setmeal 表
+        setmealMapper.update(setmeal);
+
+        // Mapper 层：修改 setmeal_dish 表
+        List<SetmealDish> setmealDishes = setmealDTO.getSetmealDishes();
+        setmealDishes.forEach(setmealDish -> setmealDish.setSetmealId(setmeal.getId()));
+        setmealMapper.updateSetMealDish(setmealDTO);
+
+    }
 }

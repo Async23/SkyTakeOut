@@ -28,4 +28,9 @@ public interface SetmealMapper {
     void insertSetMealDish(List<SetmealDish> setmealDishList);
 
     SetmealVO selectById(Long id);
+
+    @AutoFill(OperationType.UPDATE)
+    void update(Setmeal setmeal);
+
+    void updateSetMealDish(SetmealDTO setmealDTO);
 }

@@ -12,7 +12,7 @@
         <result column="image" property="image"/>
         <result column="updateTime" property="updateTime"/>
         <result column="categoryName" property="categoryName"/>
-        <collection property="setmealDishes" javaType="java.util.ArrayList" ofType="com.sky.entity.SetmealDish" >
+        <collection property="setmealDishes" javaType="java.util.ArrayList" ofType="com.sky.entity.SetmealDish">
             <result column="setmealId" property="setmealId"/>
             <result column="dishId" property="dishId"/>
             <result column="setmeal_dish_name" property="name"/>
@@ -28,6 +28,7 @@
             value (#{categoryId}, #{name}, #{price}, #{status}, #{description}, #{image}, #{createTime}, #{updateTime},
                    #{createUser}, #{updateUser})
     </insert>
+    <!--新增套餐(setmeal_dish 表)-->
     <insert id="insertSetMealDish" parameterType="java.util.List">
         insert into setmeal_dish
         (setmeal_id, dish_id, name, price, copies)
@@ -36,7 +37,42 @@
             (#{setmealDish.setmealId}, #{setmealDish.dishId}, #{setmealDish.name}, #{setmealDish.price}, #{setmealDish.copies})
         </foreach>
     </insert>
-    <!--新增套餐(setmeal_dish 表)-->
+
+    <!--修改套餐(dish 表)-->
+    <update id="update" parameterType="com.sky.entity.Setmeal">
+        update setmeal
+        <set>
+            <if test="description != null and description != ''">
+                description =
+                #{description},
+            </if>
+            <if test="status != null">
+                status =
+                #{status},
+            </if>
+            <if test="image != null">
+                image =
+                #{image},
+            </if>
+            category_id=#{categoryId},
+            name=#{name},
+            price=#{price},
+            update_time=#{updateTime},
+            update_user=#{updateUser}
+        </set>
+        where id = #{id}
+    </update>
+    <!--修改套餐(setmeal_dish 表)-->
+    <update id="updateSetMealDish" parameterType="com.sky.dto.SetmealDTO">
+        delete
+        from setmeal_dish
+        where setmeal_id = #{id};
+        insert into setmeal_dish (setmeal_id, dish_id, name, price, copies)
+        values
+        <foreach collection="setmealDishes" item="setmealDish" separator=",">
+                (#{setmealDish.setmealId}, #{setmealDish.dishId}, #{setmealDish.name}, #{setmealDish.price}, #{setmealDish.copies})
+        </foreach>
+    </update>
 
 
     <!--条件查询-->

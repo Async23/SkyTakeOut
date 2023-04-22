@@ -63,4 +63,19 @@ public class SetmealController {
 
         return Result.success(setmealVO);
     }
+
+    /**
+     * 修改套餐
+     *
+     * @param setmealDTO
+     * @return
+     */
+    @PutMapping
+    @ApiOperation("修改套餐 (^///^)")
+    public Result update(@RequestBody SetmealDTO setmealDTO) {
+        // TODO: 2023/4/22 前端传回的 idType 字段
+        setmealService.update(setmealDTO);
+
+        return Result.success();
+    }
 }
