@@ -99,29 +99,50 @@
 
     <!--条件查询-->
     <select id="selectByCondition" resultType="com.sky.vo.SetmealVO" parameterType="com.sky.dto.SetmealPageQueryDTO">
-        select * from setmeal
+        select s.id as id,
+        s.category_id as categoryId,
+        s.name as name,
+        s.price as price,
+        s.description as description,
+        s.image as image,
+        s.update_time as updateTime,
+        c.name as categoryName
+        from setmeal as s left join category as c
+        on s.category_id = c.id
         <where>
-            <if test="setmealPageQueryDTO.name != null and setmealPageQueryDTO.name != ''">
-                name=
-                #{setmealPageQueryDTO.name}
+            <if test="name != null and name != ''">
+                s.name like
+                concat('%',
+                #{name},
+                '%'
+                )
             </if>
-            <if test="setmealPageQueryDTO.categoryId != null">
-                and category_id=
-                #{setmealPageQueryDTO.categoryId}
+            <if test="categoryId != null">
+                and s.category_id=
+                #{categoryId}
             </if>
-            <if test="setmealPageQueryDTO.status != null">
-                and status=
-                #{setmealPageQueryDTO.status}
+            <if test="status != null">
+                and s.status=
+                #{status}
             </if>
         </where>
-        order by update_time desc
+        order by s.update_time desc
     </select>
 
     <!--查询所有-->
     <select id="selectAll" resultType="com.sky.vo.SetmealVO">
-        select *
-        from setmeal
-        order by update_time desc
+        select s.id          as id,
+               s.category_id as categoryId,
+               s.name        as name,
+               s.price       as price,
+               s.description as description,
+               s.image       as image,
+               s.update_time as updateTime,
+               c.name        as categoryName
+        from setmeal as s
+                 left join category as c
+                           on s.category_id = c.id
+        order by s.update_time desc
     </select>
 
     <!--根据 id 查询套餐-->

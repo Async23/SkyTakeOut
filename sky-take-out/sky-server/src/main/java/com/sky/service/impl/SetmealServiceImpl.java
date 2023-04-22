@@ -50,6 +50,7 @@ public class SetmealServiceImpl implements SetmealService {
             Integer status
          */
         String trimName = setmealPageQueryDTO.getName() == null ? null : setmealPageQueryDTO.getName().trim();
+        setmealPageQueryDTO.setName(trimName);
         boolean nameInvalid = trimName == null || "".equals(trimName);
         boolean categoryIdInvalid = setmealPageQueryDTO.getCategoryId() == null;
         boolean statusInvalid = setmealPageQueryDTO.getStatus() == null;
