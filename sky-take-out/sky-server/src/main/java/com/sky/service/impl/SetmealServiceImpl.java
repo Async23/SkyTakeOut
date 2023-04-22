@@ -155,4 +155,23 @@ public class SetmealServiceImpl implements SetmealService {
         setmealMapper.updateSetMealDish(setmealDTO);
 
     }
+
+    /**
+     * 启售、停售套餐
+     *
+     * @param status
+     * @param id
+     * @return
+     */
+    @Override
+    public void startOrStop(Integer status, Long id) {
+        boolean statusInvalid = status == null || !(status == 1L || status == 2L);
+        boolean idInvalid = id == null;
+        if (statusInvalid || idInvalid) {
+            // 启售、停售套餐参数有误
+            throw new BaseException(MessageConstant.SETMEAL_START_OR_STOP_ILLEGAL_ARGUMENT);
+        }
+
+        setmealMapper.startOrStop(status, id);
+    }
 }

@@ -70,8 +70,15 @@
         insert into setmeal_dish (setmeal_id, dish_id, name, price, copies)
         values
         <foreach collection="setmealDishes" item="setmealDish" separator=",">
-                (#{setmealDish.setmealId}, #{setmealDish.dishId}, #{setmealDish.name}, #{setmealDish.price}, #{setmealDish.copies})
+            (#{setmealDish.setmealId}, #{setmealDish.dishId}, #{setmealDish.name}, #{setmealDish.price}, #{setmealDish.copies})
         </foreach>
+    </update>
+
+    <!--启售、停售套餐-->
+    <update id="startOrStop">
+        update setmeal
+        set status=#{status}
+        where id = #{id}
     </update>
 
 
