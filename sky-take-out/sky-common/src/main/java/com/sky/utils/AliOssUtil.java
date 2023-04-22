@@ -11,8 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.ByteArrayInputStream;
 
 @Data
-@AllArgsConstructor
 @Slf4j
+@AllArgsConstructor
 public class AliOssUtil {
 
     // private String endpoint = "oss-cn-hangzhou.aliyuncs.com";

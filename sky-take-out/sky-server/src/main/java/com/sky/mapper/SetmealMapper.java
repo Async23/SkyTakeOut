@@ -41,5 +41,5 @@ public interface SetmealMapper {
 
     void deleteByIds(List<Long> validIds);
 
-    Integer selectRelatedDishCounts(Long id);
+    Integer selectStopDishCounts(Long id);
 }

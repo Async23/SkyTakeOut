@@ -181,12 +181,11 @@
     </select>
 
     <!--查询包含的未启售菜品数量-->
-    <select id="selectRelatedDishCounts" resultType="java.lang.Integer" parameterType="java.lang.Long">
+    <select id="selectStopDishCounts" resultType="java.lang.Integer" parameterType="java.lang.Long">
         select count(d.id)
         from setmeal_dish as sd
-                 join setmeal as s on sd.setmeal_id = s.id
-                 join dish as d on sd.dish_id = d.id
-        where s.id = #{id}
-          and d.status = 0
+                 left join dish d on d.id = sd.dish_id
+        where d.status = 0
+          and sd.setmeal_id = #{id}
     </select>
 </mapper>

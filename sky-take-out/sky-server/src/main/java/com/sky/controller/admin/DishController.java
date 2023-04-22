@@ -109,7 +109,7 @@ public class DishController {
      */
     @ApiOperation("启售、停售菜品 U_U")
     @PostMapping("/status/{status}")
-    // TODO: 2023/4/21 菜品停售 => 关联套餐停售
+    // TODO: 2023/4/21 菜品停售 => 关联套餐停售(已完成)
     public Result startOrStop(@PathVariable Integer status, Integer id) {
         dishService.startOrStop(status, id);
 

@@ -2,7 +2,6 @@ package com.sky.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.sky.annotation.AutoFill;
 import com.sky.constant.MessageConstant;
 import com.sky.dto.SetmealDTO;
 import com.sky.dto.SetmealPageQueryDTO;
@@ -175,9 +174,9 @@ public class SetmealServiceImpl implements SetmealService {
             throw new BaseException(MessageConstant.SETMEAL_START_OR_STOP_ILLEGAL_ARGUMENT);
         }
 
-        // Mapper 层：查询包含的未启售菜品数量
-        Integer counts = setmealMapper.selectRelatedDishCounts(id);
-        if (counts > 0) {
+        // Mapper 层：查询包含未启售菜品的数量
+        Integer dishStatus = setmealMapper.selectStopDishCounts(id);
+        if (dishStatus > 0 && status == 1) {
             // 套餐内包含未启售菜品，无法启售
             throw new BaseException(MessageConstant.SETMEAL_ENABLE_FAILED);
         }

@@ -183,7 +183,6 @@ public class DishServiceImpl implements DishService {
         }
 
         List<Map<String, Object>> results = dishMapper.selectStatusAndRelatedCountsByIds(ids);
-        log.info(results + "");
 
         // TODO: 2023/4/21 优化，直接传入 results 而非 deleteIds
         List<Long> deleteIds = new ArrayList<>();
@@ -192,7 +191,6 @@ public class DishServiceImpl implements DishService {
                 deleteIds.add((Long) result.get("id"));
             }
         });
-        log.info(deleteIds + "");
         // Mapper 层
         dishMapper.deleteByIds(deleteIds);
 
@@ -215,7 +213,6 @@ public class DishServiceImpl implements DishService {
             }
             msg.append(str);
         }
-
         if (!("".equals(msg.toString()))) {
             throw new BaseException(msg.toString());
         }

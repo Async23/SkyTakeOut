@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:Setmeal 模块中，分页查询的两个 Maper 层方法:selectAll 和 selectByCondition(name 模糊搜索) 修复，多关联了 category 表" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:Setmeal 模块中，分页查询的两个 Maper 层方法:selectAll 和 selectByCondition 的 select 列补上 status">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/utils/AliOssUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/utils/AliOssUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/DishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/DishMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/CommonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/CommonServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/SetmealServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/SetmealServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/DishMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,14 +211,7 @@
       <workItem from="1681863998104" duration="44419000" />
       <workItem from="1681950422928" duration="28867000" />
       <workItem from="1682036961128" duration="16621000" />
-      <workItem from="1682123175421" duration="16326000" />
-    </task>
-    <task id="LOCAL-00002" summary="苍穹外卖项目初始工程">
-      <created>1681784269966</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1681784269966</updated>
+      <workItem from="1682123175421" duration="24147000" />
     </task>
     <task id="LOCAL-00003" summary=".gitignore 文件添加 github 模板内容">
       <created>1681785570423</created>
@@ -546,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682147876927</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="fix:Setmeal 模块中，分页查询的两个 Maper 层方法:selectAll 和 selectByCondition 的 select 列补上 status">
+      <created>1682148237644</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1682148237644</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -575,7 +585,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:公共字段填充：DishController 中，insertDish 方法测试成功" />
     <MESSAGE value="update:DishMapper 中，selectAll 和 selectByNameOrCategoryIdOrStatus 方法，新增按最后操作时间降序排序" />
     <MESSAGE value="DishMapper:DishMapper 中，dishVO(resultMap) 补上 description" />
     <MESSAGE value="fix:DishMapper 中，dishVO(resultMap) 补上 description" />
@@ -600,7 +609,8 @@
     <MESSAGE value="fix:Setmeal 模块中，批量删除套餐(delete 方法)修复(同时删除 setmeal_dish 中间表)" />
     <MESSAGE value="fix:Setmeal 模块中，启售、停售套餐(startOrStop 方法)修复：套餐内包含未启售菜品的情况，无法删除" />
     <MESSAGE value="fix:Setmeal 模块中，分页查询的两个 Maper 层方法:selectAll 和 selectByCondition(name 模糊搜索) 修复，多关联了 category 表" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:Setmeal 模块中，分页查询的两个 Maper 层方法:selectAll 和 selectByCondition(name 模糊搜索) 修复，多关联了 category 表" />
+    <MESSAGE value="fix:Setmeal 模块中，分页查询的两个 Maper 层方法:selectAll 和 selectByCondition 的 select 列补上 status" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:Setmeal 模块中，分页查询的两个 Maper 层方法:selectAll 和 selectByCondition 的 select 列补上 status" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

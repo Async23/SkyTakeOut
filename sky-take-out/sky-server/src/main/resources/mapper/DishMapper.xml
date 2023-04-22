@@ -44,6 +44,11 @@
         </foreach>
     </insert>
 
+    <!--新增的菜品之前被逻辑删除-->
+    <update id="insertUpdateDish" parameterType="com.sky.entity.Dish">
+        update s
+    </update>
+
     <!--更新菜品(Dish)-->
     <update id="updateDish" parameterType="com.sky.entity.Dish">
         update dish
@@ -95,10 +100,13 @@
         delete
         from dish_flavor
         where dish_id = #{id};
-        insert into dish_flavor (dish_id, name, value) values
-        <foreach collection="flavors" item="flavor" separator=",">
-                (#{flavor.dishId}, #{flavor.name}, #{flavor.value})
-        </foreach>
+        <if test="flavors != null and flavors.size() > 0">
+            insert into dish_flavor (dish_id, name, value) values
+
+            <foreach collection="flavors" item="flavor" separator=",">
+                    (#{flavor.dishId}, #{flavor.name}, #{flavor.value})
+            </foreach>
+        </if>
     </update>
 
     <!--批量删除菜品（备份）-->
@@ -137,22 +145,30 @@
 
     <!--批量删除菜品-->
     <delete id="deleteByIds" parameterType="java.lang.Long">
-        delete
-        from dish
-        <where>
-            id in ( -1
-            <foreach collection="ids" item="id">
-                ,
-                #{id}
-            </foreach>)
-        </where>
+        delete from dish
+        where id in (-1
+        <foreach collection="ids" item="id">
+            ,
+            #{id}
+        </foreach>
+        )
     </delete>
 
     <!--启售、停售菜品-->
     <update id="startOrStop">
         update dish
-        set status=#{status}
-        where id = #{id}
+        set status = #{status}
+        where id = #{id};
+        <if test="status==0">
+            update setmeal
+            set status=0
+            where id in
+                  (
+                      select setmeal_id
+                      from setmeal_dish
+                      where dish_id = #{id}
+                  )
+        </if>
     </update>
 
     <select id="selectFlavors" resultType="com.sky.entity.DishFlavor" parameterType="java.lang.Long">
@@ -175,22 +191,22 @@
         c.name as categoryName
         from dish as d
         left outer join category as c on d.category_id = c.id
-        where
-        d.is_delete = 0
-        <if test="name != null and name != ''">
-            and d.name like concat('%',
-            #{name},
-            '%'
-            )
-        </if>
-        <if test="categoryId != null">
-            and d.category_id =
-            #{categoryId}
-        </if>
-        <if test="status != null">
-            and d.status =
-            #{status}
-        </if>
+        <where>
+            <if test="name != null and name != ''">
+                d.name like concat('%',
+                #{name},
+                '%'
+                )
+            </if>
+            <if test="categoryId != null">
+                and d.category_id =
+                #{categoryId}
+            </if>
+            <if test="status != null">
+                and d.status =
+                #{status}
+            </if>
+        </where>
         order by d.update_time desc
     </select>
 
@@ -212,7 +228,6 @@
         from dish as d
                  left outer join category as c on d.category_id = c.id
                  left outer join dish_flavor as df on d.id = df.dish_id
-        where d.is_delete = 0
         order by d.update_time desc
     </select>
 
@@ -234,8 +249,7 @@
         from dish as d
                  left outer join category as c on d.category_id = c.id
                  left outer join dish_flavor as df on d.id = df.dish_id
-        where d.is_delete = 0
-          and d.id = #{id}
+        where d.id = #{id}
     </select>
 
     <!--根据 categoryId 查询所有菜品(dish 表中)-->
@@ -244,5 +258,4 @@
         from dish
         where category_id = #{categoryId}
     </select>
-
 </mapper>
