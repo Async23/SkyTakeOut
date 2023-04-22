@@ -22,4 +22,6 @@ public interface DishService {
     void startOrStop(Integer status, Integer id);
 
     void delete(List<Long> ids);
+
+    List<DishVO> selectAllByCategoryId(Long categoryId);
 }

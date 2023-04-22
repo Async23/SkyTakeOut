@@ -142,7 +142,8 @@
         <where>
             id in ( -1
             <foreach collection="ids" item="id">
-                ,#{id}
+                ,
+                #{id}
             </foreach>)
         </where>
     </delete>
@@ -235,6 +236,13 @@
                  left outer join dish_flavor as df on d.id = df.dish_id
         where d.is_delete = 0
           and d.id = #{id}
+    </select>
+
+    <!--根据 categoryId 查询所有菜品(dish 表中)-->
+    <select id="selectAllByCategoryId" resultType="com.sky.vo.DishVO" parameterType="java.lang.Long">
+        select *
+        from dish
+        where category_id = #{categoryId}
     </select>
 
 </mapper>

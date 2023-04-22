@@ -30,6 +30,20 @@ public class DishController {
     private DishService dishService;
 
     /**
+     * 根据 categoryId 查询所有菜品(dish 表中)，新增套餐时使用
+     *
+     * @param categoryId
+     * @return
+     */
+    @GetMapping("/list")
+    @ApiOperation("根据 categoryId 查询所有菜品 `(*>﹏<*)′")
+    public Result selectAllByCategoryId(Long categoryId) {
+        List<DishVO> dishVOList = dishService.selectAllByCategoryId(categoryId);
+
+        return Result.success(dishVOList);
+    }
+
+    /**
      * 分页查询
      *
      * @param dishPageQueryDTO

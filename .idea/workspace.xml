@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:Dish 模块中，启售、停售菜品 (startOrStop 方法) 完成">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="update:Dish 模块中，批量删除菜品 (delete 方法) 完善">
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/SetmealController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/SetmealPageQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/SetmealPageQueryDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/DishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/CategoryMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/DishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/DishMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/DishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/DishService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/DishMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,9 +28,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="AnnotationType" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -212,6 +215,7 @@
       <workItem from="1681863998104" duration="44419000" />
       <workItem from="1681950422928" duration="28867000" />
       <workItem from="1682036961128" duration="16621000" />
+      <workItem from="1682123175421" duration="1351000" />
     </task>
     <task id="LOCAL-00001" summary="苍穹外卖项目初始工程">
       <created>1681783606550</created>
@@ -451,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682059551264</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="update:Dish 模块中，批量删除菜品 (delete 方法) 完善">
+      <created>1682084881422</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1682084881422</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,7 +491,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="已完成：新增员工，员工分页查询，启用禁用员工账号，编辑员工" />
     <MESSAGE value="分类分页查询最终完善，新增菜品分类完成，新增套餐分裂完成" />
     <MESSAGE value="分类分页查询，最后操作时间格式完善" />
     <MESSAGE value="分类修改完成" />
@@ -505,18 +515,8 @@
     <MESSAGE value="update:Dish 模块中，更新菜品 (update 方法) 完成：(更新 dish 表 =&gt; 删除 dish_flavor 表 =&gt; 插入 dish_flavor 表)" />
     <MESSAGE value="update:Dish 模块中，更新菜品 (update 方法) 完成：(只调用一次 Mapper 层的方法)" />
     <MESSAGE value="add:Dish 模块中，启售、停售菜品 (startOrStop 方法) 完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:Dish 模块中，启售、停售菜品 (startOrStop 方法) 完成" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java</url>
-          <line>183</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="update:Dish 模块中，批量删除菜品 (delete 方法) 完善" />
+    <option name="LAST_COMMIT_MESSAGE" value="update:Dish 模块中，批量删除菜品 (delete 方法) 完善" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -44,4 +44,6 @@ public interface DishMapper {
     void deleteByIds(List<Long> ids);
 
     List<Map<String, Object>> selectStatusAndRelatedCountsByIds(List<Long> ids);
+
+    List<DishVO> selectAllByCategoryId(Long categoryId);
 }

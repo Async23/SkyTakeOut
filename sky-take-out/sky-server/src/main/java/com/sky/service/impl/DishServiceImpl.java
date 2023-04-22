@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
@@ -111,6 +112,7 @@ public class DishServiceImpl implements DishService {
      * @return
      */
     @Override
+    @Transactional
     public void update(DishDTO dishDTO) {
         if (dishDTO == null) {
             throw new BaseException(MessageConstant.DISH_UPDATE_ILLEGAL_ARGUMENT);
@@ -183,6 +185,7 @@ public class DishServiceImpl implements DishService {
         List<Map<String, Object>> results = dishMapper.selectStatusAndRelatedCountsByIds(ids);
         log.info(results + "");
 
+        // TODO: 2023/4/21 优化，直接传入 results 而非 deleteIds
         List<Long> deleteIds = new ArrayList<>();
         results.forEach(result -> {
             if (result.get("relatedCounts").equals(0L) && result.get("status").equals(0)) {
@@ -216,6 +219,22 @@ public class DishServiceImpl implements DishService {
         if (!("".equals(msg.toString()))) {
             throw new BaseException(msg.toString());
         }
+    }
+
+    /**
+     * 根据 categoryId 查询所有菜品(dish 表中)
+     *
+     * @param categoryId
+     * @return
+     */
+    @Override
+    public List<DishVO> selectAllByCategoryId(Long categoryId) {
+        if (categoryId == null) {
+            // 根据ID查询分类参数有误
+            throw new BaseException(MessageConstant.CATEGORY_QUERY_BY_ID_ILLEGAL_ARGUMENT);
+        }
+
+        return dishMapper.selectAllByCategoryId(categoryId);
     }
 
 }
