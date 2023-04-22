@@ -208,7 +208,9 @@ public class SetmealServiceImpl implements SetmealService {
             }
         }
         // Mapper 层，批量删除
-        setmealMapper.deleteByIds(validIds);
+        if (validIds.size() > 0) {
+            setmealMapper.deleteByIds(validIds);
+        }
 
         if (!"".equals(msg.toString())) {
             // 部分启售中的套餐不能删除

@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:Setmeal 模块中，启售、停售套餐(startOrStop 方法)修复，参数判断原为1or2">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:Setmeal 模块中，批量删除套餐(delete 方法)完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/SetmealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/SetmealController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/SetmealServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/SetmealServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" afterDir="false" />
     </list>
@@ -209,7 +205,7 @@
       <workItem from="1681863998104" duration="44419000" />
       <workItem from="1681950422928" duration="28867000" />
       <workItem from="1682036961128" duration="16621000" />
-      <workItem from="1682123175421" duration="11858000" />
+      <workItem from="1682123175421" duration="12493000" />
     </task>
     <task id="LOCAL-00001" summary="苍穹外卖项目初始工程">
       <created>1681783606550</created>
@@ -526,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682133644799</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="add:Setmeal 模块中，批量删除套餐(delete 方法)完成">
+      <created>1682135169370</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1682135169370</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,7 +558,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix:DishMapper 中，selectByNameOrCategoryIdOrStatus 方法返回值修改(Dish =&gt; DishVO)" />
     <MESSAGE value="update:DishMapper 中，selectAll 方法实现集合嵌套" />
     <MESSAGE value="update:DishMapper 中，selectById 方法实现集合嵌套" />
     <MESSAGE value="update:CommonController 中，upload 方法实现(属性注入方式待优化)" />
@@ -580,7 +582,29 @@
     <MESSAGE value="update:Setmeal 模块中，修改套餐(update 方法)完成" />
     <MESSAGE value="add:Setmeal 模块中，启售、停售套餐(startOrStop 方法)完成" />
     <MESSAGE value="fix:Setmeal 模块中，启售、停售套餐(startOrStop 方法)修复，参数判断原为1or2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:Setmeal 模块中，启售、停售套餐(startOrStop 方法)修复，参数判断原为1or2" />
+    <MESSAGE value="add:Setmeal 模块中，批量删除套餐(delete 方法)完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:Setmeal 模块中，批量删除套餐(delete 方法)完成" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/SetmealServiceImpl.java</url>
+          <line>197</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/SetmealServiceImpl.java</url>
+          <line>210</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/SetmealServiceImpl.java</url>
+          <line>214</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
