@@ -11,6 +11,12 @@ public class MessageConstant {
     public static final String UNKNOWN_ERROR = "未知错误";
     public static final String USER_NOT_LOGIN = "用户未登录";
     public static final String ALREADY_EXISTS = "账号已存在";
+
+    /**
+     * 店铺状态
+     */
+    public static final String UPDATE_SHOP_STATUS_ILLEGAL_ARGUMENT = "修改店铺状态参数有误";
+
     /**
      * 分类
      */
@@ -21,7 +27,6 @@ public class MessageConstant {
     public static final String CATEGORY_BE_RELATED_BY_SETMEAL = "当前分类关联了套餐,不能删除";
     public static final String CATEGORY_BE_RELATED_BY_DISH = "当前分类关联了菜品,不能删除";
     public static final String CATEGORY_INSERT_ILLEGAL_ARGUMENT = "新增分类参数有误";
-
     public static final String CATEGORY_UPDATE_ILLEGAL_ARGUMENT = "修改分类参数有误";
     public static final String CATEGORY_DELETE_ILLEGAL_ARGUMENT = "删除分类参数有误";
 

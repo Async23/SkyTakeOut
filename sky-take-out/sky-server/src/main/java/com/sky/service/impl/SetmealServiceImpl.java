@@ -3,11 +3,13 @@ package com.sky.service.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sky.constant.MessageConstant;
+import com.sky.constant.StatusConstant;
 import com.sky.dto.SetmealDTO;
 import com.sky.dto.SetmealPageQueryDTO;
 import com.sky.entity.Setmeal;
 import com.sky.entity.SetmealDish;
 import com.sky.exception.BaseException;
+import com.sky.mapper.DishMapper;
 import com.sky.mapper.SetmealMapper;
 import com.sky.result.PageResult;
 import com.sky.service.SetmealService;
@@ -29,6 +31,9 @@ import java.util.Map;
 public class SetmealServiceImpl implements SetmealService {
     @Autowired
     private SetmealMapper setmealMapper;
+
+    @Autowired
+    private DishMapper dishMapper;
 
     /**
      * 分页查询
@@ -145,16 +150,28 @@ public class SetmealServiceImpl implements SetmealService {
             throw new BaseException(MessageConstant.SETMEAL_UPDATE_ILLEGAL_ARGUMENT);
         }
 
+        // 准备数据
         setmealDTO.setName(trimName);
+        List<SetmealDish> setmealDishes = setmealDTO.getSetmealDishes();
+        setmealDishes.forEach(setmealDish -> setmealDish.setSetmealId(setmealDTO.getId()));
+        // 逻辑补充：更改套餐时，如果菜品中有停售菜品，该套餐也需要变为停售
+        List<Long> dishIds = new ArrayList<>();
+        setmealDishes.forEach(setmealDish -> dishIds.add(setmealDish.getDishId()));
+        List<Map<String, Object>> results = dishMapper.selectStatusAndRelatedCountsByIds(dishIds);
+        for (Map<String, Object> result : results) {
+            if (result.get("status").equals(StatusConstant.DISABLE)) {
+                setmealDTO.setStatus(0);
+                break;
+            }
+        }
         Setmeal setmeal = new Setmeal();
         BeanUtils.copyProperties(setmealDTO, setmeal);
-        // Mapper 层：修改 setmeal 表
-        setmealMapper.update(setmeal);
 
         // Mapper 层：修改 setmeal_dish 表
-        List<SetmealDish> setmealDishes = setmealDTO.getSetmealDishes();
-        setmealDishes.forEach(setmealDish -> setmealDish.setSetmealId(setmeal.getId()));
         setmealMapper.updateSetMealDish(setmealDTO);
+
+        // Mapper 层：修改 setmeal 表
+        setmealMapper.update(setmeal);
 
     }
 
@@ -207,7 +224,7 @@ public class SetmealServiceImpl implements SetmealService {
         List<Long> validIds = new ArrayList<>();
         StringBuilder msg = new StringBuilder();
         for (Map<String, Object> setmeal : setmealStatus) {
-            if (setmeal.get("status").equals(0)) {
+            if (setmeal.get("status").equals(StatusConstant.DISABLE)) {
                 // 停售状态，将被删除
                 validIds.add((Long) setmeal.get("id"));
             } else {
@@ -215,6 +232,7 @@ public class SetmealServiceImpl implements SetmealService {
                 msg.append(setmeal.get("name")).append("无法删除(为启售状态)");
             }
         }
+
         // Mapper 层，批量删除
         if (validIds.size() > 0) {
             setmealMapper.deleteByIds(validIds);
