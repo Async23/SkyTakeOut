@@ -22,8 +22,8 @@ sky:
     access-key-secret: 3Z5B4tsRYhIW0gp5ODKinImZkujKn0
     bucket-name: async-sky-take-out
   wechat:
-    appid: wxffb3637a228223b8
-    secret: 84311df9199ecacdf4f12d27b6b9522d
+    appid: wx92f4af3148701bd3
+    secret: ebb61ebf72d3b426c990475c12db19c1
     mchid : 1561414331
     mchSerialNo: 4B3B3DC35414AD50B1B755BAF8DE9CC7CF407606
     privateKeyFilePath: D:\apiclient_key.pem
