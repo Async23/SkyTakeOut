@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)完成">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:纠正 user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)中的的错误：xml 文件中 category_id 单词拼写错误">
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/DishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,14 +220,7 @@
       <workItem from="1682235314861" duration="1245000" />
       <workItem from="1682295997887" duration="23102000" />
       <workItem from="1682382264411" duration="15380000" />
-      <workItem from="1682468818775" duration="4326000" />
-    </task>
-    <task id="LOCAL-00007" summary="苍穹外卖项目初始工程">
-      <created>1681786550976</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1681786550976</updated>
+      <workItem from="1682468818775" duration="4530000" />
     </task>
     <task id="LOCAL-00008" summary="苍穹外卖项目初始工程">
       <created>1681786906629</created>
@@ -567,7 +558,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682494563852</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="fix:纠正 user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)中的的错误：xml 文件中 category_id 单词拼写错误">
+      <created>1682494749883</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1682494749883</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,7 +594,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update:Dish 模块中，更新菜品 (update 方法) 完成：(更新 dish 表 =&gt; 删除 dish_flavor 表 =&gt; 插入 dish_flavor 表)" />
     <MESSAGE value="update:Dish 模块中，更新菜品 (update 方法) 完成：(只调用一次 Mapper 层的方法)" />
     <MESSAGE value="add:Dish 模块中，启售、停售菜品 (startOrStop 方法) 完成" />
     <MESSAGE value="update:Dish 模块中，批量删除菜品 (delete 方法) 完善" />
@@ -621,7 +618,8 @@
     <MESSAGE value="update:SetmealController 套餐模块 update (更新套餐方法逻辑完善)" />
     <MESSAGE value="add:UserController 微信用户登录模块完成" />
     <MESSAGE value="add:user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)完成" />
+    <MESSAGE value="fix:纠正 user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)中的的错误：xml 文件中 category_id 单词拼写错误" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:纠正 user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)中的的错误：xml 文件中 category_id 单词拼写错误" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -26,8 +26,8 @@ public class DishController {
     @Autowired
     private DishService dishService;
 
-    /**z
-     * 根据 categoryId 查询所有菜品(dish 表中)，新增套餐时使用
+    /**
+     * 根据 categoryId 查询所有菜品(dish 表中)
      *
      * @param categoryId
      * @return
