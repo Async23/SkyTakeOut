@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:纠正 user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)中的的错误：xml 文件中 category_id 单词拼写错误">
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/DishController.java" afterDir="false" />
-    </list>
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:user/DishController 的根据 categoryId 查询所有菜品(selectAllByCategoryId 方法)完成" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -220,14 +218,7 @@
       <workItem from="1682235314861" duration="1245000" />
       <workItem from="1682295997887" duration="23102000" />
       <workItem from="1682382264411" duration="15380000" />
-      <workItem from="1682468818775" duration="4530000" />
-    </task>
-    <task id="LOCAL-00008" summary="苍穹外卖项目初始工程">
-      <created>1681786906629</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1681786906629</updated>
+      <workItem from="1682468818775" duration="4837000" />
     </task>
     <task id="LOCAL-00009" summary=".gitignore 增加">
       <created>1681787259258</created>
@@ -565,7 +556,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682494749883</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="add:user/DishController 的根据 categoryId 查询所有菜品(selectAllByCategoryId 方法)完成">
+      <created>1682495011007</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1682495011007</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +592,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update:Dish 模块中，更新菜品 (update 方法) 完成：(只调用一次 Mapper 层的方法)" />
     <MESSAGE value="add:Dish 模块中，启售、停售菜品 (startOrStop 方法) 完成" />
     <MESSAGE value="update:Dish 模块中，批量删除菜品 (delete 方法) 完善" />
     <MESSAGE value="add:Dish 模块中，根据 categoryId 查询所有菜品 (selectAllByCategoryId 方法，新增套餐时使用) 完成" />
@@ -619,7 +616,8 @@
     <MESSAGE value="add:UserController 微信用户登录模块完成" />
     <MESSAGE value="add:user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)完成" />
     <MESSAGE value="fix:纠正 user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)中的的错误：xml 文件中 category_id 单词拼写错误" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:纠正 user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)中的的错误：xml 文件中 category_id 单词拼写错误" />
+    <MESSAGE value="add:user/DishController 的根据 categoryId 查询所有菜品(selectAllByCategoryId 方法)完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:user/DishController 的根据 categoryId 查询所有菜品(selectAllByCategoryId 方法)完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
