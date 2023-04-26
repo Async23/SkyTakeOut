@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:UserController 微信用户登录模块完成">
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/CategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/SetmealController.java" afterDir="false" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/SetmealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/SetmealController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/DishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/DishService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/SetmealServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/SetmealServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/DishController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -230,14 +222,7 @@
       <workItem from="1682235314861" duration="1245000" />
       <workItem from="1682295997887" duration="23102000" />
       <workItem from="1682382264411" duration="15380000" />
-      <workItem from="1682468818775" duration="4090000" />
-    </task>
-    <task id="LOCAL-00006" summary="苍穹外卖项目初始工程">
-      <created>1681786143209</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1681786143209</updated>
+      <workItem from="1682468818775" duration="4326000" />
     </task>
     <task id="LOCAL-00007" summary="苍穹外卖项目初始工程">
       <created>1681786550976</created>
@@ -575,7 +560,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682408387881</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="add:user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)完成">
+      <created>1682494563852</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1682494563852</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,7 +596,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:Dish 模块中，更新菜品 (update 方法) 部分完成：dishMapper.updateDish" />
     <MESSAGE value="update:Dish 模块中，更新菜品 (update 方法) 完成：(更新 dish 表 =&gt; 删除 dish_flavor 表 =&gt; 插入 dish_flavor 表)" />
     <MESSAGE value="update:Dish 模块中，更新菜品 (update 方法) 完成：(只调用一次 Mapper 层的方法)" />
     <MESSAGE value="add:Dish 模块中，启售、停售菜品 (startOrStop 方法) 完成" />
@@ -629,7 +620,8 @@
     <MESSAGE value="save:2023.4.23 代码保存" />
     <MESSAGE value="update:SetmealController 套餐模块 update (更新套餐方法逻辑完善)" />
     <MESSAGE value="add:UserController 微信用户登录模块完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:UserController 微信用户登录模块完成" />
+    <MESSAGE value="add:user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

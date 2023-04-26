@@ -210,6 +210,6 @@
         from setmeal as s
                  left join setmeal_dish as sd on s.id = sd.setmeal_id
                  left join category as c on s.category_id = c.id
-        where s.catogory_id = #{categoryId}
+        where s.category_id = #{categoryId}
     </select>
 </mapper>
