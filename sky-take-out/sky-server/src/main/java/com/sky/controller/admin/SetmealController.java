@@ -17,9 +17,9 @@ import java.util.List;
 /**
  * @author Async_
  */
-@RestController
-@RequestMapping("/admin/setmeal")
 @Api(tags = "套餐管理 φ(゜▽゜*)♪")
+@RequestMapping("/admin/setmeal")
+@RestController("adminSetmealController")
 public class SetmealController {
     @Autowired
     private SetmealService setmealService;

@@ -42,4 +42,6 @@ public interface SetmealMapper {
     void deleteByIds(List<Long> validIds);
 
     Integer selectStopDishCounts(Long id);
+
+    List<SetmealVO> selectByCategoryId(Long categoryId);
 }

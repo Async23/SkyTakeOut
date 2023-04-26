@@ -243,4 +243,21 @@ public class SetmealServiceImpl implements SetmealService {
             throw new BaseException(msg.toString());
         }
     }
+
+    /**
+     * 根据分类 id 查询套餐列表
+     *
+     * @param categoryId
+     * @return
+     */
+    @Override
+    public List<SetmealVO> selectByCategoryId(Long categoryId) {
+        if (categoryId == null) {
+            // 套餐查询参数有误
+            throw new BaseException(MessageConstant.SETMEAL_QUERY_ILLEGAL_ARGUMENT);
+        }
+
+
+        return setmealMapper.selectByCategoryId(categoryId);
+    }
 }

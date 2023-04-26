@@ -163,7 +163,8 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<Category> selectAllByType(Integer type) {
         if (type == null) {
-            throw new BaseException(MessageConstant.CATEGORY_QUERY_BY_TYPE_ILLEGAL_ARGUMENT);
+            // 与 admin 中区别
+            return categoryMapper.selectAll();
         }
 
         return categoryMapper.selectAllByType(type);

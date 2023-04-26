@@ -15,16 +15,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * 菜品管理
+ * 管理端菜品管理
  *
  * @author Async_
  */
 @Slf4j
-@RestController
+@RestController("adminDishController")
 @RequestMapping("/admin/dish")
-@Api(tags = "菜品管理 （＾∀＾●）ﾉｼ")
-// TODO: 2023/4/21 菜品停售 => 套餐停售
-// TODO: 2023/4/21 菜品被套餐使用 => 菜品无法删除
+@Api(tags = "管理端菜品管理 （＾∀＾●）ﾉｼ")
 public class DishController {
     @Autowired
     private DishService dishService;

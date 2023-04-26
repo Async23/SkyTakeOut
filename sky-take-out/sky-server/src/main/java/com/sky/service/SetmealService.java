@@ -19,4 +19,6 @@ public interface SetmealService {
     void startOrStop(Integer status, Long id);
 
     void delete(List<Long> ids);
+
+    List<SetmealVO> selectByCategoryId(Long categoryId);
 }

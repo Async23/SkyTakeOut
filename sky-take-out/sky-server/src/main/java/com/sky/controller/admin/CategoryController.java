@@ -20,7 +20,7 @@ import java.util.List;
  * @author Async_
  */
 @Slf4j
-@RestController
+@RestController("adminCategoryController")
 @RequestMapping("/admin/category")
 @Api(tags = "分类管理 ψ(｀∇´)ψ")
 public class CategoryController {
@@ -112,9 +112,4 @@ public class CategoryController {
 
         return Result.success(categoryList);
     }
-    /*public Result selectPageOne(CategoryPageQueryDTO categoryPageQueryDTO) {
-        PageResult pageResult = categoryService.selectPage(categoryPageQueryDTO);
-
-        return Result.success(pageResult);
-    }*/
 }
