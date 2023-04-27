@@ -55,7 +55,12 @@ public class MessageConstant {
     public static final String SETMEAL_DELETE_ILLEGAL_ARGUMENT = "删除套餐参数有误";
     public static final String SETMEAL_ON_SALE = "启售中的套餐不能删除";
 
+    /**
+     * 购物车
+     */
     public static final String SHOPPING_CART_IS_NULL = "购物车数据为空，不能下单";
+    public static final String SHOPPING_CART_DELETE_ILLEGAL = "删除购物车中商品参数有误";
+
     public static final String ADDRESS_BOOK_IS_NULL = "用户地址为空，不能下单";
     public static final String LOGIN_FAILED = "登录失败";
     public static final String UPLOAD_FAILED = "文件上传失败";

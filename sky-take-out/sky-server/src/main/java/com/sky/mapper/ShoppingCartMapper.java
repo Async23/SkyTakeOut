@@ -1,8 +1,7 @@
 package com.sky.mapper;
 
+import com.sky.dto.ShoppingCartDTO;
 import com.sky.entity.ShoppingCart;
-import com.sky.result.Result;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
 
@@ -40,4 +39,27 @@ public interface ShoppingCartMapper {
      * @return
      */
     List<ShoppingCart> listShoppingCart(ShoppingCart shoppingCart);
+
+    /**
+     * 删除购物车中一种商品
+     *
+     * @param shoppingCartDTO
+     * @return
+     */
+    void delete(ShoppingCartDTO shoppingCartDTO);
+
+    /**
+     * 删除购物车中一个商品
+     *
+     * @param shoppingCartDTO
+     * @return
+     */
+    void deleteOne(ShoppingCartDTO shoppingCartDTO);
+
+    /**
+     * 清空购物车
+     *
+     * @return
+     */
+    void clean(Long userId);
 }
