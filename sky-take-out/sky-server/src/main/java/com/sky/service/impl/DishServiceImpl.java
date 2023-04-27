@@ -60,9 +60,11 @@ public class DishServiceImpl implements DishService {
             throw new BaseException(MessageConstant.DISH_QUERY_PAGE_ILLEGAL_ARGUMENT);
         }
 
+        // ------------------------------------------------------------------------
         // 名称、分类、状态 均无效，分页参数有效，执行正常分页查询
         PageHelper.startPage(dishPageQueryDTO.getPage(), dishPageQueryDTO.getPageSize());
         Page<DishVO> dishPage = (Page<DishVO>) dishMapper.selectAll();
+
         return new PageResult(dishPage.getTotal(), dishPage.getResult());
     }
 
@@ -227,11 +229,16 @@ public class DishServiceImpl implements DishService {
     @Override
     public List<DishVO> selectAllByCategoryId(Long categoryId) {
         if (categoryId == null) {
-            // 根据 ID 查询分类参数有误
-            throw new BaseException(MessageConstant.CATEGORY_QUERY_BY_ID_ILLEGAL_ARGUMENT);
+            // 菜品查询参数有误
+            throw new BaseException(MessageConstant.DISH_QUERY_ILLEGAL_ARGUMENT);
         }
 
-        return dishMapper.selectAllByCategoryId(categoryId);
+        return listWithFlavors(Dish.builder().categoryId(categoryId).build());
+    }
+
+    @Override
+    public List<DishVO> listWithFlavors(Dish queryDish) {
+        return dishMapper.listWithFlavors(queryDish);
     }
 
 }

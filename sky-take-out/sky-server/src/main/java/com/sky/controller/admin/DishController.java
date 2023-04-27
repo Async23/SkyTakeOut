@@ -50,7 +50,6 @@ public class DishController {
     @GetMapping("/page")
     @ApiOperation("分页查询 (○｀ 3′○)")
     public Result selectPage(DishPageQueryDTO dishPageQueryDTO) {
-        log.warn(Thread.currentThread().getName());
         PageResult pageResult = dishService.selectPage(dishPageQueryDTO);
 
         return Result.success(pageResult);

@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:CategoryService 和 CategoryMapper 更新，去掉了 is_delete 字段">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:userSetmealController根据套餐 id 查询菜品(selectDishesById 方法)完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/SetmealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/SetmealController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/SetmealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/SetmealController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/SetmealServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/SetmealServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/entity/DishFlavor.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/entity/DishFlavor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/DishController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/DishController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/interceptor/JwtTokenUserInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/interceptor/JwtTokenUserInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/DishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/DishMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/DishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/DishService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/DishMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +157,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RedisTemplateTest.testString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RedisTemplateTest.testRedisCache" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sky-server" />
       <extension name="coverage">
         <pattern>
@@ -165,7 +167,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.sky.test" />
       <option name="MAIN_CLASS_NAME" value="com.sky.test.RedisTemplateTest" />
-      <option name="METHOD_NAME" value="testString" />
+      <option name="METHOD_NAME" value="testRedisCache" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -198,11 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RedisTemplateTest.testRedisCache" />
         <item itemvalue="JUnit.HttpClientTest.testGET" />
         <item itemvalue="JUnit.HttpClientTest.testPOST" />
         <item itemvalue="JUnit.HttpClientTest.testGET1" />
         <item itemvalue="TestNG.HttpClientTest.testGET" />
-        <item itemvalue="JUnit.RedisTemplateTest.testString" />
       </list>
     </recent_temporary>
   </component>
@@ -230,14 +232,7 @@
       <workItem from="1682295997887" duration="23102000" />
       <workItem from="1682382264411" duration="15380000" />
       <workItem from="1682468818775" duration="8469000" />
-      <workItem from="1682555142830" duration="7945000" />
-    </task>
-    <task id="LOCAL-00011" summary="分类分页查询最终完善，新增菜品分类完成，新增套餐分裂完成">
-      <created>1681928385163</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1681928385163</updated>
+      <workItem from="1682555142830" duration="18160000" />
     </task>
     <task id="LOCAL-00012" summary="分类分页查询，最后操作时间格式完善">
       <created>1681928524064</created>
@@ -575,7 +570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682561138068</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="add:userSetmealController根据套餐 id 查询菜品(selectDishesById 方法)完成">
+      <created>1682565603721</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1682565603721</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,7 +606,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:Dish 模块中，根据 categoryId 查询所有菜品 (selectAllByCategoryId 方法，新增套餐时使用) 完成" />
     <MESSAGE value="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 标签时会使用) 修改" />
     <MESSAGE value="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 和 “新建套餐” 时会使用) 修改" />
     <MESSAGE value="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 和 “新建套餐” 时会使用) 修改，弃用 Mapper 方法，使用分页查询的同套流程，信息更全" />
@@ -629,7 +630,8 @@
     <MESSAGE value="add:user/DishController 的根据 categoryId 查询所有菜品(selectAllByCategoryId 方法)完成" />
     <MESSAGE value="fix:user/DishController 的根据 categoryId 查询所有菜品(selectAllByCategoryId 方法)修复 bug：xml 文件中没有用到 resultMap 和多表查询" />
     <MESSAGE value="fix:CategoryService 和 CategoryMapper 更新，去掉了 is_delete 字段" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:CategoryService 和 CategoryMapper 更新，去掉了 is_delete 字段" />
+    <MESSAGE value="add:userSetmealController根据套餐 id 查询菜品(selectDishesById 方法)完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:userSetmealController根据套餐 id 查询菜品(selectDishesById 方法)完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

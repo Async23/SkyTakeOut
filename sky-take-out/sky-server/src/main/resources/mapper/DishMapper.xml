@@ -13,13 +13,38 @@
         <result column="status" property="status"/>
         <result column="updateTime" property="updateTime"/>
         <result column="categoryName" property="categoryName"/>
-        <collection property="flavors" javaType="ArrayList" ofType="com.sky.entity.DishFlavor">
+        <collection property="flavors" column="id" select="selectFlavorsInner" javaType="ArrayList"
+                    ofType="com.sky.entity.DishFlavor">
             <result column="flavorId" property="id"/>
             <result column="dishId" property="dishId"/>
             <result column="dfName" property="name"/>
             <result column="value" property="value"/>
         </collection>
     </resultMap>
+    <!--查询所有-->
+    <select id="selectAll" resultMap="dishVO">
+        select d.id          as id,
+               d.name        as name,
+               d.category_id as categoryId,
+               d.price       as price,
+               d.image       as image,
+               d.description as description,
+               d.status      as status,
+               d.update_time as updateTime,
+               c.name        as categoryName
+        from dish as d
+                 left outer join category as c on d.category_id = c.id
+        order by d.update_time desc
+    </select>
+    <select id="selectFlavorsInner" resultType="com.sky.entity.DishFlavor">
+        select id      as flavorId,
+               dish_id as dishId,
+               name    as dfName,
+               value   as value
+        from dish_flavor
+        where dish_id = #{id}
+    </select>
+
     <resultMap id="dishSetmealMap" type="java.util.Map">
         <id column="id" property="id"/>
         <result column="status" property="status"/>
@@ -40,14 +65,9 @@
         insert into dish_flavor
         (dish_id, name, value) values
         <foreach collection="dishFlavors" item="dishFlavor" separator=",">
-                (#{dishFlavor.dishId}, #{dishFlavor.name}, #{dishFlavor.value})
+            (#{dishFlavor.dishId}, #{dishFlavor.name}, #{dishFlavor.value})
         </foreach>
     </insert>
-
-    <!--新增的菜品之前被逻辑删除-->
-    <update id="insertUpdateDish" parameterType="com.sky.entity.Dish">
-        update s
-    </update>
 
     <!--更新菜品(Dish)-->
     <update id="updateDish" parameterType="com.sky.entity.Dish">
@@ -102,9 +122,8 @@
         where dish_id = #{id};
         <if test="flavors != null and flavors.size() > 0">
             insert into dish_flavor (dish_id, name, value) values
-
             <foreach collection="flavors" item="flavor" separator=",">
-                    (#{flavor.dishId}, #{flavor.name}, #{flavor.value})
+                (#{flavor.dishId}, #{flavor.name}, #{flavor.value})
             </foreach>
         </if>
     </update>
@@ -145,11 +164,11 @@
             update setmeal
             set status=0
             where id in
-                  (
-                      select setmeal_id
-                      from setmeal_dish
-                      where dish_id = #{id}
-                  )
+            (
+            select setmeal_id
+            from setmeal_dish
+            where dish_id = #{id}
+            )
         </if>
     </update>
 
@@ -192,27 +211,6 @@
         order by d.update_time desc
     </select>
 
-    <!--查询所有-->
-    <select id="selectAll" resultMap="dishVO">
-        select d.id          as id,
-               d.name        as name,
-               d.category_id as categoryId,
-               d.price       as price,
-               d.image       as image,
-               d.description as description,
-               d.status      as status,
-               d.update_time as updateTime,
-               c.name        as categoryName,
-               df.id         as flavorId,
-               df.dish_id    as dishId,
-               df.name       as dfName,
-               df.value      as value
-        from dish as d
-                 left outer join category as c on d.category_id = c.id
-                 left outer join dish_flavor as df on d.id = df.dish_id
-        order by d.update_time desc
-    </select>
-
     <!--根据 id 查询-->
     <select id="selectById" resultMap="dishVO" parameterType="java.lang.Long">
         select d.id          as id,
@@ -234,24 +232,45 @@
         where d.id = #{id}
     </select>
 
-    <!--根据 categoryId 查询所有菜品(dish 表中)-->
-    <select id="selectAllByCategoryId" resultMap="dishVO" parameterType="java.lang.Long">
-        select d.id          as id,
-               d.name        as name,
-               d.category_id as categoryId,
-               d.price       as price,
-               d.image       as image,
-               d.description as description,
-               d.status      as status,
-               d.update_time as updateTime,
-               c.name        as categoryName,
-               df.id         as flavorId,
-               df.dish_id    as dishId,
-               df.name       as dfName,
-               df.value      as value
+    <select id="listWithFlavors" resultMap="dishVO" parameterType="com.sky.entity.Dish">
+        select d.id as id,
+        d.name as name,
+        d.category_id as categoryId,
+        d.price as price,
+        d.image as image,
+        d.description as description,
+        d.status as status,
+        d.update_time as updateTime,
+        c.name as categoryName,
+        df.id as flavorId,
+        df.dish_id as dishId,
+        df.name as dfName,
+        df.value as value
         from dish as d
-                 left outer join category as c on d.category_id = c.id
-                 left outer join dish_flavor as df on d.id = df.dish_id
-        where category_id = #{categoryId}
+        left outer join category as c on d.category_id = c.id
+        left outer join dish_flavor as df on d.id = df.dish_id
+        <where>
+            <if test="id != null">
+                d.id = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                and d.name = #{name}
+            </if>
+            <if test="categoryId != null">
+                and d.category_id = #{categoryId}
+            </if>
+            <if test="price != null">
+                and d.price = #{price}
+            </if>
+            <if test="image != null and image != ''">
+                and d.image = #{image}
+            </if>
+            <if test="description != null and description != ''">
+                and d.description = #{description}
+            </if>
+            <if test="status != null">
+                and d.status = #{status}
+            </if>
+        </where>
     </select>
 </mapper>
