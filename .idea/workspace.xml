@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:adminDishController 中新增菜品清除缓存完成" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:adminDishController 中修改菜品清除缓存完成">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/DishController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -220,14 +223,7 @@
       <workItem from="1682295997887" duration="23102000" />
       <workItem from="1682382264411" duration="15380000" />
       <workItem from="1682468818775" duration="8469000" />
-      <workItem from="1682555142830" duration="22225000" />
-    </task>
-    <task id="LOCAL-00016" summary="逻辑删除分类完成，完善之前模块的逻辑删除状态判断">
-      <created>1681931403209</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1681931403209</updated>
+      <workItem from="1682555142830" duration="22889000" />
     </task>
     <task id="LOCAL-00017" summary="逻辑删除分类完成，完善之前模块的逻辑删除状态判断">
       <created>1681931435009</created>
@@ -565,7 +561,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682587221359</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="add:adminDishController 中修改菜品清除缓存完成">
+      <created>1682587287711</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1682587287711</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +597,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:Setmeal 模块中，新增套餐功能(insert 方法)完成(setmeal 表和 setmeal_dish 表)" />
     <MESSAGE value="update:Setmeal 模块中，SetmealVO 中 updateTime 字段加了注解" />
     <MESSAGE value="update:Setmeal 模块中，根据 id 查询套餐(selectById 方法)完成" />
     <MESSAGE value="update:Setmeal 模块中，修改套餐(update 方法)完成" />
@@ -619,7 +621,8 @@
     <MESSAGE value="fix:DishMapper 中 listWithFlavors 方法修复:删除一个表和一些字段，来使用嵌套查询" />
     <MESSAGE value="fix:DishMapper 中 selectFlavorsInner 内嵌搜索修复:dfName =&gt; name" />
     <MESSAGE value="add:adminDishController 中新增菜品清除缓存完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:adminDishController 中新增菜品清除缓存完成" />
+    <MESSAGE value="add:adminDishController 中修改菜品清除缓存完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:adminDishController 中修改菜品清除缓存完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
