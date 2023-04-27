@@ -45,6 +45,44 @@
         where dish_id = #{id}
     </select>
 
+    <!--条件查询-->
+    <select id="listWithFlavors" resultMap="dishVO" parameterType="com.sky.entity.Dish">
+        select d.id as id,
+        d.name as name,
+        d.category_id as categoryId,
+        d.price as price,
+        d.image as image,
+        d.description as description,
+        d.status as status,
+        d.update_time as updateTime,
+        c.name as categoryName
+        from dish as d
+        left outer join category as c on d.category_id = c.id
+        <where>
+            <if test="id != null">
+                d.id = #{id}
+            </if>
+            <if test="name != null and name != ''">
+                and d.name = #{name}
+            </if>
+            <if test="categoryId != null">
+                and d.category_id = #{categoryId}
+            </if>
+            <if test="price != null">
+                and d.price = #{price}
+            </if>
+            <if test="image != null and image != ''">
+                and d.image = #{image}
+            </if>
+            <if test="description != null and description != ''">
+                and d.description = #{description}
+            </if>
+            <if test="status != null">
+                and d.status = #{status}
+            </if>
+        </where>
+    </select>
+
     <resultMap id="dishSetmealMap" type="java.util.Map">
         <id column="id" property="id"/>
         <result column="status" property="status"/>
@@ -232,45 +270,4 @@
         where d.id = #{id}
     </select>
 
-    <select id="listWithFlavors" resultMap="dishVO" parameterType="com.sky.entity.Dish">
-        select d.id as id,
-        d.name as name,
-        d.category_id as categoryId,
-        d.price as price,
-        d.image as image,
-        d.description as description,
-        d.status as status,
-        d.update_time as updateTime,
-        c.name as categoryName,
-        df.id as flavorId,
-        df.dish_id as dishId,
-        df.name as dfName,
-        df.value as value
-        from dish as d
-        left outer join category as c on d.category_id = c.id
-        left outer join dish_flavor as df on d.id = df.dish_id
-        <where>
-            <if test="id != null">
-                d.id = #{id}
-            </if>
-            <if test="name != null and name != ''">
-                and d.name = #{name}
-            </if>
-            <if test="categoryId != null">
-                and d.category_id = #{categoryId}
-            </if>
-            <if test="price != null">
-                and d.price = #{price}
-            </if>
-            <if test="image != null and image != ''">
-                and d.image = #{image}
-            </if>
-            <if test="description != null and description != ''">
-                and d.description = #{description}
-            </if>
-            <if test="status != null">
-                and d.status = #{status}
-            </if>
-        </where>
-    </select>
 </mapper>
