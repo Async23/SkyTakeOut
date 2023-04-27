@@ -85,16 +85,7 @@ public class CategoryServiceImpl implements CategoryService {
                 .build();
         BeanUtils.copyProperties(categoryDTO, category);
 
-        // 判断新增套餐名是否与逻辑删除套餐重复
-        Integer isDelete = categoryMapper.selectIsDeleteByName(categoryDTO.getName());
-        // 表中不存在 => 直接新增；表中已存在（未被逻辑删除） => 主动冲突
-        if (isDelete == null || isDelete == 0) {
-            categoryMapper.insert(category);
-        } else {
-            // 1(被逻辑删除)
-            categoryMapper.updateByName(category);
-        }
-
+        categoryMapper.insert(category);
     }
 
     /**
@@ -151,7 +142,7 @@ public class CategoryServiceImpl implements CategoryService {
             throw new BaseException(MessageConstant.CATEGORY_BE_RELATED_BY_DISH);
         }
 
-        categoryMapper.logicDelete(id);
+        categoryMapper.deleteById(id);
     }
 
     /**

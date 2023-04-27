@@ -227,7 +227,7 @@ public class DishServiceImpl implements DishService {
     @Override
     public List<DishVO> selectAllByCategoryId(Long categoryId) {
         if (categoryId == null) {
-            // 根据ID查询分类参数有误
+            // 根据 ID 查询分类参数有误
             throw new BaseException(MessageConstant.CATEGORY_QUERY_BY_ID_ILLEGAL_ARGUMENT);
         }
 

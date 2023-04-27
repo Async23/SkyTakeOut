@@ -257,7 +257,6 @@ public class SetmealServiceImpl implements SetmealService {
             throw new BaseException(MessageConstant.SETMEAL_QUERY_ILLEGAL_ARGUMENT);
         }
 
-
         return setmealMapper.selectByCategoryId(categoryId);
     }
 }

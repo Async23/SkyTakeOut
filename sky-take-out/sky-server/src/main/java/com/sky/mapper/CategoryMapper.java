@@ -24,13 +24,11 @@ public interface CategoryMapper {
 
     void startOrStop(@Param("status") Integer status, @Param("id") Long id);
 
-    void logicDelete(Long id);
-
-    Integer selectIsDeleteByName(String name);
-
     void updateByName(Category category);
 
     List<Category> selectAllByType(Integer type);
 
     Integer selectRelatedDishesCounts(Long id);
+
+    void deleteById(Long id);
 }

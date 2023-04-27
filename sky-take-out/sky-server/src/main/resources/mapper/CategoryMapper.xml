@@ -15,21 +15,12 @@
         set name=#{name},
             sort=#{sort}
         where id = #{id}
-          and is_delete = 0
     </update>
 
     <!--启用、禁用分类-->
     <update id="startOrStop">
         update category
         set status=#{status}
-        where id = #{id}
-          and is_delete = 0
-    </update>
-
-    <!--逻辑删除分类-->
-    <update id="logicDelete" parameterType="java.lang.Long">
-        update category
-        set is_delete=1
         where id = #{id}
     </update>
 
@@ -42,18 +33,22 @@
             create_time=#{createTime},
             update_time=#{updateTime},
             create_user=#{createUser},
-            update_user=#{updateUser},
-            is_delete=0
+            update_user=#{updateUser}
         where name = #{name}
-
     </update>
+
+    <!--根据 id 删除分类-->
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete
+        from category
+        where id = #{id}
+    </delete>
 
     <!--分类条件查询-->
     <select id="selectByNameOrType" resultType="com.sky.entity.Category">
         select *
         from category
         <where>
-            is_delete = 0
             <if test="name != null">
                 and name like concat('%',
                 #{name},
@@ -72,23 +67,18 @@
     <select id="selectAll" resultType="com.sky.entity.Category">
         select *
         from category
-        where is_delete = 0
         order by update_time desc
-    </select>
-
-    <!--根据名称查询逻辑删除状态-->
-    <select id="selectIsDeleteByName" resultType="java.lang.Integer" parameterType="java.lang.String">
-        select is_delete
-        from category
-        where name = #{name}
     </select>
 
     <!--根据 type 查询所有 category-->
     <select id="selectAllByType" resultType="com.sky.entity.Category" parameterType="java.lang.Integer">
         select *
         from category
-        where is_delete = 0
-          and type = #{type}
+        <where>
+            <if test="type != null">
+                type = #{type}
+            </if>
+        </where>
         order by update_time desc
     </select>
 
@@ -98,5 +88,4 @@
         from dish
         where category_id = #{id}
     </select>
-
 </mapper>
