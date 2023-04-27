@@ -104,6 +104,7 @@ public class DishController {
     @PutMapping
     @ApiOperation("修改菜品 ヽ（≧□≦）ノ")
     public Result update(@RequestBody DishDTO dishDTO) {
+        log.info("修改菜品：{}", dishDTO);
         dishService.update(dishDTO);
 
         // 清理缓存数据
