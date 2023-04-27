@@ -13,6 +13,8 @@ import com.sky.mapper.DishMapper;
 import com.sky.mapper.SetmealMapper;
 import com.sky.result.PageResult;
 import com.sky.service.SetmealService;
+import com.sky.vo.DishItemVO;
+import com.sky.vo.DishVO;
 import com.sky.vo.SetmealVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -258,5 +260,21 @@ public class SetmealServiceImpl implements SetmealService {
         }
 
         return setmealMapper.selectByCategoryId(categoryId);
+    }
+
+    /**
+     * 根据套餐 id 查询菜品
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public List<DishItemVO> selectDishesById(Long id) {
+        if (id == null) {
+            // 菜品查询参数有误
+            throw new BaseException(MessageConstant.DISH_QUERY_ILLEGAL_ARGUMENT);
+        }
+
+        return setmealMapper.selectDishesById(id);
     }
 }

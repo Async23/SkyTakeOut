@@ -207,4 +207,15 @@
                            on s.category_id = c.id
         where s.category_id = #{categoryId}
     </select>
+
+    <!--根据套餐 id 查询菜品-->
+    <select id="selectDishesById" resultType="com.sky.vo.DishItemVO" parameterType="java.lang.Long">
+        select sd.copies     as copies,
+               d.description as description,
+               d.image       as image,
+               d.name        as name
+        from setmeal_dish as sd
+                 left join dish as d on sd.dish_id = d.id
+        where sd.setmeal_id = #{id}
+    </select>
 </mapper>
