@@ -46,4 +46,6 @@ public interface DishMapper {
     List<Map<String, Object>> selectStatusAndRelatedCountsByIds(List<Long> ids);
 
     List<DishVO> listWithFlavors(Dish queryDish);
+
+    Dish getById(Long dishId);
 }

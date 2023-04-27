@@ -16,19 +16,35 @@
                     select="selectSetmealDishInner" column="id">
             <result column="setmealId" property="setmealId"/>
             <result column="dishId" property="dishId"/>
-            <result column="setmeal_dish_name" property="name"/>
-            <result column="setmeal_dish_price" property="price"/>
+            <result column="name" property="name"/>
+            <result column="price" property="price"/>
             <result column="copies" property="copies"/>
         </collection>
     </resultMap>
     <select id="selectSetmealDishInner" resultType="com.sky.entity.SetmealDish">
         select setmeal_id as setmealId,
                dish_id    as dishId,
-               name       as setmeal_dish_name,
-               price      as setmeal_dish_price,
+               name       as name,
+               price      as price,
                copies     as copies
         from setmeal_dish
         where setmeal_id = #{id}
+    </select>
+
+    <!--根据 id 查询套餐-->
+    <select id="selectById" resultMap="setmealVO" parameterType="java.lang.Long">
+        select s.id          as id,
+               s.category_id as categoryId,
+               s.name        as name,
+               s.price       as price,
+               s.status      as status,
+               s.description as description,
+               s.image       as image,
+               s.update_time as updateTime,
+               c.name        as categoryName
+        from setmeal as s
+                 left join category as c on s.category_id = c.id
+        where s.id = #{id}
     </select>
 
     <select id="listWithDishes" resultMap="setmealVO" parameterType="com.sky.entity.Setmeal">
@@ -66,22 +82,6 @@
                 and s.image = #{image}
             </if>
         </where>
-    </select>
-
-    <!--根据 id 查询套餐-->
-    <select id="selectById" resultMap="setmealVO" parameterType="java.lang.Long">
-        select s.id          as id,
-               s.category_id as categoryId,
-               s.name        as name,
-               s.price       as price,
-               s.status      as status,
-               s.description as description,
-               s.image       as image,
-               s.update_time as updateTime,
-               c.name        as categoryName
-        from setmeal as s
-                 left join category as c on s.category_id = c.id
-        where s.id = #{id}
     </select>
 
     <!--新增套餐(dish 表)-->
@@ -258,6 +258,13 @@
         from setmeal_dish as sd
                  left join dish as d on sd.dish_id = d.id
         where sd.setmeal_id = #{id}
+    </select>
+
+    <!--根据 id 查询套餐-->
+    <select id="getById" resultType="com.sky.entity.Setmeal" parameterType="java.lang.Long">
+        select *
+        from setmeal
+        where id = #{setmealId}
     </select>
 
 </mapper>

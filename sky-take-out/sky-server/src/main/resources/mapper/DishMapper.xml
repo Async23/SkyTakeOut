@@ -270,4 +270,11 @@
         where d.id = #{id}
     </select>
 
+    <!--通过 id 查询菜品-->
+    <select id="getById" resultType="com.sky.entity.Dish" parameterType="java.lang.Long">
+        select *
+        from dish
+        where id = #{dishId}
+    </select>
+
 </mapper>
