@@ -107,9 +107,8 @@ public class DishController {
         log.info("修改菜品：{}", dishDTO);
         dishService.update(dishDTO);
 
-        // 清理缓存数据
-        String key = "dish_" + dishDTO.getCategoryId();
-        cleanCache(key);
+        // 将所有的菜品缓存数据清理掉，所有以dish_开头的key
+        cleanCache("dish_*");
 
         return Result.success();
     }
@@ -142,6 +141,9 @@ public class DishController {
     @ApiOperation("批量删除菜品 (╬▔皿▔)╯")
     public Result delete(@RequestParam("ids") List<Long> ids) {
         dishService.delete(ids);
+
+        // 将所有的菜品缓存数据清理掉，所有以dish_开头的key
+        cleanCache("dish_*");
 
         return Result.success();
     }

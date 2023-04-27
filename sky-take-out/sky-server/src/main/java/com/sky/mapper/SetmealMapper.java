@@ -48,4 +48,6 @@ public interface SetmealMapper {
     List<SetmealVO> selectByCategoryId(Long categoryId);
 
     List<DishItemVO> selectDishesById(Long id);
+
+    List<SetmealVO> listWithDishes(Setmeal setmeal);
 }

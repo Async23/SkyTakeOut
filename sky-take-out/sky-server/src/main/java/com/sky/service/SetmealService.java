@@ -2,6 +2,7 @@ package com.sky.service;
 
 import com.sky.dto.SetmealDTO;
 import com.sky.dto.SetmealPageQueryDTO;
+import com.sky.entity.Setmeal;
 import com.sky.result.PageResult;
 import com.sky.vo.DishItemVO;
 import com.sky.vo.DishVO;
@@ -25,4 +26,6 @@ public interface SetmealService {
     List<SetmealVO> selectByCategoryId(Long categoryId);
 
     List<DishItemVO> selectDishesById(Long id);
+
+    List<SetmealVO> selectByCondition(Setmeal build);
 }

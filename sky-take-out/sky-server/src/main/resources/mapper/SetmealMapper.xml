@@ -12,7 +12,8 @@
         <result column="image" property="image"/>
         <result column="updateTime" property="updateTime"/>
         <result column="categoryName" property="categoryName"/>
-        <collection property="setmealDishes" javaType="java.util.ArrayList" ofType="com.sky.entity.SetmealDish">
+        <collection property="setmealDishes" javaType="java.util.ArrayList" ofType="com.sky.entity.SetmealDish"
+                    select="selectSetmealDishInner" column="id">
             <result column="setmealId" property="setmealId"/>
             <result column="dishId" property="dishId"/>
             <result column="setmeal_dish_name" property="name"/>
@@ -20,6 +21,68 @@
             <result column="copies" property="copies"/>
         </collection>
     </resultMap>
+    <select id="selectSetmealDishInner" resultType="com.sky.entity.SetmealDish">
+        select setmeal_id as setmealId,
+               dish_id    as dishId,
+               name       as setmeal_dish_name,
+               price      as setmeal_dish_price,
+               copies     as copies
+        from setmeal_dish
+        where setmeal_id = #{id}
+    </select>
+
+    <select id="listWithDishes" resultMap="setmealVO" parameterType="com.sky.entity.Setmeal">
+        select s.id as id,
+        s.category_id as categoryId,
+        s.name as name,
+        s.price as price,
+        s.status as status,
+        s.description as description,
+        s.image as image,
+        s.update_time as updateTime,
+        c.name as categoryName
+        from setmeal as s
+        left join category as c on s.category_id = c.id
+        <where>
+            <if test="id != null">
+                s.id = #{id}
+            </if>
+            <if test="categoryId != null">
+                and s.category_id = #{categoryId}
+            </if>
+            <if test="name != null">
+                and s.name = #{name}
+            </if>
+            <if test="price != null">
+                and s.price = #{price}
+            </if>
+            <if test="status != null">
+                and s.status = #{status}
+            </if>
+            <if test="description != null">
+                and s.description = #{description}
+            </if>
+            <if test="image != null">
+                and s.image = #{image}
+            </if>
+        </where>
+    </select>
+
+    <!--根据 id 查询套餐-->
+    <select id="selectById" resultMap="setmealVO" parameterType="java.lang.Long">
+        select s.id          as id,
+               s.category_id as categoryId,
+               s.name        as name,
+               s.price       as price,
+               s.status      as status,
+               s.description as description,
+               s.image       as image,
+               s.update_time as updateTime,
+               c.name        as categoryName
+        from setmeal as s
+                 left join category as c on s.category_id = c.id
+        where s.id = #{id}
+    </select>
 
     <!--新增套餐(dish 表)-->
     <insert id="insert" parameterType="com.sky.entity.Setmeal" useGeneratedKeys="true" keyProperty="id">
@@ -150,28 +213,6 @@
         order by s.update_time desc
     </select>
 
-    <!--根据 id 查询套餐-->
-    <select id="selectById" resultMap="setmealVO" parameterType="java.lang.Long">
-        select s.id          as id,
-               s.category_id as categoryId,
-               s.name        as name,
-               s.price       as price,
-               s.status      as status,
-               s.description as description,
-               s.image       as image,
-               s.update_time as updateTime,
-               c.name        as categoryName,
-               sd.setmeal_id as setmealId,
-               sd.dish_id    as dishId,
-               sd.name       as setmeal_dish_name,
-               sd.price      as setmeal_dish_price,
-               sd.copies     as copies
-        from setmeal as s
-                 left join setmeal_dish as sd on s.id = sd.setmeal_id
-                 left join category as c on s.category_id = c.id
-        where s.id = #{id}
-    </select>
-
     <!--查询状态-->
     <select id="selectStatusByIds" resultType="java.util.Map" parameterType="java.util.List">
         select id, name, status
@@ -218,4 +259,5 @@
                  left join dish as d on sd.dish_id = d.id
         where sd.setmeal_id = #{id}
     </select>
+
 </mapper>

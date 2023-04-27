@@ -277,4 +277,19 @@ public class SetmealServiceImpl implements SetmealService {
 
         return setmealMapper.selectDishesById(id);
     }
+
+    /**
+     * 根据条件查询
+     *
+     * @param setmeal
+     * @return
+     */
+    @Override
+    public List<SetmealVO> selectByCondition(Setmeal setmeal) {
+        if (setmeal == null) {
+            // 套餐查询参数有误
+            throw new BaseException(MessageConstant.SETMEAL_QUERY_ILLEGAL_ARGUMENT);
+        }
+        return setmealMapper.listWithDishes(setmeal);
+    }
 }

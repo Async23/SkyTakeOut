@@ -1,5 +1,9 @@
 package com.sky.controller.user;
 
+import com.sky.constant.MessageConstant;
+import com.sky.constant.StatusConstant;
+import com.sky.entity.Setmeal;
+import com.sky.exception.BaseException;
 import com.sky.result.Result;
 import com.sky.service.SetmealService;
 import com.sky.vo.DishItemVO;
@@ -32,8 +36,17 @@ public class SetmealController {
      */
     @GetMapping("/list")
     @ApiOperation("根据分类 id 查询套餐列表 (≧∇≦)ﾉ")
+    // @Cacheable(cacheNames = "setmealCache", key = "#categoryId")
     public Result selectByCategoryId(Long categoryId) {
-        List<SetmealVO> setmealVOList = setmealService.selectByCategoryId(categoryId);
+        if (categoryId == null) {
+            // 套餐查询参数有误
+            throw new BaseException(MessageConstant.SETMEAL_QUERY_ILLEGAL_ARGUMENT);
+        }
+
+        List<SetmealVO> setmealVOList = setmealService.selectByCondition(Setmeal.builder()
+                .categoryId(categoryId)
+                .status(StatusConstant.ENABLE)
+                .build());
 
         return Result.success(setmealVOList);
     }
