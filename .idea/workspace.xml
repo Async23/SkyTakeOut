@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:adminDishController 中启售、停售菜品清除缓存完成">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:userSetmealController 中根据分类 id 查询套餐列表(selectByCategoryId 方法)逻辑完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/SkyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/SkyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/DishController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/SetmealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/SetmealController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/SetmealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/SetmealController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/SetmealService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/SetmealServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/SetmealServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,14 +213,7 @@
       <workItem from="1682295997887" duration="23102000" />
       <workItem from="1682382264411" duration="15380000" />
       <workItem from="1682468818775" duration="8469000" />
-      <workItem from="1682555142830" duration="28454000" />
-    </task>
-    <task id="LOCAL-00018" summary="add:菜品分页查询&#10;update:分类逻辑删除字段反转">
-      <created>1681954125892</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1681954125892</updated>
+      <workItem from="1682555142830" duration="29506000" />
     </task>
     <task id="LOCAL-00019" summary="fix:逻辑删除导致的“新增分类”名称重复异常：调整 Service 层逻辑，增加 Mapper 层 selectIsDeleteByName 方法">
       <created>1681956005076</created>
@@ -563,7 +551,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682587898848</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="fix:userSetmealController 中根据分类 id 查询套餐列表(selectByCategoryId 方法)逻辑完成">
+      <created>1682595346363</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1682595346363</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,7 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update:Setmeal 模块中，根据 id 查询套餐(selectById 方法)完成" />
     <MESSAGE value="update:Setmeal 模块中，修改套餐(update 方法)完成" />
     <MESSAGE value="add:Setmeal 模块中，启售、停售套餐(startOrStop 方法)完成" />
     <MESSAGE value="fix:Setmeal 模块中，启售、停售套餐(startOrStop 方法)修复，参数判断原为1or2" />
@@ -617,7 +611,8 @@
     <MESSAGE value="add:adminDishController 中新增菜品清除缓存完成" />
     <MESSAGE value="add:adminDishController 中修改菜品清除缓存完成" />
     <MESSAGE value="add:adminDishController 中启售、停售菜品清除缓存完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:adminDishController 中启售、停售菜品清除缓存完成" />
+    <MESSAGE value="fix:userSetmealController 中根据分类 id 查询套餐列表(selectByCategoryId 方法)逻辑完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:userSetmealController 中根据分类 id 查询套餐列表(selectByCategoryId 方法)逻辑完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
