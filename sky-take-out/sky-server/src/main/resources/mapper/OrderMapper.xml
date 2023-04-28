@@ -43,4 +43,26 @@
         where id = #{id}
     </update>
 
+    <resultMap id="orderVO" type="com.sky.vo.OrderVO">
+
+    </resultMap>
+    <!--订单条件搜索-->
+    <select id="listByCondition" resultType="com.sky.vo.OrderVO" parameterType="com.sky.dto.OrdersPageQueryDTO">
+        select * from orders
+        <where>
+            <if test="number != null and number != ''">
+                number = #{number}
+            </if>
+            <if test="phone != null and phone != ''">
+                and phone = #{phone}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+        </where>
+    </select>
+
 </mapper>

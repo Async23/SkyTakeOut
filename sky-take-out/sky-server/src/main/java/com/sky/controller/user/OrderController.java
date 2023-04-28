@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.*;
 /**
  * 订单
  */
-@RestController("userOrderController")
-@RequestMapping("/user/order")
 @Slf4j
 @Api(tags = "C端订单接口")
+@RequestMapping("/user/order")
+@RestController("userOrderController")
 public class OrderController {
 
     @Autowired

@@ -11,6 +11,7 @@ import com.sky.mapper.DishMapper;
 import com.sky.mapper.SetmealMapper;
 import com.sky.mapper.ShoppingCartMapper;
 import com.sky.service.ShoppingCartService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Slf4j
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Autowired
@@ -29,6 +31,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public void addShoppingCart(ShoppingCartDTO shoppingCartDTO) {
+        log.info(this.toString());
+        log.info(Thread.currentThread().toString());
         ShoppingCart shoppingCart = new ShoppingCart();
         BeanUtils.copyProperties(shoppingCartDTO, shoppingCart);
         // 只能查询⾃⼰的购物⻋数据

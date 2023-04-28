@@ -1,23 +1,29 @@
 package com.sky.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.sky.constant.MessageConstant;
 import com.sky.context.BaseContext;
 import com.sky.dto.*;
 import com.sky.entity.*;
 import com.sky.exception.AddressBookBusinessException;
+import com.sky.exception.BaseException;
 import com.sky.exception.OrderBusinessException;
 import com.sky.exception.ShoppingCartBusinessException;
 import com.sky.mapper.*;
+import com.sky.result.PageResult;
 import com.sky.service.OrderService;
 import com.sky.utils.WeChatPayUtil;
 import com.sky.vo.OrderPaymentVO;
 import com.sky.vo.OrderSubmitVO;
+import com.sky.vo.OrderVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -69,7 +75,7 @@ public class OrderServiceImpl implements OrderService {
 
         // 构造订单数据
         Orders order = new Orders();
-        BeanUtils.copyProperties(ordersSubmitDTO,order);
+        BeanUtils.copyProperties(ordersSubmitDTO, order);
         order.setPhone(addressBook.getPhone());
         order.setAddress(addressBook.getDetail());
         order.setConsignee(addressBook.getConsignee());
@@ -164,5 +170,25 @@ public class OrderServiceImpl implements OrderService {
                 .build();
 
         orderMapper.update(orders);
+    }
+
+    /**
+     * 订单条件搜索
+     *
+     * @param ordersPageQueryDTO
+     * @return
+     */
+    @Override
+    public PageResult listByCondition(OrdersPageQueryDTO ordersPageQueryDTO) {
+        if (ordersPageQueryDTO == null || ordersPageQueryDTO.getPage() == null || ordersPageQueryDTO.getPageSize() == null) {
+            // 订单分页查询参数有误
+            throw new BaseException(MessageConstant.ORDER_QUERY_PAGE_ILLEGAL_ARGUMENT);
+        }
+
+        PageHelper.startPage(ordersPageQueryDTO.getPage(), ordersPageQueryDTO.getPageSize());
+        List<OrderVO> orderVOList = orderMapper.listByCondition(ordersPageQueryDTO);
+        Page<OrderVO> page = (Page<OrderVO>) orderVOList;
+
+        return new PageResult(page.getTotal(), page.getResult());
     }
 }

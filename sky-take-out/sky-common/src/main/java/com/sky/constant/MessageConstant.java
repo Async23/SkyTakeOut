@@ -65,7 +65,13 @@ public class MessageConstant {
     public static final String LOGIN_FAILED = "登录失败";
     public static final String UPLOAD_FAILED = "文件上传失败";
     public static final String PASSWORD_EDIT_FAILED = "密码修改失败";
+
+    /**
+     * 订单
+     */
     public static final String ORDER_STATUS_ERROR = "订单状态错误";
     public static final String ORDER_NOT_FOUND = "订单不存在";
+    public static final String ORDER_QUERY_PAGE_ILLEGAL_ARGUMENT = "订单分页查询参数有误";
+
 
 }
