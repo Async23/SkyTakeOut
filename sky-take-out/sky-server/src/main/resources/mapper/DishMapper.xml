@@ -21,6 +21,14 @@
             <result column="value" property="value"/>
         </collection>
     </resultMap>
+    <select id="selectFlavorsInner" resultType="com.sky.entity.DishFlavor">
+        select id      as flavorId,
+               dish_id as dishId,
+               name    as name,
+               value   as value
+        from dish_flavor
+        where dish_id = #{id}
+    </select>
     <!--查询所有-->
     <select id="selectAll" resultMap="dishVO">
         select d.id          as id,
@@ -36,15 +44,21 @@
                  left outer join category as c on d.category_id = c.id
         order by d.update_time desc
     </select>
-    <select id="selectFlavorsInner" resultType="com.sky.entity.DishFlavor">
-        select id      as flavorId,
-               dish_id as dishId,
-               name    as name,
-               value   as value
-        from dish_flavor
-        where dish_id = #{id}
+    <!--根据 id 查询-->
+    <select id="selectById" resultMap="dishVO" parameterType="java.lang.Long">
+        select d.id          as id,
+               d.name        as name,
+               d.category_id as categoryId,
+               d.price       as price,
+               d.image       as image,
+               d.description as description,
+               d.status      as status,
+               d.update_time as updateTime,
+               c.name        as categoryName
+        from dish as d
+                 left outer join category as c on d.category_id = c.id
+        where d.id = #{id}
     </select>
-
     <!--条件查询-->
     <select id="listWithFlavors" resultMap="dishVO" parameterType="com.sky.entity.Dish">
         select d.id as id,
@@ -247,27 +261,6 @@
             </if>
         </where>
         order by d.update_time desc
-    </select>
-
-    <!--根据 id 查询-->
-    <select id="selectById" resultMap="dishVO" parameterType="java.lang.Long">
-        select d.id          as id,
-               d.name        as name,
-               d.category_id as categoryId,
-               d.price       as price,
-               d.image       as image,
-               d.description as description,
-               d.status      as status,
-               d.update_time as updateTime,
-               c.name        as categoryName,
-               df.id         as flavorId,
-               df.dish_id    as dishId,
-               df.name       as dfName,
-               df.value      as value
-        from dish as d
-                 left outer join category as c on d.category_id = c.id
-                 left outer join dish_flavor as df on d.id = df.dish_id
-        where d.id = #{id}
     </select>
 
     <!--通过 id 查询菜品-->
