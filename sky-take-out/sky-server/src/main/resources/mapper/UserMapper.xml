@@ -15,4 +15,11 @@
         from user
         where openid = #{openid}
     </select>
+
+    <!--根据 id 获取用户数据-->
+    <select id="getById" resultType="com.sky.entity.User" parameterType="java.lang.Long">
+        select *
+        from user
+        where id = #{id}
+    </select>
 </mapper>

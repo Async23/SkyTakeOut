@@ -25,4 +25,6 @@ public interface UserMapper {
      * @return
      */
     User getByOpenid(String openid);
+
+    User getById(Long userId);
 }

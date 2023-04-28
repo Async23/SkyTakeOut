@@ -61,5 +61,5 @@ public interface ShoppingCartMapper {
      *
      * @return
      */
-    void clean(Long userId);
+    void deleteByUserId(Long userId);
 }

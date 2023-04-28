@@ -28,7 +28,7 @@
     </delete>
 
     <!--清空购物车-->
-    <delete id="clean" parameterType="java.lang.Long">
+    <delete id="deleteByUserId" parameterType="java.lang.Long">
         delete
         from shopping_cart
         where user_id = #{userId}
@@ -104,11 +104,4 @@
             </if>
         </where>
     </select>
-    <!--
-        <select id="listShoppingCart" resultType="java.util.List" parameterType="com.sky.entity.ShoppingCart">
-            select *
-            from shopping_cart
-            where user_id = #{userId}
-        </select>
-    -->
 </mapper>
