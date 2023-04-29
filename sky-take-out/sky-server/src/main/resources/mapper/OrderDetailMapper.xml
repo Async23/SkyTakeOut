@@ -10,4 +10,12 @@
             (#{od.name},#{od.orderId},#{od.dishId},#{od.setmealId},#{od.dishFlavor},#{od.number},#{od.amount},#{od.image})
         </foreach>
     </insert>
+
+    <!--根据订单 id 获取菜品信息-->
+    <select id="listDishesByOrderId" resultType="com.sky.vo.DishVO" parameterType="java.lang.Long">
+        select *
+        from order_detail as od
+                 left join dish as d on d.id = od.dish_id
+        where od.order_id = #{orderId}
+    </select>
 </mapper>

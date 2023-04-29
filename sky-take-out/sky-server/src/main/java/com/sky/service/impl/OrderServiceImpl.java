@@ -187,6 +187,7 @@ public class OrderServiceImpl implements OrderService {
 
         PageHelper.startPage(ordersPageQueryDTO.getPage(), ordersPageQueryDTO.getPageSize());
         List<OrderVO> orderVOList = orderMapper.listByCondition(ordersPageQueryDTO);
+        orderVOList.forEach(orderVO -> orderVO.setOrderDishes(orderDetailMapper.listDishesByOrderId(orderVO.getId()).toString()));
         Page<OrderVO> page = (Page<OrderVO>) orderVOList;
 
         return new PageResult(page.getTotal(), page.getResult());

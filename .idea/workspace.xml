@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:OrderDetailMapper.xml 换行语法问题修复；DishMapper.xml 中 selectById 方法配合 resultMap:dishVO">
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/OrderController.java" afterDir="false" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="backup:备份">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/properties/WeChatProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/properties/WeChatProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/utils/WeChatPayUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/OrdersPageQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/OrdersPageQueryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderDetailMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderDetailMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ShoppingCartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ShoppingCartServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderDetailMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderDetailMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +38,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="GiteeDefaultAccount">
     <option name="defaultAccountId" value="8a0c051f-a72f-4571-960a-a66a8391f6dc" />
@@ -78,28 +75,29 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/code/SkyTakeOut",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "0d903826f2cfd9772cf3bc867d21fa3a",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/code/SkyTakeOut&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0d903826f2cfd9772cf3bc867d21fa3a&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -255,14 +253,12 @@
       <workItem from="1682700863797" duration="583000" />
       <workItem from="1682701455740" duration="249000" />
       <workItem from="1682701711944" duration="602000" />
-      <workItem from="1682702323251" duration="2959000" />
-    </task>
-    <task id="LOCAL-00024" summary="update:DishMapper 中，selectAll 方法实现集合嵌套">
-      <created>1681979812969</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1681979812969</updated>
+      <workItem from="1682702323251" duration="3017000" />
+      <workItem from="1682710678762" duration="29000" />
+      <workItem from="1682728530725" duration="1000" />
+      <workItem from="1682730115736" duration="52000" />
+      <workItem from="1682730177262" duration="88000" />
+      <workItem from="1682730274006" duration="2776000" />
     </task>
     <task id="LOCAL-00025" summary="update:DishMapper 中，selectById 方法实现集合嵌套">
       <created>1681980770806</created>
@@ -600,7 +596,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682665741465</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="backup:备份">
+      <created>1682705314878</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1682705314878</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -629,7 +632,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix:Setmeal 模块中，批量删除套餐(delete 方法)修复(同时删除 setmeal_dish 中间表)" />
     <MESSAGE value="fix:Setmeal 模块中，启售、停售套餐(startOrStop 方法)修复：套餐内包含未启售菜品的情况，无法删除" />
     <MESSAGE value="fix:Setmeal 模块中，分页查询的两个 Maper 层方法:selectAll 和 selectByCondition(name 模糊搜索) 修复，多关联了 category 表" />
     <MESSAGE value="fix:Setmeal 模块中，分页查询的两个 Maper 层方法:selectAll 和 selectByCondition 的 select 列补上 status" />
@@ -654,7 +656,8 @@
     <MESSAGE value="add:删除购物车中一个商品、清空购物车 功能完成" />
     <MESSAGE value="add:微信支付模块导入完成" />
     <MESSAGE value="fix:OrderDetailMapper.xml 换行语法问题修复；DishMapper.xml 中 selectById 方法配合 resultMap:dishVO" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:OrderDetailMapper.xml 换行语法问题修复；DishMapper.xml 中 selectById 方法配合 resultMap:dishVO" />
+    <MESSAGE value="backup:备份" />
+    <option name="LAST_COMMIT_MESSAGE" value="backup:备份" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
