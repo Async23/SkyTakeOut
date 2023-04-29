@@ -4,7 +4,7 @@ import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
 import com.sky.entity.Dish;
 import com.sky.result.PageResult;
-import com.sky.vo.DishVO;
+import com.sky.vo.Orders;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public interface DishService {
     PageResult selectPage(DishPageQueryDTO dishPageQueryDTO);
 
-    DishVO selectById(Long id);
+    Orders selectById(Long id);
 
     void insert(DishDTO dishDTO);
 
@@ -24,7 +24,7 @@ public interface DishService {
 
     void delete(List<Long> ids);
 
-    List<DishVO> selectAllByCategoryId(Long categoryId);
+    List<Orders> selectAllByCategoryId(Long categoryId);
 
-    List<DishVO> listWithFlavors(Dish queryDish);
+    List<Orders> listWithFlavors(Dish queryDish);
 }

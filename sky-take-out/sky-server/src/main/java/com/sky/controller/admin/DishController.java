@@ -5,13 +5,11 @@ import com.sky.dto.DishPageQueryDTO;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.DishService;
-import com.sky.vo.DishVO;
+import com.sky.vo.Orders;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,7 +41,7 @@ public class DishController {
     @GetMapping("/list")
     @ApiOperation("根据 categoryId 查询所有菜品 `(*>﹏<*)′")
     public Result selectAllByCategoryId(Long categoryId) {
-        List<DishVO> dishVOList = dishService.selectAllByCategoryId(categoryId);
+        List<Orders> dishVOList = dishService.selectAllByCategoryId(categoryId);
 
         return Result.success(dishVOList);
     }
@@ -71,7 +69,7 @@ public class DishController {
     @GetMapping("/{id}")
     @ApiOperation("根据 id 查询 (/▽＼)")
     public Result selectById(@PathVariable Long id) {
-        DishVO dishVO = dishService.selectById(id);
+        Orders dishVO = dishService.selectById(id);
 
         return Result.success(dishVO);
     }

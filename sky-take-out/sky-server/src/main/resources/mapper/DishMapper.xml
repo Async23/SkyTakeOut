@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sky.mapper.DishMapper">
 
-    <resultMap id="dishVO" type="com.sky.vo.DishVO">
+    <resultMap id="dishVO" type="com.sky.vo.Orders">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="categoryId" property="categoryId"/>
@@ -231,7 +231,7 @@
     </select>
 
     <!--名称、分类、状态条件查询-->
-    <select id="selectByNameOrCategoryIdOrStatus" resultType="com.sky.vo.DishVO">
+    <select id="selectByNameOrCategoryIdOrStatus" resultType="com.sky.vo.Orders">
         select
         d.id as id,
         d.name as name,

@@ -11,7 +11,7 @@ import com.sky.exception.BaseException;
 import com.sky.mapper.DishMapper;
 import com.sky.result.PageResult;
 import com.sky.service.DishService;
-import com.sky.vo.DishVO;
+import com.sky.vo.Orders;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +51,7 @@ public class DishServiceImpl implements DishService {
 
         // 名称、分类、状态 任一有效，则忽略分页参数，根据相应条件查询
         if (!(nameInvalid && categoryInvalid && statusInvalid)) {
-            List<DishVO> dishList = dishMapper.selectByNameOrCategoryIdOrStatus(trimName, dishPageQueryDTO.getCategoryId(), dishPageQueryDTO.getStatus());
+            List<Orders> dishList = dishMapper.selectByNameOrCategoryIdOrStatus(trimName, dishPageQueryDTO.getCategoryId(), dishPageQueryDTO.getStatus());
             return new PageResult(dishList.size(), dishList);
         }
 
@@ -63,7 +63,7 @@ public class DishServiceImpl implements DishService {
         // ------------------------------------------------------------------------
         // 名称、分类、状态 均无效，分页参数有效，执行正常分页查询
         PageHelper.startPage(dishPageQueryDTO.getPage(), dishPageQueryDTO.getPageSize());
-        Page<DishVO> dishPage = (Page<DishVO>) dishMapper.selectAll();
+        Page<Orders> dishPage = (Page<Orders>) dishMapper.selectAll();
 
         return new PageResult(dishPage.getTotal(), dishPage.getResult());
     }
@@ -75,7 +75,7 @@ public class DishServiceImpl implements DishService {
      * @return
      */
     @Override
-    public DishVO selectById(Long id) {
+    public Orders selectById(Long id) {
         if (id == null) {
             throw new BaseException(MessageConstant.DISH_QUERY_ILLEGAL_ARGUMENT);
         }
@@ -227,7 +227,7 @@ public class DishServiceImpl implements DishService {
      * @return
      */
     @Override
-    public List<DishVO> selectAllByCategoryId(Long categoryId) {
+    public List<Orders> selectAllByCategoryId(Long categoryId) {
         if (categoryId == null) {
             // 菜品查询参数有误
             throw new BaseException(MessageConstant.DISH_QUERY_ILLEGAL_ARGUMENT);
@@ -237,7 +237,7 @@ public class DishServiceImpl implements DishService {
     }
 
     @Override
-    public List<DishVO> listWithFlavors(Dish queryDish) {
+    public List<Orders> listWithFlavors(Dish queryDish) {
         return dishMapper.listWithFlavors(queryDish);
     }
 

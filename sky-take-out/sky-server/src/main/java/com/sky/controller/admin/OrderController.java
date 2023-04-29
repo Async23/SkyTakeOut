@@ -33,4 +33,10 @@ public class OrderController {
 
         return Result.success(pageResult);
     }
+
+    // TODO: 2023/4/29
+    /*@GetMapping("/statistics")
+    public Result statistics() {
+        return null;
+    }*/
 }

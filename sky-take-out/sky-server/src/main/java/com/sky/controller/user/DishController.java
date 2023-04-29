@@ -4,7 +4,7 @@ import com.sky.constant.StatusConstant;
 import com.sky.entity.Dish;
 import com.sky.result.Result;
 import com.sky.service.DishService;
-import com.sky.vo.DishVO;
+import com.sky.vo.Orders;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -40,15 +40,15 @@ public class DishController {
      */
     @GetMapping("/list")
     @ApiOperation("根据 categoryId 查询所有菜品 `(*>﹏<*)′")
-    public Result<List<DishVO>> selectAllByCategoryId(Long categoryId) {
+    public Result<List<Orders>> selectAllByCategoryId(Long categoryId) {
         String key = "dish_" + categoryId;
-        List<DishVO> dishVOListRedis = (List<DishVO>) redisTemplate.opsForValue().get(key);
+        List<Orders> dishVOListRedis = (List<Orders>) redisTemplate.opsForValue().get(key);
         log.info("在 redis 中查找 key:{}", key);
 
         if (dishVOListRedis == null || dishVOListRedis.size() == 0) {
             log.info("缓存未命中");
             Dish queryDish = Dish.builder().categoryId(categoryId).status(StatusConstant.ENABLE).build();
-            List<DishVO> dishVOListMySQL = dishService.listWithFlavors(queryDish);
+            List<Orders> dishVOListMySQL = dishService.listWithFlavors(queryDish);
             redisTemplate.opsForValue().set(key, dishVOListMySQL);
             return Result.success(dishVOListMySQL);
         }

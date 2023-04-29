@@ -1,5 +1,6 @@
 package com.sky.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -15,6 +16,7 @@ import com.sky.mapper.*;
 import com.sky.result.PageResult;
 import com.sky.service.OrderService;
 import com.sky.utils.WeChatPayUtil;
+import com.sky.vo.Orders;
 import com.sky.vo.OrderPaymentVO;
 import com.sky.vo.OrderSubmitVO;
 import com.sky.vo.OrderVO;
@@ -74,15 +76,15 @@ public class OrderServiceImpl implements OrderService {
         }
 
         // 构造订单数据
-        Orders order = new Orders();
+        com.sky.entity.Orders order = new com.sky.entity.Orders();
         BeanUtils.copyProperties(ordersSubmitDTO, order);
         order.setPhone(addressBook.getPhone());
         order.setAddress(addressBook.getDetail());
         order.setConsignee(addressBook.getConsignee());
         order.setNumber(String.valueOf(System.currentTimeMillis()));
         order.setUserId(userId);
-        order.setStatus(Orders.PENDING_PAYMENT);
-        order.setPayStatus(Orders.UN_PAID);
+        order.setStatus(com.sky.entity.Orders.PENDING_PAYMENT);
+        order.setPayStatus(com.sky.entity.Orders.UN_PAID);
         order.setOrderTime(LocalDateTime.now());
 
         // 向订单表插入1条数据
@@ -159,13 +161,13 @@ public class OrderServiceImpl implements OrderService {
         Long userId = BaseContext.getCurrentId();
 
         // 根据订单号查询当前用户的订单
-        Orders ordersDB = orderMapper.getByNumberAndUserId(outTradeNo, userId);
+        com.sky.entity.Orders ordersDB = orderMapper.getByNumberAndUserId(outTradeNo, userId);
 
         // 根据订单id更新订单的状态、支付方式、支付状态、结账时间
-        Orders orders = Orders.builder()
+        com.sky.entity.Orders orders = com.sky.entity.Orders.builder()
                 .id(ordersDB.getId())
-                .status(Orders.TO_BE_CONFIRMED)
-                .payStatus(Orders.PAID)
+                .status(com.sky.entity.Orders.TO_BE_CONFIRMED)
+                .payStatus(com.sky.entity.Orders.PAID)
                 .checkoutTime(LocalDateTime.now())
                 .build();
 
@@ -187,7 +189,12 @@ public class OrderServiceImpl implements OrderService {
 
         PageHelper.startPage(ordersPageQueryDTO.getPage(), ordersPageQueryDTO.getPageSize());
         List<OrderVO> orderVOList = orderMapper.listByCondition(ordersPageQueryDTO);
-        orderVOList.forEach(orderVO -> orderVO.setOrderDishes(orderDetailMapper.listDishesByOrderId(orderVO.getId()).toString()));
+        orderVOList.forEach(orderVO -> {
+            List<OrderDetail> orderDetailList = orderDetailMapper.listByOrderId(orderVO.getId());
+            orderDetailList.forEach(orderDetail -> orderVO.setOrderDishes(
+                    (orderVO.getOrderDishes() == null ? "" : orderVO.getOrderDishes())
+                            + orderDetail.getName() + "*" + orderDetail.getAmount() + "；"));
+        });
         Page<OrderVO> page = (Page<OrderVO>) orderVOList;
 
         return new PageResult(page.getTotal(), page.getResult());

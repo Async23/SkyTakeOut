@@ -5,7 +5,7 @@ import com.sky.dto.DishDTO;
 import com.sky.entity.Dish;
 import com.sky.entity.DishFlavor;
 import com.sky.enumeration.OperationType;
-import com.sky.vo.DishVO;
+import com.sky.vo.Orders;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -19,11 +19,11 @@ import java.util.Map;
  */
 @Mapper
 public interface DishMapper {
-    List<DishVO> selectByNameOrCategoryIdOrStatus(String name, Integer categoryId, Integer status);
+    List<Orders> selectByNameOrCategoryIdOrStatus(String name, Integer categoryId, Integer status);
 
-    List<DishVO> selectAll();
+    List<Orders> selectAll();
 
-    DishVO selectById(Long id);
+    Orders selectById(Long id);
 
     List<DishFlavor> selectFlavors(Long flavorId);
 
@@ -45,7 +45,7 @@ public interface DishMapper {
 
     List<Map<String, Object>> selectStatusAndRelatedCountsByIds(List<Long> ids);
 
-    List<DishVO> listWithFlavors(Dish queryDish);
+    List<Orders> listWithFlavors(Dish queryDish);
 
     Dish getById(Long dishId);
 }

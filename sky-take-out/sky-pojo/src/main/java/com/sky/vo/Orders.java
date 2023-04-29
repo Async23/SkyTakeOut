@@ -16,7 +16,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishVO implements Serializable {
+public class Orders implements Serializable {
 
     private Long id;
 

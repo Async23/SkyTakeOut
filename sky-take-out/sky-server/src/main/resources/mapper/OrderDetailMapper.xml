@@ -12,10 +12,17 @@
     </insert>
 
     <!--根据订单 id 获取菜品信息-->
-    <select id="listDishesByOrderId" resultType="com.sky.vo.DishVO" parameterType="java.lang.Long">
-        select *
-        from order_detail as od
-                 left join dish as d on d.id = od.dish_id
-        where od.order_id = #{orderId}
+    <select id="listByOrderId" resultType="com.sky.entity.OrderDetail" parameterType="java.lang.Long">
+        select od.name        as name,
+               od.order_id    as orderId,
+               od.dish_id     as dishId,
+               od.setmeal_id  as setmealId,
+               od.dish_flavor as dishFlavor,
+               od.number      as number,
+               od.amount      as amount,
+               od.image       as image
+        from orders as o
+                 join order_detail as od on o.id = od.order_id
+        where o.id = #{orderId}
     </select>
 </mapper>

@@ -1,7 +1,7 @@
 package com.sky.mapper;
 
 import com.sky.entity.OrderDetail;
-import com.sky.vo.DishVO;
+import com.sky.vo.Orders;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -21,5 +21,5 @@ public interface OrderDetailMapper {
      * @param orderId
      * @return
      */
-    List<DishVO> listDishesByOrderId(Long orderId);
+    List<OrderDetail> listByOrderId(Long orderId);
 }
