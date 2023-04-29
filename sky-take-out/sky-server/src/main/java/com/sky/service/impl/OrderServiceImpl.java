@@ -208,7 +208,7 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
-    public void cancel(OrdersCancelDTO ordersCancelDTO) {
+    public void adminCancel(OrdersCancelDTO ordersCancelDTO) {
         if (ordersCancelDTO == null) {
             // 取消订单参数有误
             throw new BaseException(MessageConstant.ORDER_CANCLE_ILLEGAL_ARGUMENT);
@@ -349,5 +349,21 @@ public class OrderServiceImpl implements OrderService {
         PageHelper.startPage(ordersPageQueryDTO.getPage(), ordersPageQueryDTO.getPageSize());
         Page<OrderVO> orderVOPage = (Page<OrderVO>) orderMapper.listByCondition(ordersPageQueryDTO);
         return new PageResult(orderVOPage.getTotal(), orderVOPage.getResult());
+    }
+
+    /**
+     * 用户取消订单
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public void cancel(Long id) {
+        if (id == null) {
+            // 取消订单参数有误
+            throw new BaseException(MessageConstant.ORDER_CANCLE_ILLEGAL_ARGUMENT);
+        }
+
+        adminCancel(OrdersCancelDTO.builder().id(id).build());
     }
 }

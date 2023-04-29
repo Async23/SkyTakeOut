@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:历史订单查询 功能(historyOrders 方法)完成&#10;fix:OrderMapper.xml 中 listByCondition 修复：使用了 resultMap">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:userOrderController 中，查询订单详情 功能完成(selectById 方法)">
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/OrdersCancelDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/OrdersCancelDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,14 +259,7 @@
       <workItem from="1682730177262" duration="88000" />
       <workItem from="1682730274006" duration="5373000" />
       <workItem from="1682736346223" duration="5932000" />
-      <workItem from="1682749395747" duration="17209000" />
-    </task>
-    <task id="LOCAL-00037" summary="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 标签时会使用) 修改">
-      <created>1682125114016</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1682125114016</updated>
+      <workItem from="1682749395747" duration="17568000" />
     </task>
     <task id="LOCAL-00038" summary="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 和 “新建套餐” 时会使用) 修改，弃用 Mapper 方法，使用分页查询的同套流程，信息更全">
       <created>1682125210989</created>
@@ -600,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682768485307</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="add:userOrderController 中，查询订单详情 功能完成(selectById 方法)">
+      <created>1682768771964</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1682768771964</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -629,7 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix:adminDishController 分页查询(selectPage 方法)修复:resultMap 搭配 PaghHelper 的个数错误问题" />
     <MESSAGE value="fix:DishMapper 中 listWithFlavors 方法修复:删除一个表和一些字段，来使用嵌套查询" />
     <MESSAGE value="fix:DishMapper 中 selectFlavorsInner 内嵌搜索修复:dfName =&gt; name" />
     <MESSAGE value="add:adminDishController 中新增菜品清除缓存完成" />
@@ -654,7 +657,8 @@
     <MESSAGE value="add:派送订单 功能(delivery 方法)完成" />
     <MESSAGE value="add:完成订单 功能(complete 方法)完成" />
     <MESSAGE value="add:历史订单查询 功能(historyOrders 方法)完成&#10;fix:OrderMapper.xml 中 listByCondition 修复：使用了 resultMap" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:历史订单查询 功能(historyOrders 方法)完成&#10;fix:OrderMapper.xml 中 listByCondition 修复：使用了 resultMap" />
+    <MESSAGE value="add:userOrderController 中，查询订单详情 功能完成(selectById 方法)" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:userOrderController 中，查询订单详情 功能完成(selectById 方法)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
