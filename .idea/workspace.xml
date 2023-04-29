@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:完成订单 功能(complete 方法)完成">
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/vo/DishVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/DishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/DishController.java" afterDir="false" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:历史订单查询 功能(historyOrders 方法)完成&#10;fix:OrderMapper.xml 中 listByCondition 修复：使用了 resultMap">
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/DishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/DishMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/DishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/DishService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,14 +255,7 @@
       <workItem from="1682730177262" duration="88000" />
       <workItem from="1682730274006" duration="5373000" />
       <workItem from="1682736346223" duration="5932000" />
-      <workItem from="1682749395747" duration="16869000" />
-    </task>
-    <task id="LOCAL-00036" summary="add:Dish 模块中，根据 categoryId 查询所有菜品 (selectAllByCategoryId 方法，新增套餐时使用) 完成">
-      <created>1682124633762</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1682124633762</updated>
+      <workItem from="1682749395747" duration="17209000" />
     </task>
     <task id="LOCAL-00037" summary="fix:Category 模块中，list 路径的 category 分页查询(selectPageOne 方法，点击 “套餐管理” 标签时会使用) 修改">
       <created>1682125114016</created>
@@ -610,7 +593,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682763086785</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="add:历史订单查询 功能(historyOrders 方法)完成&#10;fix:OrderMapper.xml 中 listByCondition 修复：使用了 resultMap">
+      <created>1682768485307</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1682768485307</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +629,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:userSetmealController根据套餐 id 查询菜品(selectDishesById 方法)完成" />
     <MESSAGE value="fix:adminDishController 分页查询(selectPage 方法)修复:resultMap 搭配 PaghHelper 的个数错误问题" />
     <MESSAGE value="fix:DishMapper 中 listWithFlavors 方法修复:删除一个表和一些字段，来使用嵌套查询" />
     <MESSAGE value="fix:DishMapper 中 selectFlavorsInner 内嵌搜索修复:dfName =&gt; name" />
@@ -664,7 +653,8 @@
     <MESSAGE value="add:接单 功能(confirm 方法)完成" />
     <MESSAGE value="add:派送订单 功能(delivery 方法)完成" />
     <MESSAGE value="add:完成订单 功能(complete 方法)完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:完成订单 功能(complete 方法)完成" />
+    <MESSAGE value="add:历史订单查询 功能(historyOrders 方法)完成&#10;fix:OrderMapper.xml 中 listByCondition 修复：使用了 resultMap" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:历史订单查询 功能(historyOrders 方法)完成&#10;fix:OrderMapper.xml 中 listByCondition 修复：使用了 resultMap" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
