@@ -43,9 +43,6 @@
         where id = #{id}
     </update>
 
-    <resultMap id="orderVO" type="com.sky.vo.OrderVO">
-
-    </resultMap>
     <!--订单条件搜索-->
     <select id="listByCondition" resultType="com.sky.vo.OrderVO" parameterType="com.sky.dto.OrdersPageQueryDTO">
         select * from orders
@@ -66,6 +63,53 @@
                 and order_time between #{beginTime} and #{endTime}
             </if>
         </where>
+    </select>
+
+    <!--根据 id 查询订单详情-->
+    <resultMap id="orderVO" type="com.sky.vo.OrderVO" autoMapping="true">
+        <id column="id" property="id"/>
+        <collection property="orderDetailList" javaType="java.util.ArrayList" ofType="com.sky.entity.OrderDetail">
+            <id column="odId" property="id"/>
+            <result column="odNumber" property="number"/>
+        </collection>
+    </resultMap>
+    <select id="selectById" resultMap="orderVO" parameterType="java.lang.Long">
+        select o.id                      as id,
+               o.number                  as number,
+               o.status                  as status,
+               o.user_id                 as userId,
+               o.address_book_id         as addressBookId,
+               o.order_time              as orderTime,
+               o.checkout_time           as checkoutTime,
+               o.pay_method              as payMethod,
+               o.pay_status              as payStatus,
+               o.amount                  as amount,
+               o.remark                  as remark,
+               o.phone                   as phone,
+               o.address                 as address,
+               o.user_name               as userName,
+               o.consignee               as consignee,
+               o.cancel_reason           as cancelReason,
+               o.rejection_reason        as rejectionReason,
+               o.cancel_time             as cancelTime,
+               o.estimated_delivery_time as estimatedDeliveryTime,
+               o.delivery_status         as deliveryStatus,
+               o.delivery_time           as deliveryTime,
+               o.pack_amount             as packAmount,
+               o.tableware_number        as tablewareNumber,
+               o.tableware_status        as tablewareStatus,
+               od.id                     as odId,
+               od.name                   as name,
+               od.image                  as image,
+               od.order_id               as orderId,
+               od.dish_id                as dishId,
+               od.setmeal_id             as setmealId,
+               od.dish_flavor            as dishFlavor,
+               od.number                 as odNumber,
+               od.amount                 as amount
+        from orders as o
+                 inner join order_detail as od on o.id = od.order_id
+        where o.id = #{id}
     </select>
 
 </mapper>

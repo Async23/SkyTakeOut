@@ -45,4 +45,12 @@ public interface OrderMapper {
      */
     // TODO: 2023/4/29  
     List<OrderVO> listByCondition(OrdersPageQueryDTO ordersPageQueryDTO);
+
+    /**
+     * 根据 id 查询订单详情
+     *
+     * @param id
+     * @return OrderVO
+     */
+    OrderVO selectById(Long id);
 }

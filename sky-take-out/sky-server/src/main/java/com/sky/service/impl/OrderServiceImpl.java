@@ -221,4 +221,20 @@ public class OrderServiceImpl implements OrderService {
                         .build());
     }
 
+    /**
+     * 根据 id 查询订单详情
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public OrderVO selectById(Long id) {
+        if (id == null) {
+            // 订单 id 查询参数有误
+            throw new BaseException(MessageConstant.ORDER_QUERY_BY_ID_ILLEGAL_ARGUMENT);
+        }
+
+        return orderMapper.selectById(id);
+    }
+
 }

@@ -5,6 +5,7 @@ import com.sky.dto.OrdersPageQueryDTO;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.OrderService;
+import com.sky.vo.OrderVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -45,5 +46,19 @@ public class OrderController {
         orderService.cancel(ordersCancelDTO);
 
         return Result.success();
+    }
+
+    /**
+     * 根据 id 查询订单详情
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/details/{id}")
+    @ApiOperation("查询订单详情")
+    public Result<OrderVO> selectById(@PathVariable Long id) {
+        OrderVO orderVO = orderService.selectById(id);
+
+        return Result.success(orderVO);
     }
 }
