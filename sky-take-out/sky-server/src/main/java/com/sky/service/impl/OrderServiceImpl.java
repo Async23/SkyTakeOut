@@ -237,4 +237,27 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.selectById(id);
     }
 
+    /**
+     * 拒单
+     *
+     * @param ordersRejectionDTO
+     * @return
+     */
+    @Override
+    public void rejection(OrdersRejectionDTO ordersRejectionDTO) {
+        if (ordersRejectionDTO == null) {
+            // 拒绝订单参数有误
+            throw new BaseException(MessageConstant.ORDER_REJECTION_ILLEGAL_ARGUMENT);
+        }
+
+        orderMapper.update(
+                Orders.builder()
+                        .id(ordersRejectionDTO.getId())
+                        // TODO: 2023/4/29 拒单后状态
+                        .status(6)
+                        .rejectionReason(ordersRejectionDTO.getRejectionReason())
+                        .build());
+
+    }
+
 }

@@ -52,4 +52,12 @@ public interface OrderService {
      * @return
      */
     OrderVO selectById(Long id);
+
+    /**
+     * 拒单
+     *
+     * @param ordersRejectionDTO
+     * @return
+     */
+    void rejection(OrdersRejectionDTO ordersRejectionDTO);
 }

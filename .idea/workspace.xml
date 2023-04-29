@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:取消订单 功能完成">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:根据 id 查询订单详情 功能完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,14 +259,7 @@
       <workItem from="1682730177262" duration="88000" />
       <workItem from="1682730274006" duration="5373000" />
       <workItem from="1682736346223" duration="5932000" />
-      <workItem from="1682749395747" duration="3851000" />
-    </task>
-    <task id="LOCAL-00028" summary="add:公共字段填充：DishController 中，insertDish 方法测试成功">
-      <created>1682043730741</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1682043730741</updated>
+      <workItem from="1682749395747" duration="4614000" />
     </task>
     <task id="LOCAL-00029" summary="update:DishMapper 中，selectAll 和 selectByNameOrCategoryIdOrStatus 方法，新增按最后操作时间降序排序">
       <created>1682045004086</created>
@@ -607,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682740449928</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="add:根据 id 查询订单详情 功能完成">
+      <created>1682753437450</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1682753437450</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,7 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="save:2023.4.23 代码保存" />
     <MESSAGE value="update:SetmealController 套餐模块 update (更新套餐方法逻辑完善)" />
     <MESSAGE value="add:UserController 微信用户登录模块完成" />
     <MESSAGE value="add:user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)完成" />
@@ -661,7 +657,8 @@
     <MESSAGE value="add:订单搜索 功能完成" />
     <MESSAGE value="fix:订单搜索 功能修复：菜品字符串形式显示" />
     <MESSAGE value="add:取消订单 功能完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:取消订单 功能完成" />
+    <MESSAGE value="add:根据 id 查询订单详情 功能完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:根据 id 查询订单详情 功能完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

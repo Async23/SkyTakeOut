@@ -74,6 +74,7 @@ public class MessageConstant {
     public static final String ORDER_QUERY_PAGE_ILLEGAL_ARGUMENT = "订单分页查询参数有误";
     public static final String ORDER_QUERY_BY_ID_ILLEGAL_ARGUMENT = "订单 id 查询参数有误";
     public static final String ORDER_CANCLE_ILLEGAL_ARGUMENT = "取消订单参数有误";
+    public static final String ORDER_REJECTION_ILLEGAL_ARGUMENT = "拒绝订单参数有误";
 
 
 }
