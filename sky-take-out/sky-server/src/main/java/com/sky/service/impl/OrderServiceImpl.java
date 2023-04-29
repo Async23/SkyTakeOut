@@ -16,7 +16,6 @@ import com.sky.mapper.*;
 import com.sky.result.PageResult;
 import com.sky.service.OrderService;
 import com.sky.utils.WeChatPayUtil;
-import com.sky.vo.Orders;
 import com.sky.vo.OrderPaymentVO;
 import com.sky.vo.OrderSubmitVO;
 import com.sky.vo.OrderVO;
@@ -199,4 +198,27 @@ public class OrderServiceImpl implements OrderService {
 
         return new PageResult(page.getTotal(), page.getResult());
     }
+
+    /**
+     * 取消订单
+     *
+     * @param ordersCancelDTO
+     * @return
+     */
+    @Override
+    public void cancel(OrdersCancelDTO ordersCancelDTO) {
+        if (ordersCancelDTO == null) {
+            // 取消订单参数有误
+            throw new BaseException(MessageConstant.ORDER_CANCLE_ILLEGAL_ARGUMENT);
+        }
+
+        orderMapper.update(
+                Orders.builder()
+                        .id(ordersCancelDTO.getId())
+                        .status(6)
+                        .cancelReason(ordersCancelDTO.getCancelReason())
+                        .cancelTime(LocalDateTime.now())
+                        .build());
+    }
+
 }

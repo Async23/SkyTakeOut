@@ -20,9 +20,9 @@ import java.util.List;
  * @author Async_
  */
 @Slf4j
-@RestController("adminCategoryController")
-@RequestMapping("/admin/category")
 @Api(tags = "分类管理 ψ(｀∇´)ψ")
+@RequestMapping("/admin/category")
+@RestController("adminCategoryController")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;

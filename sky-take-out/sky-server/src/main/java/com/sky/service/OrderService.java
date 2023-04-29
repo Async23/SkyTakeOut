@@ -36,4 +36,12 @@ public interface OrderService {
      * @return
      */
     PageResult listByCondition(OrdersPageQueryDTO ordersPageQueryDTO);
+
+    /**
+     * 取消订单
+     *
+     * @param ordersCancelDTO
+     * @return
+     */
+    void cancel(OrdersCancelDTO ordersCancelDTO);
 }
