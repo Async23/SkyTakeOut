@@ -112,4 +112,19 @@
         where o.id = #{id}
     </select>
 
+    <!--各个状态的订单数量统计-->
+    <select id="statistics" resultType="com.sky.vo.OrderStatisticsVO">
+        select sum(if(status_cut = 'toBeConfirmed', count, 0))      as toBeConfirmed,
+               sum(if(status_cut = 'confirmed', count, 0))          as confirmed,
+               sum(if(status_cut = 'deliveryInProgress', count, 0)) as deliveryInProgress
+        from (select case
+                         when status = 2 then 'toBeConfirmed'
+                         when status = 3 then 'confirmed'
+                         when status = 4 then 'deliveryInProgress'
+                         end      status_cut,
+                     count(id) as count
+              from orders
+              group by status) as t_status
+    </select>
+
 </mapper>

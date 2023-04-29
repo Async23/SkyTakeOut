@@ -60,4 +60,11 @@ public interface OrderService {
      * @return
      */
     void rejection(OrdersRejectionDTO ordersRejectionDTO);
+
+    /**
+     * 各个状态的订单数量统计
+     *
+     * @return OrderStatisticsVO
+     */
+    OrderStatisticsVO statistics();
 }
