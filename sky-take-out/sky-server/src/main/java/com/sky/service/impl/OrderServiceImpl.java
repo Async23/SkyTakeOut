@@ -194,7 +194,7 @@ public class OrderServiceImpl implements OrderService {
             List<OrderDetail> orderDetailList = orderDetailMapper.listByOrderId(orderVO.getId());
             orderDetailList.forEach(orderDetail -> orderVO.setOrderDishes(
                     (orderVO.getOrderDishes() == null ? "" : orderVO.getOrderDishes())
-                            + orderDetail.getName() + "*" + orderDetail.getAmount() + "；"));
+                            + orderDetail.getName() + "* " + orderDetail.getNumber() + "；"));
         });
         Page<OrderVO> page = (Page<OrderVO>) orderVOList;
 

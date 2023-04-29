@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:拒单 功能完成">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:各个状态的订单数量统计 功能(statistics 方法)完成" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -260,14 +253,7 @@
       <workItem from="1682730177262" duration="88000" />
       <workItem from="1682730274006" duration="5373000" />
       <workItem from="1682736346223" duration="5932000" />
-      <workItem from="1682749395747" duration="11141000" />
-    </task>
-    <task id="LOCAL-00030" summary="DishMapper:DishMapper 中，dishVO(resultMap) 补上 description">
-      <created>1682045354983</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1682045354983</updated>
+      <workItem from="1682749395747" duration="11512000" />
     </task>
     <task id="LOCAL-00031" summary="fix:DishMapper 中，dishVO(resultMap) 补上 description">
       <created>1682045399372</created>
@@ -605,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682754045026</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="add:各个状态的订单数量统计 功能(statistics 方法)完成">
+      <created>1682760955792</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1682760955792</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -634,7 +627,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:UserController 微信用户登录模块完成" />
     <MESSAGE value="add:user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)完成" />
     <MESSAGE value="fix:纠正 user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)中的的错误：xml 文件中 category_id 单词拼写错误" />
     <MESSAGE value="add:user/DishController 的根据 categoryId 查询所有菜品(selectAllByCategoryId 方法)完成" />
@@ -659,7 +651,19 @@
     <MESSAGE value="add:取消订单 功能完成" />
     <MESSAGE value="add:根据 id 查询订单详情 功能完成" />
     <MESSAGE value="add:拒单 功能完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:拒单 功能完成" />
+    <MESSAGE value="add:各个状态的订单数量统计 功能(statistics 方法)完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:各个状态的订单数量统计 功能(statistics 方法)完成" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java</url>
+          <line>193</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
