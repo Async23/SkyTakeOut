@@ -31,8 +31,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public void addShoppingCart(ShoppingCartDTO shoppingCartDTO) {
-        log.info(this.toString());
-        log.info(Thread.currentThread().toString());
         ShoppingCart shoppingCart = new ShoppingCart();
         BeanUtils.copyProperties(shoppingCartDTO, shoppingCart);
         // 只能查询⾃⼰的购物⻋数据

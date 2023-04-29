@@ -71,6 +71,7 @@ public class MessageConstant {
      */
     public static final String ORDER_STATUS_ERROR = "订单状态错误";
     public static final String ORDER_NOT_FOUND = "订单不存在";
+    public static final String ORDER_REPETITION_ILLEGAL_ARGUMENT = "再来一单参数有误";
     public static final String ORDER_QUERY_PAGE_ILLEGAL_ARGUMENT = "订单分页查询参数有误";
     public static final String ORDER_QUERY_BY_ID_ILLEGAL_ARGUMENT = "订单 id 查询参数有误";
     public static final String ORDER_CANCLE_ILLEGAL_ARGUMENT = "取消订单参数有误";

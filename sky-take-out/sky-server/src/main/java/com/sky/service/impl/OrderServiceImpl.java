@@ -50,6 +50,9 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private WeChatPayUtil weChatPayUtil;
 
+    @Autowired
+    private ShoppingCartServiceImpl shoppingCartService;
+
     /**
      * 用户下单
      *
@@ -365,5 +368,27 @@ public class OrderServiceImpl implements OrderService {
         }
 
         adminCancel(OrdersCancelDTO.builder().id(id).build());
+    }
+
+    /**
+     * 再来一单
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public void repetition(Long id) {
+        if (id == null) {
+            // 再来一单参数有误
+            throw new BaseException(MessageConstant.ORDER_REPETITION_ILLEGAL_ARGUMENT);
+        }
+
+        List<OrderDetail> orderDetails = orderDetailMapper.listByOrderId(id);
+        orderDetails.forEach(orderDetail -> shoppingCartService.addShoppingCart(ShoppingCartDTO.builder()
+                .dishId(orderDetail.getDishId())
+                .setmealId(orderDetail.getSetmealId())
+                .dishFlavor(orderDetail.getDishFlavor())
+                .build()
+        ));
     }
 }
