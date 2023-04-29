@@ -332,4 +332,22 @@ public class OrderServiceImpl implements OrderService {
                 .id(id)
                 .build());
     }
+
+    /**
+     * 历史订单查询
+     *
+     * @param ordersPageQueryDTO
+     * @return
+     */
+    @Override
+    public PageResult historyOrders(OrdersPageQueryDTO ordersPageQueryDTO) {
+        if (ordersPageQueryDTO == null || ordersPageQueryDTO.getPage() == null || ordersPageQueryDTO.getPageSize() == null) {
+            // 订单分页查询参数有误
+            throw new BaseException(MessageConstant.ORDER_QUERY_PAGE_ILLEGAL_ARGUMENT);
+        }
+
+        PageHelper.startPage(ordersPageQueryDTO.getPage(), ordersPageQueryDTO.getPageSize());
+        Page<OrderVO> orderVOPage = (Page<OrderVO>) orderMapper.listByCondition(ordersPageQueryDTO);
+        return new PageResult(orderVOPage.getTotal(), orderVOPage.getResult());
+    }
 }

@@ -43,27 +43,7 @@
         where id = #{id}
     </update>
 
-    <!--订单条件搜索-->
-    <select id="listByCondition" resultType="com.sky.vo.OrderVO" parameterType="com.sky.dto.OrdersPageQueryDTO">
-        select * from orders
-        <where>
-            <if test="number != null and number != ''">
-                number like concat('%',#{number},'%')
-            </if>
-            <if test="phone != null and phone != ''">
-                and phone like concat('%',#{phone},'%')
-            </if>
-            <if test="status != null">
-                and status = #{status}
-            </if>
-            <if test="userId != null">
-                and user_id = #{userId}
-            </if>
-            <if test="beginTime != null and endTime != null">
-                and order_time between #{beginTime} and #{endTime}
-            </if>
-        </where>
-    </select>
+
 
     <!--根据 id 查询订单详情-->
     <resultMap id="orderVO" type="com.sky.vo.OrderVO" autoMapping="true">
@@ -110,6 +90,62 @@
         from orders as o
                  inner join order_detail as od on o.id = od.order_id
         where o.id = #{id}
+    </select>
+
+    <!--订单条件搜索-->
+    <select id="listByCondition" resultMap="orderVO" parameterType="com.sky.dto.OrdersPageQueryDTO">
+        select o.id as id,
+        o.number as number,
+        o.status as status,
+        o.user_id as userId,
+        o.address_book_id as addressBookId,
+        o.order_time as orderTime,
+        o.checkout_time as checkoutTime,
+        o.pay_method as payMethod,
+        o.pay_status as payStatus,
+        o.amount as amount,
+        o.remark as remark,
+        o.phone as phone,
+        o.address as address,
+        o.user_name as userName,
+        o.consignee as consignee,
+        o.cancel_reason as cancelReason,
+        o.rejection_reason as rejectionReason,
+        o.cancel_time as cancelTime,
+        o.estimated_delivery_time as estimatedDeliveryTime,
+        o.delivery_status as deliveryStatus,
+        o.delivery_time as deliveryTime,
+        o.pack_amount as packAmount,
+        o.tableware_number as tablewareNumber,
+        o.tableware_status as tablewareStatus,
+        od.id as odId,
+        od.name as name,
+        od.image as image,
+        od.order_id as orderId,
+        od.dish_id as dishId,
+        od.setmeal_id as setmealId,
+        od.dish_flavor as dishFlavor,
+        od.number as odNumber,
+        od.amount as amount
+        from orders as o
+        inner join order_detail as od on o.id = od.order_id
+        <where>
+            <if test="number != null and number != ''">
+                number like concat('%',#{number},'%')
+            </if>
+            <if test="phone != null and phone != ''">
+                and phone like concat('%',#{phone},'%')
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="beginTime != null and endTime != null">
+                and order_time between #{beginTime} and #{endTime}
+            </if>
+        </where>
     </select>
 
     <!--各个状态的订单数量统计-->

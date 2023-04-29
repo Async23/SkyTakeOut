@@ -1,7 +1,9 @@
 package com.sky.controller.user;
 
+import com.sky.dto.OrdersPageQueryDTO;
 import com.sky.dto.OrdersPaymentDTO;
 import com.sky.dto.OrdersSubmitDTO;
+import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.OrderService;
 import com.sky.vo.OrderPaymentVO;
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
  * 订单
  */
 @Slf4j
-@Api(tags = "C端订单接口")
+@Api(tags = "C 端订单接口")
 @RequestMapping("/user/order")
 @RestController("userOrderController")
 public class OrderController {
@@ -51,5 +53,20 @@ public class OrderController {
         OrderPaymentVO orderPaymentVO = orderService.payment(ordersPaymentDTO);
         log.info("生成预支付交易单：{}", orderPaymentVO);
         return Result.success(orderPaymentVO);
+    }
+
+    /**
+     * 历史订单查询
+     *
+     * @param ordersPageQueryDTO
+     * @return
+     */
+    @GetMapping("/historyOrders")
+    @ApiOperation("历史订单查询")
+    public Result<PageResult> historyOrders(OrdersPageQueryDTO ordersPageQueryDTO) {
+        log.info("历史订单查询：{}", ordersPageQueryDTO);
+        PageResult ordersPageResult = orderService.historyOrders(ordersPageQueryDTO);
+
+        return Result.success(ordersPageResult);
     }
 }

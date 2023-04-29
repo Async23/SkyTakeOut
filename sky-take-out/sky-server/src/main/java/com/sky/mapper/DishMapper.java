@@ -5,6 +5,7 @@ import com.sky.dto.DishDTO;
 import com.sky.entity.Dish;
 import com.sky.entity.DishFlavor;
 import com.sky.enumeration.OperationType;
+import com.sky.vo.DishVO;
 import com.sky.vo.Orders;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -45,7 +46,7 @@ public interface DishMapper {
 
     List<Map<String, Object>> selectStatusAndRelatedCountsByIds(List<Long> ids);
 
-    List<Orders> listWithFlavors(Dish queryDish);
+    List<DishVO> listWithFlavors(Dish queryDish);
 
     Dish getById(Long dishId);
 }

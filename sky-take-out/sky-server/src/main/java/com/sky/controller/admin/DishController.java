@@ -5,6 +5,7 @@ import com.sky.dto.DishPageQueryDTO;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.DishService;
+import com.sky.vo.DishVO;
 import com.sky.vo.Orders;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -41,7 +42,7 @@ public class DishController {
     @GetMapping("/list")
     @ApiOperation("根据 categoryId 查询所有菜品 `(*>﹏<*)′")
     public Result selectAllByCategoryId(Long categoryId) {
-        List<Orders> dishVOList = dishService.selectAllByCategoryId(categoryId);
+        List<DishVO> dishVOList = dishService.selectAllByCategoryId(categoryId);
 
         return Result.success(dishVOList);
     }

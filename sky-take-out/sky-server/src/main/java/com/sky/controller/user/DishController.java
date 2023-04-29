@@ -4,6 +4,7 @@ import com.sky.constant.StatusConstant;
 import com.sky.entity.Dish;
 import com.sky.result.Result;
 import com.sky.service.DishService;
+import com.sky.vo.DishVO;
 import com.sky.vo.Orders;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -40,20 +41,20 @@ public class DishController {
      */
     @GetMapping("/list")
     @ApiOperation("根据 categoryId 查询所有菜品 `(*>﹏<*)′")
-    public Result<List<Orders>> selectAllByCategoryId(Long categoryId) {
+    public Result<List<DishVO>> selectAllByCategoryId(Long categoryId) {
         String key = "dish_" + categoryId;
-        List<Orders> dishVOListRedis = (List<Orders>) redisTemplate.opsForValue().get(key);
-        log.info("在 redis 中查找 key:{}", key);
+        log.info("根据 categoryId 查询所有菜品，key:{}", key);
 
-        if (dishVOListRedis == null || dishVOListRedis.size() == 0) {
-            log.info("缓存未命中");
-            Dish queryDish = Dish.builder().categoryId(categoryId).status(StatusConstant.ENABLE).build();
-            List<Orders> dishVOListMySQL = dishService.listWithFlavors(queryDish);
+        Object obj = redisTemplate.opsForValue().get(key);
+        if (obj == null) {
+            log.info("redis 缓存未命中 ×");
+            List<DishVO> dishVOListMySQL = dishService.listWithFlavors(Dish.builder().categoryId(categoryId).build());
             redisTemplate.opsForValue().set(key, dishVOListMySQL);
             return Result.success(dishVOListMySQL);
         }
 
-        log.info("缓存命中:{}", dishVOListRedis);
-        return Result.success(dishVOListRedis);
+        log.info("redis 缓存命中 √");
+        List<DishVO> dishVOList = (List<DishVO>) obj;
+        return Result.success(dishVOList);
     }
 }

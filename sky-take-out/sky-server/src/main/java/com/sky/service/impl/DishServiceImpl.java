@@ -11,6 +11,7 @@ import com.sky.exception.BaseException;
 import com.sky.mapper.DishMapper;
 import com.sky.result.PageResult;
 import com.sky.service.DishService;
+import com.sky.vo.DishVO;
 import com.sky.vo.Orders;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -227,7 +228,7 @@ public class DishServiceImpl implements DishService {
      * @return
      */
     @Override
-    public List<Orders> selectAllByCategoryId(Long categoryId) {
+    public List<DishVO> selectAllByCategoryId(Long categoryId) {
         if (categoryId == null) {
             // 菜品查询参数有误
             throw new BaseException(MessageConstant.DISH_QUERY_ILLEGAL_ARGUMENT);
@@ -237,7 +238,7 @@ public class DishServiceImpl implements DishService {
     }
 
     @Override
-    public List<Orders> listWithFlavors(Dish queryDish) {
+    public List<DishVO> listWithFlavors(Dish queryDish) {
         return dishMapper.listWithFlavors(queryDish);
     }
 

@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:派送订单 功能(delivery 方法)完成">
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/OrderController.java" afterDir="false" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:完成订单 功能(complete 方法)完成">
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/vo/DishVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/DishController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/DishController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/DishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/DishMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/DishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/DishService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/DishServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,14 +265,7 @@
       <workItem from="1682730177262" duration="88000" />
       <workItem from="1682730274006" duration="5373000" />
       <workItem from="1682736346223" duration="5932000" />
-      <workItem from="1682749395747" duration="13446000" />
-    </task>
-    <task id="LOCAL-00035" summary="update:Dish 模块中，批量删除菜品 (delete 方法) 完善">
-      <created>1682084881422</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1682084881422</updated>
+      <workItem from="1682749395747" duration="16869000" />
     </task>
     <task id="LOCAL-00036" summary="add:Dish 模块中，根据 categoryId 查询所有菜品 (selectAllByCategoryId 方法，新增套餐时使用) 完成">
       <created>1682124633762</created>
@@ -603,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682762754540</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="add:完成订单 功能(complete 方法)完成">
+      <created>1682763086785</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1682763086785</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +639,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix:CategoryService 和 CategoryMapper 更新，去掉了 is_delete 字段" />
     <MESSAGE value="add:userSetmealController根据套餐 id 查询菜品(selectDishesById 方法)完成" />
     <MESSAGE value="fix:adminDishController 分页查询(selectPage 方法)修复:resultMap 搭配 PaghHelper 的个数错误问题" />
     <MESSAGE value="fix:DishMapper 中 listWithFlavors 方法修复:删除一个表和一些字段，来使用嵌套查询" />
@@ -657,7 +663,8 @@
     <MESSAGE value="    @JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)&#10;update:com.sky.entity.Orders 加注解" />
     <MESSAGE value="add:接单 功能(confirm 方法)完成" />
     <MESSAGE value="add:派送订单 功能(delivery 方法)完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:派送订单 功能(delivery 方法)完成" />
+    <MESSAGE value="add:完成订单 功能(complete 方法)完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:完成订单 功能(complete 方法)完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
