@@ -77,6 +77,7 @@ public class MessageConstant {
     public static final String ORDER_REJECTION_ILLEGAL_ARGUMENT = "拒绝订单参数有误";
     public static final String ORDER_CONFIRM_ILLEGAL_ARGUMENT = "接单参数有误";
     public static final String ORDER_CONFIRM_DELIVERY_ILLEGAL_ARGUMENT = "派送订单参数有误";
+    public static final String ORDER_COMPLETE_DELIVERY_ILLEGAL_ARGUMENT = "完成订单参数有误";
 
 
 }

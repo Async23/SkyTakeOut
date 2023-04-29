@@ -311,4 +311,25 @@ public class OrderServiceImpl implements OrderService {
                 .id(id)
                 .build());
     }
+
+    /**
+     * 完成订单
+     *
+     * @param id
+     * @return
+     */
+
+    @Override
+    public void complete(Long id) {
+        if (id == null) {
+            // 完成订单参数有误
+            throw new BaseException(MessageConstant.ORDER_COMPLETE_DELIVERY_ILLEGAL_ARGUMENT);
+        }
+
+        orderMapper.update(Orders.builder()
+                // 订单状态 1待付款 2待接单 3 已接单 4 派送中 5 已完成 6 已取消 7 退款
+                .status(5)
+                .id(id)
+                .build());
+    }
 }
