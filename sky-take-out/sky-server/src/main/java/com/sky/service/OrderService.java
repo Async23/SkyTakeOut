@@ -67,4 +67,12 @@ public interface OrderService {
      * @return OrderStatisticsVO
      */
     OrderStatisticsVO statistics();
+
+    /**
+     * 接单
+     *
+     * @param ordersConfirmDTO
+     * @return
+     */
+    void confirm(OrdersConfirmDTO ordersConfirmDTO);
 }

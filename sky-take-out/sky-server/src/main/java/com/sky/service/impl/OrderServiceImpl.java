@@ -272,4 +272,23 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.statistics();
     }
 
+    /**
+     * 接单
+     *
+     * @param ordersConfirmDTO
+     * @return
+     */
+    @Override
+    public void confirm(OrdersConfirmDTO ordersConfirmDTO) {
+        if (ordersConfirmDTO == null || ordersConfirmDTO.getId() == null) {
+            // 接单参数有误
+            throw new BaseException(MessageConstant.ORDER_CONFIRM_ILLEGAL_ARGUMENT);
+        }
+
+        orderMapper.update(Orders.builder()
+                // 订单状态 1待付款 2待接单 3 已接单 4 派送中 5 已完成 6 已取消 7 退款
+                .status(ordersConfirmDTO.getStatus() == null ? 3 : ordersConfirmDTO.getStatus())
+                .id(ordersConfirmDTO.getId())
+                .build());
+    }
 }
