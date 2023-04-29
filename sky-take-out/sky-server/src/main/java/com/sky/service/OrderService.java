@@ -75,4 +75,12 @@ public interface OrderService {
      * @return
      */
     void confirm(OrdersConfirmDTO ordersConfirmDTO);
+
+    /**
+     * 派送订单
+     *
+     * @param id
+     * @return
+     */
+    void delivery(Long id);
 }

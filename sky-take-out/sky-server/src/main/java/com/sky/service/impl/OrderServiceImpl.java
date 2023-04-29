@@ -291,4 +291,24 @@ public class OrderServiceImpl implements OrderService {
                 .id(ordersConfirmDTO.getId())
                 .build());
     }
+
+    /**
+     * 派送订单
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public void delivery(Long id) {
+        if (id == null) {
+            // 派送订单参数有误
+            throw new BaseException(MessageConstant.ORDER_CONFIRM_DELIVERY_ILLEGAL_ARGUMENT);
+        }
+
+        orderMapper.update(Orders.builder()
+                // 订单状态 1待付款 2待接单 3 已接单 4 派送中 5 已完成 6 已取消 7 退款
+                .status(4)
+                .id(id)
+                .build());
+    }
 }

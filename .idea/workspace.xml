@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="    @JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)&#10;update:com.sky.entity.Orders 加注解">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:接单 功能(confirm 方法)完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/OrderController.java" afterDir="false" />
@@ -259,14 +259,7 @@
       <workItem from="1682730177262" duration="88000" />
       <workItem from="1682730274006" duration="5373000" />
       <workItem from="1682736346223" duration="5932000" />
-      <workItem from="1682749395747" duration="12471000" />
-    </task>
-    <task id="LOCAL-00033" summary="update:Dish 模块中，更新菜品 (update 方法) 完成：(只调用一次 Mapper 层的方法)">
-      <created>1682058486245</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1682058486245</updated>
+      <workItem from="1682749395747" duration="13134000" />
     </task>
     <task id="LOCAL-00034" summary="add:Dish 模块中，启售、停售菜品 (startOrStop 方法) 完成">
       <created>1682059551264</created>
@@ -604,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682761459782</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="add:接单 功能(confirm 方法)完成">
+      <created>1682762165261</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1682762165261</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,7 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:user/DishController 的根据 categoryId 查询所有菜品(selectAllByCategoryId 方法)完成" />
     <MESSAGE value="fix:user/DishController 的根据 categoryId 查询所有菜品(selectAllByCategoryId 方法)修复 bug：xml 文件中没有用到 resultMap 和多表查询" />
     <MESSAGE value="fix:CategoryService 和 CategoryMapper 更新，去掉了 is_delete 字段" />
     <MESSAGE value="add:userSetmealController根据套餐 id 查询菜品(selectDishesById 方法)完成" />
@@ -658,7 +657,8 @@
     <MESSAGE value="add:各个状态的订单数量统计 功能(statistics 方法)完成" />
     <MESSAGE value="fix:Order 模块 listByCondition 方法修复：orderDetail.getAmount() =&gt; orderDetail.getNumber()" />
     <MESSAGE value="    @JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)&#10;update:com.sky.entity.Orders 加注解" />
-    <option name="LAST_COMMIT_MESSAGE" value="    @JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)&#10;update:com.sky.entity.Orders 加注解" />
+    <MESSAGE value="add:接单 功能(confirm 方法)完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:接单 功能(confirm 方法)完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
