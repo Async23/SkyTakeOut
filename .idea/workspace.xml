@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:userOrderController 中，再来一单 功能完成(repetition 方法)">
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/properties/ShopProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/utils/BaiduMapUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/utils/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/task/MyTask.java" afterDir="false" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:userOrderController 中，用户下单 功能完善：调用百度地图接口，判断配送距离">
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/task/OrderTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/SkyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/SkyApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/application-dev.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,9 +21,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="AnnotationType" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="Mybatis Mapper" />
       </list>
     </option>
   </component>
@@ -276,21 +274,7 @@
       <workItem from="1682736346223" duration="5932000" />
       <workItem from="1682749395747" duration="19326000" />
       <workItem from="1682770846053" duration="1802000" />
-      <workItem from="1683074273038" duration="10061000" />
-    </task>
-    <task id="LOCAL-00040" summary="add:Setmeal 模块中，新增套餐功能(insert 方法)完成(setmeal 表和 setmeal_dish 表)">
-      <created>1682127967743</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1682127967743</updated>
-    </task>
-    <task id="LOCAL-00041" summary="update:Setmeal 模块中，SetmealVO 中 updateTime 字段加了注解">
-      <created>1682128232453</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1682128232453</updated>
+      <workItem from="1683074273038" duration="13943000" />
     </task>
     <task id="LOCAL-00042" summary="update:Setmeal 模块中，根据 id 查询套餐(selectById 方法)完成">
       <created>1682130720081</created>
@@ -621,7 +605,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682771585724</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="add:userOrderController 中，用户下单 功能完善：调用百度地图接口，判断配送距离">
+      <created>1683085232002</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1683085232002</updated>
+    </task>
+    <task id="LOCAL-00090" summary="add:userOrderController 中，用户下单 功能完善：调用百度地图接口，判断配送距离">
+      <created>1683085424127</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1683085424127</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -650,7 +648,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:adminDishController 中新增菜品清除缓存完成" />
     <MESSAGE value="add:adminDishController 中修改菜品清除缓存完成" />
     <MESSAGE value="add:adminDishController 中启售、停售菜品清除缓存完成" />
     <MESSAGE value="fix:userSetmealController 中根据分类 id 查询套餐列表(selectByCategoryId 方法)逻辑完成" />
@@ -675,7 +672,8 @@
     <MESSAGE value="add:userOrderController 中，查询订单详情 功能完成(selectById 方法)" />
     <MESSAGE value="add:userOrderController 中，用户取消订单 功能完成(cancel 方法)" />
     <MESSAGE value="add:userOrderController 中，再来一单 功能完成(repetition 方法)" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:userOrderController 中，再来一单 功能完成(repetition 方法)" />
+    <MESSAGE value="add:userOrderController 中，用户下单 功能完善：调用百度地图接口，判断配送距离" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:userOrderController 中，用户下单 功能完善：调用百度地图接口，判断配送距离" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

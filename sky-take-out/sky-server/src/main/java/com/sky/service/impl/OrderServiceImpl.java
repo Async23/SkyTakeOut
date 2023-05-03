@@ -191,9 +191,10 @@ public class OrderServiceImpl implements OrderService {
         }
 
         PageHelper.startPage(ordersPageQueryDTO.getPage(), ordersPageQueryDTO.getPageSize());
-        // TODO: 2023/4/29 orderDetailList 未填充
+        // Mapper 层 TODO: 2023/4/29 orderDetailList 未填充
         List<OrderVO> orderVOList = orderMapper.listByCondition(ordersPageQueryDTO);
         orderVOList.forEach(orderVO -> {
+            // Mapper 层
             List<OrderDetail> orderDetailList = orderDetailMapper.listByOrderId(orderVO.getId());
             orderDetailList.forEach(orderDetail -> orderVO.setOrderDishes(
                     (orderVO.getOrderDishes() == null ? "" : orderVO.getOrderDishes())

@@ -55,10 +55,9 @@ public class OrderController {
     public Result<OrderSubmitVO> submit(@RequestBody OrdersSubmitDTO ordersSubmitDTO) {
         log.info("用户下单：{}", ordersSubmitDTO);
         AddressBook orderAddress = addressBookService.getById(ordersSubmitDTO.getAddressBookId());
-        String orderAddressStr = orderAddress.getProvinceName() + orderAddress.getCityName() + orderAddress.getDistrictName() + orderAddress.getDistrictName();
+        String orderAddressStr = orderAddress.getProvinceName() + orderAddress.getCityName() + orderAddress.getDistrictName() + orderAddress.getDetail();
 
         Double distance = Double.valueOf(baiduMapUtil.getDistance(baiduMapUtil.getLocation(orderAddressStr)));
-        log.info("距离：{}", distance);
         if (distance > Double.valueOf(shopProperties.getDistance())) {
             // 订单超出配送范围
             throw new BaseException(MessageConstant.ORDER_OUT_OF_DELIVERY_RANGE);

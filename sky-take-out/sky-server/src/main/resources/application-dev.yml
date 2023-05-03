@@ -27,7 +27,7 @@ sky:
     notifyUrl: https://www.weixin.qq.com/wxpay/pay.php
     refundNotifyUrl: https://www.weixin.qq.com/wxpay/pay.php
   shop:
-    address: 北京市海淀区上地十街10号
+    address: 上海市市辖区浦东新区航头 # 北京市海淀区上地十街10号
     ak: sZ4Q9KwI1XPTFvXUKZRHVO95uzR5cN9i
     distance: 5000
 #  alioss:
