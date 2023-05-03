@@ -52,6 +52,7 @@ public class ReportServiceImpl implements ReportService {
         while (!begin.equals(end)) {
             // ⽇期计算，获得指定⽇期后 1 天的⽇期 dateList.add(begin);
             begin = begin.plusDays(1);
+            dateList.add(begin);
         }
         List<Double> turnoverList = new ArrayList<>();
         for (LocalDate date : dateList) {
