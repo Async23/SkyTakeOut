@@ -44,7 +44,6 @@
     </update>
 
 
-
     <!--根据 id 查询订单详情-->
     <resultMap id="orderVO" type="com.sky.vo.OrderVO" autoMapping="true">
         <id column="id" property="id"/>
@@ -161,6 +160,38 @@
                      count(id) as count
               from orders
               group by status) as t_status
+    </select>
+
+    <!--根据状态和下单时间查询订单-->
+    <select id="getByStatusAndOrdertimeLT" resultType="com.sky.entity.Orders">
+        select *
+        from orders
+        where status = #{status}
+          and order_time &lt;= #{orderTime}
+    </select>
+
+    <!--根据订单号和用户id查询订单-->
+    <select id="selectByNumberAndUserId" resultType="com.sky.entity.Orders">
+        select *
+        from orders
+        where number = #{orderNumber}
+          and user_id = #{userId}
+    </select>
+
+    <!--根据动态条件统计营业额-->
+    <select id="sumByMap" resultType="java.lang.Double" parameterType="java.util.Map">
+        select sum(amount) from orders
+        <where>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="begin != null">
+                and order_time &gt;= #{begin}
+            </if>
+            <if test="end != null">
+                and order_time &lt;= #{end}
+            </if>
+        </where>
     </select>
 
 </mapper>

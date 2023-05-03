@@ -170,7 +170,7 @@ public class OrderServiceImpl implements OrderService {
         Long userId = BaseContext.getCurrentId();
 
         // 根据订单号查询当前用户的订单
-        Orders ordersDB = orderMapper.getByNumberAndUserId(outTradeNo, userId);
+        Orders ordersDB = orderMapper.selectByNumberAndUserId(outTradeNo, userId);
 
         // 根据订单id更新订单的状态、支付方式、支付状态、结账时间
         Orders orders = Orders.builder()
@@ -407,12 +407,15 @@ public class OrderServiceImpl implements OrderService {
             Long dishId = orderDetail.getDishId();
             if (dishId != null) {
                 // 添加到购物⻋的是菜品
+                shoppingCart.setDishId(orderDetail.getDishId());
+                shoppingCart.setDishFlavor(orderDetail.getDishFlavor());
                 Dish dish = dishMapper.getById(dishId);
                 shoppingCart.setName(dish.getName());
                 shoppingCart.setImage(dish.getImage());
                 shoppingCart.setAmount(dish.getPrice());
             } else {
                 // 添加到购物⻋的是套餐
+                shoppingCart.setSetmealId(orderDetail.getSetmealId());
                 Setmeal setmeal = setmealMapper.getById(orderDetail.getSetmealId());
                 shoppingCart.setName(setmeal.getName());
                 shoppingCart.setImage(setmeal.getImage());

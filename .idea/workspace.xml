@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="save:day 10 部分">
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" afterDir="false" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:userOrderController 中，再来一单 功能修复：不调用 shoppingCartService 方法，防止菜品数量被置为 1">
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/ReportService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +23,8 @@
       <list>
         <option value="FxmlFile" />
         <option value="AnnotationType" />
-        <option value="Interface" />
         <option value="Mybatis Mapper" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -272,14 +276,7 @@
       <workItem from="1682736346223" duration="5932000" />
       <workItem from="1682749395747" duration="19326000" />
       <workItem from="1682770846053" duration="1802000" />
-      <workItem from="1683074273038" duration="26838000" />
-    </task>
-    <task id="LOCAL-00045" summary="fix:Setmeal 模块中，启售、停售套餐(startOrStop 方法)修复，参数判断原为1or2">
-      <created>1682133644799</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1682133644799</updated>
+      <workItem from="1683074273038" duration="31888000" />
     </task>
     <task id="LOCAL-00046" summary="add:Setmeal 模块中，批量删除套餐(delete 方法)完成">
       <created>1682135169370</created>
@@ -617,7 +614,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683102712748</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="fix:userOrderController 中，再来一单 功能修复：不调用 shoppingCartService 方法，防止菜品数量被置为 1">
+      <created>1683112851670</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1683112851670</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,7 +650,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:user 和 admin 的 套餐模块，缓存功能完成" />
     <MESSAGE value="add:添加、查看购物车完成" />
     <MESSAGE value="add:删除购物车中一个商品、清空购物车 功能完成" />
     <MESSAGE value="add:微信支付模块导入完成" />
@@ -671,7 +674,29 @@
     <MESSAGE value="fix:OrdersCancelDTO 补上 @NoArgsConstructor 和 @AllArgsConstructor" />
     <MESSAGE value="add:基于 WebSocketServer 的催单功能已完成" />
     <MESSAGE value="save:day 10 部分" />
-    <option name="LAST_COMMIT_MESSAGE" value="save:day 10 部分" />
+    <MESSAGE value="fix:userOrderController 中，再来一单 功能修复：不调用 shoppingCartService 方法，防止菜品数量被置为 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:userOrderController 中，再来一单 功能修复：不调用 shoppingCartService 方法，防止菜品数量被置为 1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java</url>
+          <line>403</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java</url>
+          <line>405</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java</url>
+          <line>423</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
