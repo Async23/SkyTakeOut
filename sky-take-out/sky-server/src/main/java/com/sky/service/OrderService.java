@@ -116,4 +116,6 @@ public interface OrderService {
      * @return
      */
     void repetition(Long id);
+
+    void reminder(Long id);
 }

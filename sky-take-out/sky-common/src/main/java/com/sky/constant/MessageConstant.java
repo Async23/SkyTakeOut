@@ -82,4 +82,5 @@ public class MessageConstant {
     public static final String ORDER_OUT_OF_DELIVERY_RANGE = "订单超出配送范围";
 
 
+    public static final String CANCLE_TIMEOUT_ORDER = "支付超时，自动取消";
 }

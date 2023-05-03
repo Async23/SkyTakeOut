@@ -20,6 +20,7 @@ import com.sky.vo.OrderPaymentVO;
 import com.sky.vo.OrderStatisticsVO;
 import com.sky.vo.OrderSubmitVO;
 import com.sky.vo.OrderVO;
+import com.sky.websocket.WebSocketServer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 订单
@@ -52,6 +55,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private ShoppingCartServiceImpl shoppingCartService;
+
+    @Autowired
+    private WebSocketServer webSocketServer;
 
     /**
      * 用户下单
@@ -391,5 +397,26 @@ public class OrderServiceImpl implements OrderService {
                 .dishFlavor(orderDetail.getDishFlavor())
                 .build()
         ));
+    }
+
+    /**
+     * ⽤户催单
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public void reminder(Long id) {
+        // 查询订单是否存在
+        Orders orders = orderMapper.selectById(id);
+        if (orders == null) {
+            throw new OrderBusinessException(MessageConstant.ORDER_NOT_FOUND);
+        }
+        // 基于WebSocket实现催单
+        Map<String, Object> map = new HashMap<>();
+        map.put("type", 2);// 2代表⽤户催单
+        map.put("orderId", id);
+        map.put("content", "订单号： " + orders.getNumber());
+        webSocketServer.sendToAllClient(JSON.toJSONString(map));
     }
 }

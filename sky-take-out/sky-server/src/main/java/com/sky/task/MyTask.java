@@ -15,7 +15,7 @@ public class MyTask {
     /**
      * 定时任务 每隔5秒触发⼀次
      */
-    @Scheduled(cron = "0/5 * * * * ?")
+    // @Scheduled(cron = "0/5 * * * * ?")
     public void executeTask() {
         log.info("定时任务开始执⾏： {}", new Date());
     }

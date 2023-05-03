@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:userOrderController 中，用户下单 功能完善：调用百度地图接口，判断配送距离">
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/task/OrderTask.java" afterDir="false" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:OrdersCancelDTO 补上 @NoArgsConstructor 和 @AllArgsConstructor">
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/config/WebSocketConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/task/WebSocketTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/websocket/WebSocketServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/task/MyTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/task/MyTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/task/OrderTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/task/OrderTask.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +91,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/code/SkyTakeOut",
+    "last_opened_file_path": "D:/code/SkyTakeOut/sky-take-out/sky-server/src/main/java/com/sky/task",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -109,11 +114,11 @@
       <recent name="com.sky.test" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\task" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\controller\notify" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\controller\user" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\service\impl" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\service" />
-      <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\resources\mapper" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\mapper" />
@@ -274,14 +279,7 @@
       <workItem from="1682736346223" duration="5932000" />
       <workItem from="1682749395747" duration="19326000" />
       <workItem from="1682770846053" duration="1802000" />
-      <workItem from="1683074273038" duration="13943000" />
-    </task>
-    <task id="LOCAL-00042" summary="update:Setmeal 模块中，根据 id 查询套餐(selectById 方法)完成">
-      <created>1682130720081</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1682130720081</updated>
+      <workItem from="1683074273038" duration="17042000" />
     </task>
     <task id="LOCAL-00043" summary="update:Setmeal 模块中，修改套餐(update 方法)完成">
       <created>1682132929907</created>
@@ -619,7 +617,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683085424127</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="fix:OrdersCancelDTO 补上 @NoArgsConstructor 和 @AllArgsConstructor">
+      <created>1683097082681</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1683097082681</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,7 +653,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:adminDishController 中修改菜品清除缓存完成" />
     <MESSAGE value="add:adminDishController 中启售、停售菜品清除缓存完成" />
     <MESSAGE value="fix:userSetmealController 中根据分类 id 查询套餐列表(selectByCategoryId 方法)逻辑完成" />
     <MESSAGE value="add:user 和 admin 的 套餐模块，缓存功能完成" />
@@ -673,7 +677,8 @@
     <MESSAGE value="add:userOrderController 中，用户取消订单 功能完成(cancel 方法)" />
     <MESSAGE value="add:userOrderController 中，再来一单 功能完成(repetition 方法)" />
     <MESSAGE value="add:userOrderController 中，用户下单 功能完善：调用百度地图接口，判断配送距离" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:userOrderController 中，用户下单 功能完善：调用百度地图接口，判断配送距离" />
+    <MESSAGE value="fix:OrdersCancelDTO 补上 @NoArgsConstructor 和 @AllArgsConstructor" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:OrdersCancelDTO 补上 @NoArgsConstructor 和 @AllArgsConstructor" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
