@@ -53,10 +53,11 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private WeChatPayUtil weChatPayUtil;
     @Autowired
-    private ShoppingCartServiceImpl shoppingCartService;
-
-    @Autowired
     private WebSocketServer webSocketServer;
+    @Autowired
+    private DishMapper dishMapper;
+    @Autowired
+    private SetmealMapper setmealMapper;
 
     /**
      * 用户下单
@@ -401,12 +402,32 @@ public class OrderServiceImpl implements OrderService {
         }
 
         List<OrderDetail> orderDetails = orderDetailMapper.listByOrderId(id);
-        orderDetails.forEach(orderDetail -> shoppingCartService.addShoppingCart(ShoppingCartDTO.builder()
+        orderDetails.forEach(orderDetail -> {
+            ShoppingCart shoppingCart = new ShoppingCart();
+            Long dishId = orderDetail.getDishId();
+            if (dishId != null) {
+                // 添加到购物⻋的是菜品
+                Dish dish = dishMapper.getById(dishId);
+                shoppingCart.setName(dish.getName());
+                shoppingCart.setImage(dish.getImage());
+                shoppingCart.setAmount(dish.getPrice());
+            } else {
+                // 添加到购物⻋的是套餐
+                Setmeal setmeal = setmealMapper.getById(orderDetail.getSetmealId());
+                shoppingCart.setName(setmeal.getName());
+                shoppingCart.setImage(setmeal.getImage());
+                shoppingCart.setAmount(setmeal.getPrice());
+            }
+            shoppingCart.setNumber(orderDetail.getNumber());
+            shoppingCart.setCreateTime(LocalDateTime.now());
+            shoppingCart.setUserId(BaseContext.getCurrentId());
+            shoppingCartMapper.insert(shoppingCart);
+        });
+        /*orderDetails.forEach(orderDetail -> shoppingCartService.addShoppingCart(ShoppingCartDTO.builder()
                 .dishId(orderDetail.getDishId())
                 .setmealId(orderDetail.getSetmealId())
                 .dishFlavor(orderDetail.getDishFlavor())
-                .build()
-        ));
+                .build()));*/
     }
 
     /**

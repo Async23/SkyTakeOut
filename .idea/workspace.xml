@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:基于 WebSocketServer 的催单功能已完成">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="save:day 10 部分">
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/websocket/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/websocket/WebSocketServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +19,9 @@
       <list>
         <option value="FxmlFile" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="Interface" />
         <option value="Mybatis Mapper" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -272,14 +272,7 @@
       <workItem from="1682736346223" duration="5932000" />
       <workItem from="1682749395747" duration="19326000" />
       <workItem from="1682770846053" duration="1802000" />
-      <workItem from="1683074273038" duration="19874000" />
-    </task>
-    <task id="LOCAL-00044" summary="add:Setmeal 模块中，启售、停售套餐(startOrStop 方法)完成">
-      <created>1682133453732</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1682133453732</updated>
+      <workItem from="1683074273038" duration="26838000" />
     </task>
     <task id="LOCAL-00045" summary="fix:Setmeal 模块中，启售、停售套餐(startOrStop 方法)修复，参数判断原为1or2">
       <created>1682133644799</created>
@@ -617,7 +610,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683100073581</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="save:day 10 部分">
+      <created>1683102712748</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1683102712748</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,7 +646,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix:userSetmealController 中根据分类 id 查询套餐列表(selectByCategoryId 方法)逻辑完成" />
     <MESSAGE value="add:user 和 admin 的 套餐模块，缓存功能完成" />
     <MESSAGE value="add:添加、查看购物车完成" />
     <MESSAGE value="add:删除购物车中一个商品、清空购物车 功能完成" />
@@ -671,7 +670,8 @@
     <MESSAGE value="add:userOrderController 中，用户下单 功能完善：调用百度地图接口，判断配送距离" />
     <MESSAGE value="fix:OrdersCancelDTO 补上 @NoArgsConstructor 和 @AllArgsConstructor" />
     <MESSAGE value="add:基于 WebSocketServer 的催单功能已完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:基于 WebSocketServer 的催单功能已完成" />
+    <MESSAGE value="save:day 10 部分" />
+    <option name="LAST_COMMIT_MESSAGE" value="save:day 10 部分" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
