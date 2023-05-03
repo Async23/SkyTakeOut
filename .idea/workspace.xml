@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:OrdersCancelDTO 补上 @NoArgsConstructor 和 @AllArgsConstructor">
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/config/WebSocketConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/task/WebSocketTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/websocket/WebSocketServer.java" afterDir="false" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:基于 WebSocketServer 的催单功能已完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/task/MyTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/task/MyTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/task/OrderTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/task/OrderTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/websocket/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/websocket/WebSocketServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +45,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/DishMapper.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$PROJECT_DIR$/../../develop/m2/repository/com/github/wechatpay-apiv3/wechatpay-apache-httpclient/0.4.8/wechatpay-apache-httpclient-0.4.8-sources.jar!/com/wechat/pay/contrib/apache/httpclient/SignatureExec.java" root0="SKIP_INSPECTION" />
@@ -144,17 +137,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DishController.cleanCache" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BaiduMapTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sky-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sky.controller.admin.*" />
+          <option name="PATTERN" value="com.sky.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.sky.controller.admin" />
-      <option name="MAIN_CLASS_NAME" value="com.sky.controller.admin.DishController" />
-      <option name="METHOD_NAME" value="cleanCache" />
+      <option name="PACKAGE_NAME" value="com.sky.test" />
+      <option name="MAIN_CLASS_NAME" value="com.sky.test.BaiduMapTest" />
+      <option name="METHOD_NAME" value="test1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -217,11 +210,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BaiduMapTest.test1" />
         <item itemvalue="JUnit.BaiduMapTest.test" />
         <item itemvalue="JUnit.RedisTemplateTest.testRedisCache" />
         <item itemvalue="JUnit.RedisTemplateTest.cleanCache" />
         <item itemvalue="JUnit.HttpClientTest.testGET" />
-        <item itemvalue="JUnit.DishController.cleanCache" />
       </list>
     </recent_temporary>
   </component>
@@ -279,14 +272,7 @@
       <workItem from="1682736346223" duration="5932000" />
       <workItem from="1682749395747" duration="19326000" />
       <workItem from="1682770846053" duration="1802000" />
-      <workItem from="1683074273038" duration="17042000" />
-    </task>
-    <task id="LOCAL-00043" summary="update:Setmeal 模块中，修改套餐(update 方法)完成">
-      <created>1682132929907</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1682132929907</updated>
+      <workItem from="1683074273038" duration="19874000" />
     </task>
     <task id="LOCAL-00044" summary="add:Setmeal 模块中，启售、停售套餐(startOrStop 方法)完成">
       <created>1682133453732</created>
@@ -624,7 +610,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683097082681</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="add:基于 WebSocketServer 的催单功能已完成">
+      <created>1683100073581</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1683100073581</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -653,7 +646,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:adminDishController 中启售、停售菜品清除缓存完成" />
     <MESSAGE value="fix:userSetmealController 中根据分类 id 查询套餐列表(selectByCategoryId 方法)逻辑完成" />
     <MESSAGE value="add:user 和 admin 的 套餐模块，缓存功能完成" />
     <MESSAGE value="add:添加、查看购物车完成" />
@@ -678,7 +670,8 @@
     <MESSAGE value="add:userOrderController 中，再来一单 功能完成(repetition 方法)" />
     <MESSAGE value="add:userOrderController 中，用户下单 功能完善：调用百度地图接口，判断配送距离" />
     <MESSAGE value="fix:OrdersCancelDTO 补上 @NoArgsConstructor 和 @AllArgsConstructor" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:OrdersCancelDTO 补上 @NoArgsConstructor 和 @AllArgsConstructor" />
+    <MESSAGE value="add:基于 WebSocketServer 的催单功能已完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:基于 WebSocketServer 的催单功能已完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

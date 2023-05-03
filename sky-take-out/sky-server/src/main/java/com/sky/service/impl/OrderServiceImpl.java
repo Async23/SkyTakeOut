@@ -52,7 +52,6 @@ public class OrderServiceImpl implements OrderService {
     private AddressBookMapper addressBookMapper;
     @Autowired
     private WeChatPayUtil weChatPayUtil;
-
     @Autowired
     private ShoppingCartServiceImpl shoppingCartService;
 
@@ -85,15 +84,15 @@ public class OrderServiceImpl implements OrderService {
         }
 
         // 构造订单数据
-        com.sky.entity.Orders order = new com.sky.entity.Orders();
+        Orders order = new Orders();
         BeanUtils.copyProperties(ordersSubmitDTO, order);
         order.setPhone(addressBook.getPhone());
         order.setAddress(addressBook.getDetail());
         order.setConsignee(addressBook.getConsignee());
         order.setNumber(String.valueOf(System.currentTimeMillis()));
         order.setUserId(userId);
-        order.setStatus(com.sky.entity.Orders.PENDING_PAYMENT);
-        order.setPayStatus(com.sky.entity.Orders.UN_PAID);
+        order.setStatus(Orders.PENDING_PAYMENT);
+        order.setPayStatus(Orders.UN_PAID);
         order.setOrderTime(LocalDateTime.now());
 
         // 向订单表插入1条数据
@@ -170,17 +169,28 @@ public class OrderServiceImpl implements OrderService {
         Long userId = BaseContext.getCurrentId();
 
         // 根据订单号查询当前用户的订单
-        com.sky.entity.Orders ordersDB = orderMapper.getByNumberAndUserId(outTradeNo, userId);
+        Orders ordersDB = orderMapper.getByNumberAndUserId(outTradeNo, userId);
 
         // 根据订单id更新订单的状态、支付方式、支付状态、结账时间
-        com.sky.entity.Orders orders = com.sky.entity.Orders.builder()
+        Orders orders = Orders.builder()
                 .id(ordersDB.getId())
-                .status(com.sky.entity.Orders.TO_BE_CONFIRMED)
-                .payStatus(com.sky.entity.Orders.PAID)
+                // 状态 2：待接单
+                .status(Orders.TO_BE_CONFIRMED)
+                // 状态 1：已支付
+                .payStatus(Orders.PAID)
+                // 结账时间
                 .checkoutTime(LocalDateTime.now())
                 .build();
 
         orderMapper.update(orders);
+
+        Map<String, Object> map = new HashMap<>();
+        // 消息类型， 1 表示来单提醒
+        map.put("type", 1);
+        map.put("orderId", orders.getId());
+        map.put("content", "订单号： " + outTradeNo);
+        // 通过 WebSocket 实现来单提醒，向客户端浏览器推送消息
+        webSocketServer.sendToAllClient(JSON.toJSONString(map));
     }
 
     /**
@@ -412,9 +422,9 @@ public class OrderServiceImpl implements OrderService {
         if (orders == null) {
             throw new OrderBusinessException(MessageConstant.ORDER_NOT_FOUND);
         }
-        // 基于WebSocket实现催单
+        // 基于 WebSocket 实现催单
         Map<String, Object> map = new HashMap<>();
-        map.put("type", 2);// 2代表⽤户催单
+        map.put("type", 2);// 2 代表⽤户催单
         map.put("orderId", id);
         map.put("content", "订单号： " + orders.getNumber());
         webSocketServer.sendToAllClient(JSON.toJSONString(map));
