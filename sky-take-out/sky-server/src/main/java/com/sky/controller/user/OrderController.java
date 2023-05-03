@@ -1,11 +1,19 @@
 package com.sky.controller.user;
 
+import com.sky.constant.MessageConstant;
 import com.sky.dto.OrdersPageQueryDTO;
 import com.sky.dto.OrdersPaymentDTO;
 import com.sky.dto.OrdersSubmitDTO;
+import com.sky.entity.AddressBook;
+import com.sky.exception.BaseException;
+import com.sky.mapper.AddressBookMapper;
+import com.sky.properties.ShopProperties;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
+import com.sky.service.AddressBookService;
 import com.sky.service.OrderService;
+import com.sky.utils.BaiduMapUtil;
+import com.sky.utils.Location;
 import com.sky.vo.OrderPaymentVO;
 import com.sky.vo.OrderSubmitVO;
 import com.sky.vo.OrderVO;
@@ -27,6 +35,15 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private AddressBookService addressBookService;
+
+    @Autowired
+    private BaiduMapUtil baiduMapUtil;
+
+    @Autowired
+    private ShopProperties shopProperties;
+
     /**
      * 用户下单
      *
@@ -37,6 +54,18 @@ public class OrderController {
     @ApiOperation("用户下单")
     public Result<OrderSubmitVO> submit(@RequestBody OrdersSubmitDTO ordersSubmitDTO) {
         log.info("用户下单：{}", ordersSubmitDTO);
+        Long orderAddressBookId = ordersSubmitDTO.getAddressBookId();
+        AddressBook orderAddress = addressBookService.getById(orderAddressBookId);
+        String orderAddressStr = orderAddress.getProvinceName() + orderAddress.getCityName() + orderAddress.getDistrictName() + orderAddress.getDistrictName();
+
+        Location location = baiduMapUtil.getLocation(orderAddressStr);
+        String distanceStr = baiduMapUtil.getDistance(location);
+        Double distance = Double.valueOf(distanceStr);
+        log.info("距离：{}", distance);
+        if (distance > Double.valueOf(shopProperties.getDistance())) {
+            // 订单超出配送范围
+            throw new BaseException(MessageConstant.ORDER_OUT_OF_DELIVERY_RANGE);
+        }
         OrderSubmitVO orderSubmitVO = orderService.submitOrder(ordersSubmitDTO);
         return Result.success(orderSubmitVO);
     }
