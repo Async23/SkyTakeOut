@@ -54,13 +54,10 @@ public class OrderController {
     @ApiOperation("用户下单")
     public Result<OrderSubmitVO> submit(@RequestBody OrdersSubmitDTO ordersSubmitDTO) {
         log.info("用户下单：{}", ordersSubmitDTO);
-        Long orderAddressBookId = ordersSubmitDTO.getAddressBookId();
-        AddressBook orderAddress = addressBookService.getById(orderAddressBookId);
+        AddressBook orderAddress = addressBookService.getById(ordersSubmitDTO.getAddressBookId());
         String orderAddressStr = orderAddress.getProvinceName() + orderAddress.getCityName() + orderAddress.getDistrictName() + orderAddress.getDistrictName();
 
-        Location location = baiduMapUtil.getLocation(orderAddressStr);
-        String distanceStr = baiduMapUtil.getDistance(location);
-        Double distance = Double.valueOf(distanceStr);
+        Double distance = Double.valueOf(baiduMapUtil.getDistance(baiduMapUtil.getLocation(orderAddressStr)));
         log.info("距离：{}", distance);
         if (distance > Double.valueOf(shopProperties.getDistance())) {
             // 订单超出配送范围
