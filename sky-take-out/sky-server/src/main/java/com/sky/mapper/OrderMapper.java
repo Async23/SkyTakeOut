@@ -90,4 +90,11 @@ public interface OrderMapper {
      * @return
      */
     Integer countByMap(Map<String, LocalDateTime> map, Integer status);
+
+    /**
+     * 查询销量排名top10接口
+     *
+     * @return
+     */
+    List<Map<String, Object>> top10(LocalDateTime begin, LocalDateTime end);
 }

@@ -1,10 +1,13 @@
 package com.sky.service.impl;
 
+import com.sky.constant.MessageConstant;
 import com.sky.entity.Orders;
+import com.sky.exception.BaseException;
 import com.sky.mapper.OrderMapper;
 import com.sky.mapper.UserMapper;
 import com.sky.service.ReportService;
 import com.sky.vo.OrderReportVO;
+import com.sky.vo.SalesTop10ReportVO;
 import com.sky.vo.TurnoverReportVO;
 import com.sky.vo.UserReportVO;
 import lombok.extern.slf4j.Slf4j;
@@ -159,6 +162,33 @@ public class ReportServiceImpl implements ReportService {
                 .validOrderCount(Integer.valueOf(countMap.get("validOrderCount") + ""))
                 // 订单完成率
                 .orderCompletionRate(Double.valueOf(countMap.get("orderCompletionRate") + ""))
+                .build();
+    }
+
+    /**
+     * 查询销量排名top10接口
+     *
+     * @param begin
+     * @param end
+     * @return
+     */
+    @Override
+    public SalesTop10ReportVO top10(LocalDate begin, LocalDate end) {
+        if (begin == null || end == null) {
+            // 查询销量排名top10参数有误
+            throw new BaseException(MessageConstant.TOP10_ILLEGAL_ARGUMENT);
+        }
+        List<Map<String, Object>> top10List = orderMapper.top10(LocalDateTime.of(begin, LocalTime.MIN), LocalDateTime.of(end, LocalTime.MAX));
+        List<String> nameList = new ArrayList<>();
+        List<Integer> numberList = new ArrayList<>();
+        top10List.forEach(map -> {
+            nameList.add(map.get("name") + "");
+            numberList.add(Integer.valueOf(map.get("number") + ""));
+        });
+
+        return SalesTop10ReportVO.builder()
+                .nameList(StringUtils.join(nameList, ','))
+                .numberList(StringUtils.join(numberList, ','))
                 .build();
     }
 

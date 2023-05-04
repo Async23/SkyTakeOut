@@ -78,9 +78,8 @@ public class MessageConstant {
     public static final String ORDER_REJECTION_ILLEGAL_ARGUMENT = "拒绝订单参数有误";
     public static final String ORDER_CONFIRM_ILLEGAL_ARGUMENT = "接单参数有误";
     public static final String ORDER_CONFIRM_DELIVERY_ILLEGAL_ARGUMENT = "派送订单参数有误";
+    public static final String TOP10_ILLEGAL_ARGUMENT = "查询销量排名top10参数有误";
     public static final String ORDER_COMPLETE_DELIVERY_ILLEGAL_ARGUMENT = "完成订单参数有误";
     public static final String ORDER_OUT_OF_DELIVERY_RANGE = "订单超出配送范围";
-
-
     public static final String CANCLE_TIMEOUT_ORDER = "支付超时，自动取消";
 }

@@ -220,4 +220,16 @@
             </if>
         </where>
     </select>
+
+    <!--查询销量排名top10接口-->
+    <select id="top10" resultType="java.util.Map">
+        select name, sum(od.number) as number
+        from orders as o
+                 join order_detail od on o.id = od.order_id
+        where order_time between #{begin} and #{end}
+        group by name
+        order by sum(od.number) desc
+        limit 0,10
+    </select>
+
 </mapper>

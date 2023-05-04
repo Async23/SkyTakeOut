@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:数据统计相关接口 ReportController 中，营业额统计(turnoverStatics 方法) 功能完成">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:数据统计相关接口 ReportController 中，订单统计(ordersStatistics 方法) 功能完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/OrdersPageQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/OrdersPageQueryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/ReportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,14 +277,7 @@
       <workItem from="1682749395747" duration="19326000" />
       <workItem from="1682770846053" duration="1802000" />
       <workItem from="1683074273038" duration="44236000" />
-      <workItem from="1683160021679" duration="17909000" />
-    </task>
-    <task id="LOCAL-00048" summary="fix:Setmeal 模块中，批量删除套餐(delete 方法)修复(同时删除 setmeal_dish 中间表)">
-      <created>1682135874707</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1682135874707</updated>
+      <workItem from="1683160021679" duration="22923000" />
     </task>
     <task id="LOCAL-00049" summary="fix:Setmeal 模块中，启售、停售套餐(startOrStop 方法)修复：套餐内包含未启售菜品的情况，无法删除">
       <created>1682136587370</created>
@@ -626,7 +615,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683118636184</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="add:数据统计相关接口 ReportController 中，订单统计(ordersStatistics 方法) 功能完成">
+      <created>1683188311031</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1683188311032</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,7 +651,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:微信支付模块导入完成" />
     <MESSAGE value="fix:OrderDetailMapper.xml 换行语法问题修复；DishMapper.xml 中 selectById 方法配合 resultMap:dishVO" />
     <MESSAGE value="backup:备份" />
     <MESSAGE value="add:订单搜索 功能完成" />
@@ -680,7 +675,8 @@
     <MESSAGE value="fix:userOrderController 中，再来一单 功能修复：不调用 shoppingCartService 方法，防止菜品数量被置为 1" />
     <MESSAGE value="fix:userOrderController 中，再来一单 功能修复：dishId 或 setmealId 也设置到 shoppingCart 对象中" />
     <MESSAGE value="add:数据统计相关接口 ReportController 中，营业额统计(turnoverStatics 方法) 功能完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:数据统计相关接口 ReportController 中，营业额统计(turnoverStatics 方法) 功能完成" />
+    <MESSAGE value="add:数据统计相关接口 ReportController 中，订单统计(ordersStatistics 方法) 功能完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:数据统计相关接口 ReportController 中，订单统计(ordersStatistics 方法) 功能完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
