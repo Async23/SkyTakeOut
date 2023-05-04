@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:userOrderController 中，再来一单 功能修复：dishId 或 setmealId 也设置到 shoppingCart 对象中">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:数据统计相关接口 ReportController 中，营业额统计(turnoverStatics 方法) 功能完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/OrdersPageQueryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-pojo/src/main/java/com/sky/dto/OrdersPageQueryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/user/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,29 +82,29 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/code/SkyTakeOut/sky-take-out/sky-server/src/main/java/com/sky/task",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "spring.boot",
-    "spring.configuration.checksum": "0d903826f2cfd9772cf3bc867d21fa3a",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/code/SkyTakeOut/sky-take-out/sky-server/src/main/java/com/sky/task&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;spring.boot&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0d903826f2cfd9772cf3bc867d21fa3a&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -151,7 +161,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HttpClientTest.testGET" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MapperTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sky-server" />
       <extension name="coverage">
         <pattern>
@@ -160,24 +170,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.sky.test" />
-      <option name="MAIN_CLASS_NAME" value="com.sky.test.HttpClientTest" />
-      <option name="METHOD_NAME" value="testGET" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RedisTemplateTest.cleanCache" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sky-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.sky.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.sky.test" />
-      <option name="MAIN_CLASS_NAME" value="com.sky.test.RedisTemplateTest" />
-      <option name="METHOD_NAME" value="cleanCache(java.lang.String)" />
+      <option name="MAIN_CLASS_NAME" value="com.sky.test.MapperTest" />
+      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -199,6 +193,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ReportServiceImpl.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sky-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sky.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sky.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.sky.service.impl.ReportServiceImpl" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SkyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="sky-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sky.SkyApplication" />
@@ -208,11 +218,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MapperTest.test" />
+        <item itemvalue="JUnit.ReportServiceImpl.test" />
         <item itemvalue="JUnit.BaiduMapTest.test1" />
         <item itemvalue="JUnit.BaiduMapTest.test" />
         <item itemvalue="JUnit.RedisTemplateTest.testRedisCache" />
-        <item itemvalue="JUnit.RedisTemplateTest.cleanCache" />
-        <item itemvalue="JUnit.HttpClientTest.testGET" />
       </list>
     </recent_temporary>
   </component>
@@ -270,14 +280,8 @@
       <workItem from="1682736346223" duration="5932000" />
       <workItem from="1682749395747" duration="19326000" />
       <workItem from="1682770846053" duration="1802000" />
-      <workItem from="1683074273038" duration="32508000" />
-    </task>
-    <task id="LOCAL-00047" summary="fix:Setmeal 模块中，批量删除套餐(delete 方法)修复(对 validIds.size() 进行判断)">
-      <created>1682135770061</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1682135770061</updated>
+      <workItem from="1683074273038" duration="44236000" />
+      <workItem from="1683160021679" duration="17909000" />
     </task>
     <task id="LOCAL-00048" summary="fix:Setmeal 模块中，批量删除套餐(delete 方法)修复(同时删除 setmeal_dish 中间表)">
       <created>1682135874707</created>
@@ -615,7 +619,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683117998290</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="add:数据统计相关接口 ReportController 中，营业额统计(turnoverStatics 方法) 功能完成">
+      <created>1683118636184</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1683118636184</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,7 +655,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:删除购物车中一个商品、清空购物车 功能完成" />
     <MESSAGE value="add:微信支付模块导入完成" />
     <MESSAGE value="fix:OrderDetailMapper.xml 换行语法问题修复；DishMapper.xml 中 selectById 方法配合 resultMap:dishVO" />
     <MESSAGE value="backup:备份" />
@@ -669,7 +679,8 @@
     <MESSAGE value="save:day 10 部分" />
     <MESSAGE value="fix:userOrderController 中，再来一单 功能修复：不调用 shoppingCartService 方法，防止菜品数量被置为 1" />
     <MESSAGE value="fix:userOrderController 中，再来一单 功能修复：dishId 或 setmealId 也设置到 shoppingCart 对象中" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:userOrderController 中，再来一单 功能修复：dishId 或 setmealId 也设置到 shoppingCart 对象中" />
+    <MESSAGE value="add:数据统计相关接口 ReportController 中，营业额统计(turnoverStatics 方法) 功能完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:数据统计相关接口 ReportController 中，营业额统计(turnoverStatics 方法) 功能完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -6,6 +6,7 @@ import com.sky.vo.OrderStatisticsVO;
 import com.sky.vo.OrderVO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +52,7 @@ public interface OrderMapper {
      */
     OrderVO selectById(Long id);
 
+
     /**
      * 各个状态的订单数量统计
      *
@@ -72,4 +74,20 @@ public interface OrderMapper {
      * @param map
      */
     Double sumByMap(Map<String, Object> map);
+
+    /**
+     * 获得订单总数 totalOrderCount，有效订单数 validOrderCountList，订单完成率 orderCompletionRate
+     *
+     * @return
+     */
+    Map<String, Object> selectOrderCounts();
+
+    /**
+     * 查询日期区间内、符合状态的订单数量
+     *
+     * @param map
+     * @param status
+     * @return
+     */
+    Integer countByMap(Map<String, LocalDateTime> map, Integer status);
 }

@@ -166,6 +166,7 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public void paySuccess(String outTradeNo) {
+        log.info("paySuccess 方法，outTradeNo：{}", outTradeNo);
         // 当前登录用户id
         Long userId = BaseContext.getCurrentId();
 

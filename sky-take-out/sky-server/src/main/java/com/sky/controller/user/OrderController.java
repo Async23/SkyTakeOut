@@ -1,12 +1,15 @@
 package com.sky.controller.user;
 
+import com.alibaba.fastjson.JSON;
 import com.sky.constant.MessageConstant;
+import com.sky.context.BaseContext;
 import com.sky.dto.OrdersPageQueryDTO;
 import com.sky.dto.OrdersPaymentDTO;
 import com.sky.dto.OrdersSubmitDTO;
 import com.sky.entity.AddressBook;
 import com.sky.exception.BaseException;
 import com.sky.mapper.AddressBookMapper;
+import com.sky.mapper.OrderMapper;
 import com.sky.properties.ShopProperties;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
@@ -17,11 +20,16 @@ import com.sky.utils.Location;
 import com.sky.vo.OrderPaymentVO;
 import com.sky.vo.OrderSubmitVO;
 import com.sky.vo.OrderVO;
+import com.sky.websocket.WebSocketServer;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 订单
@@ -34,15 +42,16 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
-
     @Autowired
     private AddressBookService addressBookService;
-
     @Autowired
     private BaiduMapUtil baiduMapUtil;
-
     @Autowired
     private ShopProperties shopProperties;
+    @Autowired
+    private OrderMapper orderMapper;
+    @Autowired
+    private WebSocketServer webSocketServer;
 
     /**
      * 用户下单
@@ -63,6 +72,24 @@ public class OrderController {
             throw new BaseException(MessageConstant.ORDER_OUT_OF_DELIVERY_RANGE);
         }
         OrderSubmitVO orderSubmitVO = orderService.submitOrder(ordersSubmitDTO);
+
+        // 下单提醒测试
+        /*List<OrderVO> orderVOList = orderMapper.listByCondition(OrdersPageQueryDTO.builder()
+                .userId(BaseContext.getCurrentId())
+                .build());
+        if (orderVOList != null && orderVOList.size() > 0) {
+            OrderVO order = orderVOList.get(0);
+            String number = order.getNumber();
+            Long orderId = order.getId();
+            // orderService.paySuccess(number);
+            Map<String, Object> map = new HashMap<>();
+            // 消息类型， 1 表示来单提醒
+            map.put("type", 1);
+            map.put("orderId", orderId);
+            map.put("content", "订单号： " + number);
+            // 通过 WebSocket 实现来单提醒，向客户端浏览器推送消息
+            webSocketServer.sendToAllClient(JSON.toJSONString(map));
+        }*/
         return Result.success(orderSubmitVO);
     }
 
