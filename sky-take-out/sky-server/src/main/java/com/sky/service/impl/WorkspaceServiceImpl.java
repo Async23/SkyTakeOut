@@ -34,11 +34,6 @@ public class WorkspaceServiceImpl implements WorkspaceService {
     private SetmealMapper setmealMapper;
 
     @Override
-    public DishOverViewVO getDishOverView() {
-        return null;
-    }
-
-    @Override
     public SetmealOverViewVO getSetmealOverView() {
         return null;
     }
@@ -127,25 +122,27 @@ public class WorkspaceServiceImpl implements WorkspaceService {
                 .build();
     }
 
-    // /**
-    //  * 查询菜品总览
-    //  *
-    //  * @return
-    //  */
-    // public DishOverViewVO getDishOverView() {
-    //     Map map = new HashMap();
-    //     map.put("status", StatusConstant.ENABLE);
-    //     Integer sold = dishMapper.countByMap(map);
-    //
-    //     map.put("status", StatusConstant.DISABLE);
-    //     Integer discontinued = dishMapper.countByMap(map);
-    //
-    //     return DishOverViewVO.builder()
-    //             .sold(sold)
-    //             .discontinued(discontinued)
-    //             .build();
-    // }
-    //
+    /**
+     * 查询菜品总览
+     *
+     * @return
+     */
+    public DishOverViewVO getDishOverView() {
+        Map<String,Integer> map = new HashMap<>();
+        map.put("status", StatusConstant.ENABLE);
+        // Mapper 层
+        Integer sold = dishMapper.countByMap(map);
+
+        map.put("status", StatusConstant.DISABLE);
+        // Mapper 层
+        Integer discontinued = dishMapper.countByMap(map);
+
+        return DishOverViewVO.builder()
+                .sold(sold)
+                .discontinued(discontinued)
+                .build();
+    }
+
     // /**
     //  * 查询套餐总览
     //  *

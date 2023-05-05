@@ -270,4 +270,14 @@
         where id = #{dishId}
     </select>
 
+    <!--根据 map 中的 status 获取菜品的数量-->
+    <select id="countByMap" resultType="java.lang.Integer" parameterType="java.util.Map">
+        select count(*) from dish
+        <where>
+            <if test="status != null">
+                status = #{status}
+            </if>
+        </where>
+    </select>
+
 </mapper>

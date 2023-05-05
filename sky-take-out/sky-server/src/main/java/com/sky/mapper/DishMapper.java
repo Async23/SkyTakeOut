@@ -49,4 +49,11 @@ public interface DishMapper {
     List<DishVO> listWithFlavors(Dish queryDish);
 
     Dish getById(Long dishId);
+
+    /**
+     * 根据 map 中的 status 获取菜品的数量
+     * @param map
+     * @return
+     */
+    Integer countByMap(Map<String,Integer> map);
 }
