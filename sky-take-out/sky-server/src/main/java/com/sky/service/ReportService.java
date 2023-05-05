@@ -40,4 +40,11 @@ public interface ReportService {
      * @return
      */
     SalesTop10ReportVO top10(LocalDate begin, LocalDate end);
+
+    /**
+     * 导出Excel报表接口
+     *
+     * @return
+     */
+    void export();
 }

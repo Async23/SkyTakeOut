@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:WorkspaceService 中的 getDishOverView(查询菜品总览)方法完成">
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/SetmealMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/WorkspaceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/WorkspaceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/SetmealMapper.xml" afterDir="false" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:WorkspaceService 中的 getSetmealOverView(查询套餐总览)方法完成">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/ReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +87,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
-    "last_opened_file_path": "D:/code/SkyTakeOut/sky-take-out/sky-server/src/main/java/com/sky/controller/admin",
+    "last_opened_file_path": "D:/code/SkyTakeOut/sky-take-out/sky-server/src/main/java/com/sky/config",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -93,7 +95,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "Settings.Sequence.Configuration",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "0d903826f2cfd9772cf3bc867d21fa3a",
     "vue.rearranger.settings.migration": "true"
   }
@@ -108,11 +110,11 @@
       <recent name="com.sky.test" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\config" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\controller\admin" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\service\impl" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\service" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\test\java\com\sky\test" />
-      <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\task" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\mapper" />
@@ -122,6 +124,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SkyApplication">
+    <configuration name="POITest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sky.config.POITest" />
+      <module name="sky-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sky.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BaiduMapTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sky-server" />
       <extension name="coverage">
@@ -170,22 +185,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RedisTemplateTest.testRedisCache" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sky-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.sky.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.sky.test" />
-      <option name="MAIN_CLASS_NAME" value="com.sky.test.RedisTemplateTest" />
-      <option name="METHOD_NAME" value="testRedisCache" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ReportServiceImpl.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sky-server" />
       <extension name="coverage">
@@ -211,11 +210,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.POITest" />
         <item itemvalue="JUnit.MapperTest.test" />
         <item itemvalue="JUnit.ReportServiceImpl.test" />
         <item itemvalue="JUnit.BaiduMapTest.test1" />
         <item itemvalue="JUnit.BaiduMapTest.test" />
-        <item itemvalue="JUnit.RedisTemplateTest.testRedisCache" />
       </list>
     </recent_temporary>
   </component>
@@ -276,14 +275,7 @@
       <workItem from="1683074273038" duration="44236000" />
       <workItem from="1683160021679" duration="35251000" />
       <workItem from="1683246308809" duration="3690000" />
-      <workItem from="1683251700248" duration="12297000" />
-    </task>
-    <task id="LOCAL-00053" summary="update:SetmealController 套餐模块 update (更新套餐方法逻辑完善)">
-      <created>1682342274759</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1682342274760</updated>
+      <workItem from="1683251700248" duration="13402000" />
     </task>
     <task id="LOCAL-00054" summary="add:UserController 微信用户登录模块完成">
       <created>1682408387881</created>
@@ -621,7 +613,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683274636992</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="add:WorkspaceService 中的 getSetmealOverView(查询套餐总览)方法完成">
+      <created>1683274883884</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1683274883884</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -650,7 +649,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:取消订单 功能完成" />
     <MESSAGE value="add:根据 id 查询订单详情 功能完成" />
     <MESSAGE value="add:拒单 功能完成" />
     <MESSAGE value="add:各个状态的订单数量统计 功能(statistics 方法)完成" />
@@ -675,7 +673,8 @@
     <MESSAGE value="fix:com.sky.mapper.OrderMapper.selectOrderCounts 方法修复：加了时间判断" />
     <MESSAGE value="add:WorkspaceService 中的 getBusinessData(根据时间段统计营业数据)和 getOrderOverView (查询订单管理数据)方法完成" />
     <MESSAGE value="add:WorkspaceService 中的 getDishOverView(查询菜品总览)方法完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:WorkspaceService 中的 getDishOverView(查询菜品总览)方法完成" />
+    <MESSAGE value="add:WorkspaceService 中的 getSetmealOverView(查询套餐总览)方法完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:WorkspaceService 中的 getSetmealOverView(查询套餐总览)方法完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

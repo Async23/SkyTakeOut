@@ -91,4 +91,17 @@ public class ReportController {
         SalesTop10ReportVO orderReportVO = reportService.top10(begin, end);
         return Result.success(orderReportVO);
     }
+
+    /**
+     * 导出Excel报表接口
+     *
+     * @return
+     */
+    @GetMapping("/export")
+    @ApiOperation("导出Excel报表接口")
+    public Result<String> export() {
+        reportService.export();
+
+        return Result.success("OK");
+    }
 }
