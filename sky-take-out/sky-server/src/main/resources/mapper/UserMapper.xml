@@ -25,7 +25,7 @@
 
     <!--根据起止日期计算数量-->
     <select id="countByMap" resultType="java.lang.Integer" parameterType="java.util.Map">
-        select *
+        select if(count(*) is null,0,count(*))
         from user
         <where>
             <if test="begin != null">

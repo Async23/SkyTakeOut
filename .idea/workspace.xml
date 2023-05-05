@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:WorkspaceService 中的 getSetmealOverView(查询套餐总览)方法完成">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:com.sky.mapper.OrderMapper.selectOrderCounts 修改为：round(validOrderCount / totalOrderCount, 4))">
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/template/运营数据报表模板.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/ReportService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +87,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
-    "last_opened_file_path": "D:/code/SkyTakeOut/sky-take-out/sky-server/src/main/java/com/sky/config",
+    "last_opened_file_path": "D:/code/SkyTakeOut/sky-take-out/sky-server/src/main/resources/template",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -110,11 +110,11 @@
       <recent name="com.sky.test" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\resources\template" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\config" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\controller\admin" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\service\impl" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\service" />
-      <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\test\java\com\sky\test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\mapper" />
@@ -275,14 +275,7 @@
       <workItem from="1683074273038" duration="44236000" />
       <workItem from="1683160021679" duration="35251000" />
       <workItem from="1683246308809" duration="3690000" />
-      <workItem from="1683251700248" duration="13402000" />
-    </task>
-    <task id="LOCAL-00054" summary="add:UserController 微信用户登录模块完成">
-      <created>1682408387881</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1682408387881</updated>
+      <workItem from="1683251700248" duration="14525000" />
     </task>
     <task id="LOCAL-00055" summary="add:user/SetmealController 的根据分类 id 查询套餐列表(selectByCategoryId 方法)完成">
       <created>1682494563852</created>
@@ -620,7 +613,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683274883884</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="fix:com.sky.mapper.OrderMapper.selectOrderCounts 修改为：round(validOrderCount / totalOrderCount, 4))">
+      <created>1683276017566</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1683276017566</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,7 +649,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add:根据 id 查询订单详情 功能完成" />
     <MESSAGE value="add:拒单 功能完成" />
     <MESSAGE value="add:各个状态的订单数量统计 功能(statistics 方法)完成" />
     <MESSAGE value="fix:Order 模块 listByCondition 方法修复：orderDetail.getAmount() =&gt; orderDetail.getNumber()" />
@@ -674,7 +673,19 @@
     <MESSAGE value="add:WorkspaceService 中的 getBusinessData(根据时间段统计营业数据)和 getOrderOverView (查询订单管理数据)方法完成" />
     <MESSAGE value="add:WorkspaceService 中的 getDishOverView(查询菜品总览)方法完成" />
     <MESSAGE value="add:WorkspaceService 中的 getSetmealOverView(查询套餐总览)方法完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:WorkspaceService 中的 getSetmealOverView(查询套餐总览)方法完成" />
+    <MESSAGE value="fix:com.sky.mapper.OrderMapper.selectOrderCounts 修改为：round(validOrderCount / totalOrderCount, 4))" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:com.sky.mapper.OrderMapper.selectOrderCounts 修改为：round(validOrderCount / totalOrderCount, 4))" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java</url>
+          <line>230</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

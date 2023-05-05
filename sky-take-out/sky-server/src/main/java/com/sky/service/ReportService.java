@@ -2,6 +2,7 @@ package com.sky.service;
 
 import com.sky.vo.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 
 public interface ReportService {
@@ -46,5 +47,5 @@ public interface ReportService {
      *
      * @return
      */
-    void export();
+    void exportBusinessData(HttpServletResponse response);
 }
