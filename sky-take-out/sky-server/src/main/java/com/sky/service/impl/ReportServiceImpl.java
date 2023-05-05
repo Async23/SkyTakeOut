@@ -130,7 +130,10 @@ public class ReportServiceImpl implements ReportService {
     @Override
     public OrderReportVO ordersStatistics(LocalDate begin, LocalDate end) {
         // Mapper 层：获得订单总数 totalOrderCount，有效订单数 validOrderCountList，订单完成率 orderCompletionRate
-        Map<String, Object> countMap = orderMapper.selectOrderCounts();
+        Map<String, Object> countMap = orderMapper.selectOrderCounts(
+                LocalDateTime.of(begin, LocalTime.MIN),
+                LocalDateTime.of(end, LocalTime.MAX)
+        );
         List<LocalDate> dateList = new ArrayList<>();
         List<Integer> validOrderCountList = new ArrayList<>();
         List<Integer> orderCountList = new ArrayList<>();

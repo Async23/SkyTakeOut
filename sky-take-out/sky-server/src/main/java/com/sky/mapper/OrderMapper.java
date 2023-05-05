@@ -80,7 +80,7 @@ public interface OrderMapper {
      *
      * @return
      */
-    Map<String, Object> selectOrderCounts();
+    Map<String, Object> selectOrderCounts(LocalDateTime begin, LocalDateTime end);
 
     /**
      * 查询日期区间内、符合状态的订单数量

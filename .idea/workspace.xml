@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:数据统计相关接口 ReportController 中，订单统计(ordersStatistics 方法) 功能完成">
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:数据统计相关接口 ReportController 中，查询销量排名top10(top10 方法) 功能完成">
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/WorkSpaceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/WorkspaceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/WorkspaceServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-common/src/main/java/com/sky/constant/MessageConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/ReportController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/ReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/ReportService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
     </list>
@@ -78,29 +78,30 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/code/SkyTakeOut/sky-take-out/sky-server/src/main/java/com/sky/task&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;spring.boot&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;0d903826f2cfd9772cf3bc867d21fa3a&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
+    "last_opened_file_path": "D:/code/SkyTakeOut/sky-take-out/sky-server/src/main/java/com/sky/controller/admin",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "database.query.execution",
+    "spring.configuration.checksum": "0d903826f2cfd9772cf3bc867d21fa3a",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -111,11 +112,11 @@
       <recent name="com.sky.test" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\task" />
-      <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\controller\notify" />
-      <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\controller\user" />
+      <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\controller\admin" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\service\impl" />
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\service" />
+      <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\test\java\com\sky\test" />
+      <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\task" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\code\SkyTakeOut\sky-take-out\sky-server\src\main\java\com\sky\mapper" />
@@ -277,14 +278,9 @@
       <workItem from="1682749395747" duration="19326000" />
       <workItem from="1682770846053" duration="1802000" />
       <workItem from="1683074273038" duration="44236000" />
-      <workItem from="1683160021679" duration="22923000" />
-    </task>
-    <task id="LOCAL-00049" summary="fix:Setmeal 模块中，启售、停售套餐(startOrStop 方法)修复：套餐内包含未启售菜品的情况，无法删除">
-      <created>1682136587370</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1682136587370</updated>
+      <workItem from="1683160021679" duration="35251000" />
+      <workItem from="1683246308809" duration="3690000" />
+      <workItem from="1683251700248" duration="7920000" />
     </task>
     <task id="LOCAL-00050" summary="fix:Setmeal 模块中，分页查询的两个 Maper 层方法:selectAll 和 selectByCondition(name 模糊搜索) 修复，多关联了 category 表">
       <created>1682147876924</created>
@@ -622,7 +618,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683188311032</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="add:数据统计相关接口 ReportController 中，查询销量排名top10(top10 方法) 功能完成">
+      <created>1683194392512</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1683194392512</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -651,7 +654,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix:OrderDetailMapper.xml 换行语法问题修复；DishMapper.xml 中 selectById 方法配合 resultMap:dishVO" />
     <MESSAGE value="backup:备份" />
     <MESSAGE value="add:订单搜索 功能完成" />
     <MESSAGE value="fix:订单搜索 功能修复：菜品字符串形式显示" />
@@ -676,7 +678,8 @@
     <MESSAGE value="fix:userOrderController 中，再来一单 功能修复：dishId 或 setmealId 也设置到 shoppingCart 对象中" />
     <MESSAGE value="add:数据统计相关接口 ReportController 中，营业额统计(turnoverStatics 方法) 功能完成" />
     <MESSAGE value="add:数据统计相关接口 ReportController 中，订单统计(ordersStatistics 方法) 功能完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:数据统计相关接口 ReportController 中，订单统计(ordersStatistics 方法) 功能完成" />
+    <MESSAGE value="add:数据统计相关接口 ReportController 中，查询销量排名top10(top10 方法) 功能完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="add:数据统计相关接口 ReportController 中，查询销量排名top10(top10 方法) 功能完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
