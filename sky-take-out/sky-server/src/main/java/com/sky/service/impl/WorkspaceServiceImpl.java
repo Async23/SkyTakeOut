@@ -33,11 +33,6 @@ public class WorkspaceServiceImpl implements WorkspaceService {
     @Autowired
     private SetmealMapper setmealMapper;
 
-    @Override
-    public SetmealOverViewVO getSetmealOverView() {
-        return null;
-    }
-
     /**
      * 根据时间段统计营业数据
      *
@@ -98,20 +93,20 @@ public class WorkspaceServiceImpl implements WorkspaceService {
         dateMap.put("begin", LocalDateTime.now().with(LocalTime.MIN));
 
         // 待接单
-        Integer waitingOrders = orderMapper.countByMap(dateMap,Orders.TO_BE_CONFIRMED);
+        Integer waitingOrders = orderMapper.countByMap(dateMap, Orders.TO_BE_CONFIRMED);
 
         // 待派送
-        Integer deliveredOrders = orderMapper.countByMap(dateMap,Orders.CONFIRMED);
+        Integer deliveredOrders = orderMapper.countByMap(dateMap, Orders.CONFIRMED);
 
         // 已完成
-        Integer completedOrders = orderMapper.countByMap(dateMap,Orders.COMPLETED);
+        Integer completedOrders = orderMapper.countByMap(dateMap, Orders.COMPLETED);
 
         // 已取消
-        Integer cancelledOrders = orderMapper.countByMap(dateMap,Orders.CANCELLED);
+        Integer cancelledOrders = orderMapper.countByMap(dateMap, Orders.CANCELLED);
 
         // 全部订单
         dateMap.put("status", null);
-        Integer allOrders = orderMapper.countByMap(dateMap,null);
+        Integer allOrders = orderMapper.countByMap(dateMap, null);
 
         return OrderOverViewVO.builder()
                 .waitingOrders(waitingOrders)
@@ -128,7 +123,7 @@ public class WorkspaceServiceImpl implements WorkspaceService {
      * @return
      */
     public DishOverViewVO getDishOverView() {
-        Map<String,Integer> map = new HashMap<>();
+        Map<String, Integer> map = new HashMap<>();
         map.put("status", StatusConstant.ENABLE);
         // Mapper 层
         Integer sold = dishMapper.countByMap(map);
@@ -143,22 +138,24 @@ public class WorkspaceServiceImpl implements WorkspaceService {
                 .build();
     }
 
-    // /**
-    //  * 查询套餐总览
-    //  *
-    //  * @return
-    //  */
-    // public SetmealOverViewVO getSetmealOverView() {
-    //     Map map = new HashMap();
-    //     map.put("status", StatusConstant.ENABLE);
-    //     Integer sold = setmealMapper.countByMap(map);
-    //
-    //     map.put("status", StatusConstant.DISABLE);
-    //     Integer discontinued = setmealMapper.countByMap(map);
-    //
-    //     return SetmealOverViewVO.builder()
-    //             .sold(sold)
-    //             .discontinued(discontinued)
-    //             .build();
-    // }
+    /**
+     * 查询套餐总览
+     *
+     * @return
+     */
+    public SetmealOverViewVO getSetmealOverView() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("status", StatusConstant.ENABLE);
+        // Mapper 层
+        Integer sold = setmealMapper.countByMap(map);
+
+        map.put("status", StatusConstant.DISABLE);
+        // Mapper 层
+        Integer discontinued = setmealMapper.countByMap(map);
+
+        return SetmealOverViewVO.builder()
+                .sold(sold)
+                .discontinued(discontinued)
+                .build();
+    }
 }

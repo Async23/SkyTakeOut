@@ -89,7 +89,7 @@
         insert into setmeal (category_id, name, price, status, description, image, create_time, update_time,
                              create_user, update_user)
             value (#{categoryId}, #{name}, #{price}, #{status}, #{description}, #{image}, #{createTime}, #{updateTime},
-                   #{createUser}, #{updateUser})
+            #{createUser}, #{updateUser})
     </insert>
     <!--新增套餐(setmeal_dish 表)-->
     <insert id="insertSetMealDish" parameterType="java.util.List">
@@ -265,6 +265,17 @@
         select *
         from setmeal
         where id = #{setmealId}
+    </select>
+
+    <!--根据 map 中的 status 获取套餐的数量-->
+    <select id="countByMap" resultType="java.lang.Integer" parameterType="java.util.Map">
+        select count(*)
+        from setmeal
+        <where>
+            <if test="status != null">
+                status = #{status}
+            </if>
+        </where>
     </select>
 
 </mapper>

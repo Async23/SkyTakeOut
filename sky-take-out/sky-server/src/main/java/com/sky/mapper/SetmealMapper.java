@@ -51,4 +51,11 @@ public interface SetmealMapper {
     List<SetmealVO> listWithDishes(Setmeal setmeal);
 
     Setmeal getById(Long setmealId);
+
+    /**
+     * 根据 map 中的 status 获取套餐的数量
+     * @param map
+     * @return
+     */
+    Integer countByMap(Map<String,Integer> map);
 }
