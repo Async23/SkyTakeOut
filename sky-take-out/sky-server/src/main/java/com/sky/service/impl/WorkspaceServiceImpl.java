@@ -14,6 +14,7 @@ import com.sky.vo.SetmealOverViewVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
@@ -33,16 +34,6 @@ public class WorkspaceServiceImpl implements WorkspaceService {
     private SetmealMapper setmealMapper;
 
     @Override
-    public BusinessDataVO getBusinessData(LocalDateTime begin, LocalDateTime end) {
-        return null;
-    }
-
-    @Override
-    public OrderOverViewVO getOrderOverView() {
-        return null;
-    }
-
-    @Override
     public DishOverViewVO getDishOverView() {
         return null;
     }
@@ -52,97 +43,90 @@ public class WorkspaceServiceImpl implements WorkspaceService {
         return null;
     }
 
-    // /**
-    //  * 根据时间段统计营业数据
-    //  * @param begin
-    //  * @param end
-    //  * @return
-    //  */
-    // public BusinessDataVO getBusinessData(LocalDateTime begin, LocalDateTime end) {
-    //     /**
-    //      * 营业额：当日已完成订单的总金额
-    //      * 有效订单：当日已完成订单的数量
-    //      * 订单完成率：有效订单数 / 总订单数
-    //      * 平均客单价：营业额 / 有效订单数
-    //      * 新增用户：当日新增用户的数量
-    //      */
-    //
-    //     Map map = new HashMap();
-    //     map.put("beginTime",begin);
-    //     map.put("endTime",end);
-    //
-    //     //查询总订单数
-    //     Integer totalOrderCount = orderMapper.countOrders(map);
-    //
-    //     map.put("status", Orders.COMPLETED);
-    //     //营业额
-    //     Double turnover = orderMapper.sumMap(map);
-    //     turnover = turnover == null? 0.0 : turnover;
-    //
-    //     //有效订单数
-    //     Integer validOrderCount = orderMapper.countOrders(map);
-    //
-    //     Double unitPrice = 0.0;
-    //
-    //     Double orderCompletionRate = 0.0;
-    //     if(totalOrderCount != 0 && validOrderCount != 0){
-    //         //订单完成率
-    //         orderCompletionRate = validOrderCount.doubleValue() / totalOrderCount;
-    //         //平均客单价
-    //         unitPrice = turnover / validOrderCount;
-    //     }
-    //
-    //     //新增用户数
-    //     Integer newUsers = userMapper.getUserCount(begin,end);
-    //
-    //     return BusinessDataVO.builder()
-    //             .turnover(turnover)
-    //             .validOrderCount(validOrderCount)
-    //             .orderCompletionRate(orderCompletionRate)
-    //             .unitPrice(unitPrice)
-    //             .newUsers(newUsers)
-    //             .build();
-    // }
-    //
-    //
-    // /**
-    //  * 查询订单管理数据
-    //  *
-    //  * @return
-    //  */
-    // public OrderOverViewVO getOrderOverView() {
-    //     Map map = new HashMap();
-    //     map.put("beginTime", LocalDateTime.now().with(LocalTime.MIN));
-    //     map.put("status", Orders.TO_BE_CONFIRMED);
-    //
-    //     //待接单
-    //     Integer waitingOrders = orderMapper.countOrders(map);
-    //
-    //     //待派送
-    //     map.put("status", Orders.CONFIRMED);
-    //     Integer deliveredOrders = orderMapper.countOrders(map);
-    //
-    //     //已完成
-    //     map.put("status", Orders.COMPLETED);
-    //     Integer completedOrders = orderMapper.countOrders(map);
-    //
-    //     //已取消
-    //     map.put("status", Orders.CANCELLED);
-    //     Integer cancelledOrders = orderMapper.countOrders(map);
-    //
-    //     //全部订单
-    //     map.put("status", null);
-    //     Integer allOrders = orderMapper.countOrders(map);
-    //
-    //     return OrderOverViewVO.builder()
-    //             .waitingOrders(waitingOrders)
-    //             .deliveredOrders(deliveredOrders)
-    //             .completedOrders(completedOrders)
-    //             .cancelledOrders(cancelledOrders)
-    //             .allOrders(allOrders)
-    //             .build();
-    // }
-    //
+    /**
+     * 根据时间段统计营业数据
+     *
+     * @param begin
+     * @param end
+     * @return
+     */
+    public BusinessDataVO getBusinessData(LocalDateTime begin, LocalDateTime end) {
+        /**
+         * 营业额：当日已完成订单的总金额
+         * 有效订单：当日已完成订单的数量
+         * 订单完成率：有效订单数 / 总订单数
+         * 平均客单价：营业额 / 有效订单数
+         * 新增用户：当日新增用户的数量
+         */
+
+        Map<String, LocalDateTime> map = new HashMap<>();
+        map.put("begin", begin);
+        map.put("end", end);
+        // 营业额
+        Double turnover = orderMapper.sumMap(map);
+
+        Double unitPrice = 0.0;
+
+        // Mapper 层：获得订单总数 totalOrderCount，有效订单数 validOrderCountList，订单完成率 orderCompletionRate
+        Map<String, Object> countMap = orderMapper.selectOrderCounts(begin, end);
+        // 有效订单数
+        int validOrderCount = Integer.parseInt(countMap.get("validOrderCount") + "");
+        // 订单总数
+        int totalOrderCount = Integer.parseInt(countMap.get("totalOrderCount") + "");
+
+        if (totalOrderCount != 0 && validOrderCount != 0) {
+            // 平均客单价
+            unitPrice = turnover / validOrderCount;
+        }
+
+        // 新增用户数
+        Integer newUsers = userMapper.countByMap(map);
+
+
+        return BusinessDataVO.builder()
+                .turnover(turnover)
+                .validOrderCount(validOrderCount)
+                .orderCompletionRate(Double.valueOf(countMap.get("orderCompletionRate") + ""))
+                .unitPrice(unitPrice)
+                .newUsers(newUsers)
+                .build();
+    }
+
+
+    /**
+     * 查询订单管理数据
+     *
+     * @return
+     */
+    public OrderOverViewVO getOrderOverView() {
+        Map<String, LocalDateTime> dateMap = new HashMap<>();
+        dateMap.put("begin", LocalDateTime.now().with(LocalTime.MIN));
+
+        // 待接单
+        Integer waitingOrders = orderMapper.countByMap(dateMap,Orders.TO_BE_CONFIRMED);
+
+        // 待派送
+        Integer deliveredOrders = orderMapper.countByMap(dateMap,Orders.CONFIRMED);
+
+        // 已完成
+        Integer completedOrders = orderMapper.countByMap(dateMap,Orders.COMPLETED);
+
+        // 已取消
+        Integer cancelledOrders = orderMapper.countByMap(dateMap,Orders.CANCELLED);
+
+        // 全部订单
+        dateMap.put("status", null);
+        Integer allOrders = orderMapper.countByMap(dateMap,null);
+
+        return OrderOverViewVO.builder()
+                .waitingOrders(waitingOrders)
+                .deliveredOrders(deliveredOrders)
+                .completedOrders(completedOrders)
+                .cancelledOrders(cancelledOrders)
+                .allOrders(allOrders)
+                .build();
+    }
+
     // /**
     //  * 查询菜品总览
     //  *

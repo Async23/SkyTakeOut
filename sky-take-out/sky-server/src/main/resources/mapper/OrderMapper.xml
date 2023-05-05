@@ -199,9 +199,10 @@
     <select id="selectOrderCounts" parameterType="java.util.Map" resultType="java.util.Map">
         select validOrderCount,
                totalOrderCount,
-               round(validOrderCount / totalOrderCount, 2) as orderCompletionRate
-        from (select sum(if(status = 5, 1, 0)) as validOrderCount,
-                     count(id)                 as totalOrderCount
+               if(validOrderCount / totalOrderCount is null, 0,
+                  round(validOrderCount / totalOrderCount * 100)) as orderCompletionRate
+        from (select count(status = 5) as validOrderCount,
+                     count(id)         as totalOrderCount
               from orders
               where order_time between #{begin} and #{end}) as t_temp
     </select>
@@ -231,6 +232,14 @@
         group by name
         order by sum(od.number) desc
         limit 0,10
+    </select>
+
+    <!--计算时间段内营业额-->
+    <select id="sumMap" resultType="java.lang.Double" parameterType="java.util.Map">
+        select if(sum(amount) is null, 0, sum(amount))
+        from orders
+        where order_time between #{map.begin} and #{map.end}
+          and status = 5
     </select>
 
 </mapper>

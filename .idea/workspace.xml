@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="add:数据统计相关接口 ReportController 中，查询销量排名top10(top10 方法) 功能完成">
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/controller/admin/WorkSpaceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/WorkspaceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/WorkspaceServiceImpl.java" afterDir="false" />
+    <list default="true" id="7f75fd31-58cc-4429-abc2-bd04267e1161" name="Changes" comment="fix:com.sky.mapper.OrderMapper.selectOrderCounts 方法修复：加了时间判断">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/mapper/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/ReportServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/WorkspaceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/java/com/sky/service/impl/WorkspaceServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/sky-take-out/sky-server/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +94,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "database.query.execution",
+    "settings.editor.selected.configurable": "Settings.Sequence.Configuration",
     "spring.configuration.checksum": "0d903826f2cfd9772cf3bc867d21fa3a",
     "vue.rearranger.settings.migration": "true"
   }
@@ -280,14 +277,7 @@
       <workItem from="1683074273038" duration="44236000" />
       <workItem from="1683160021679" duration="35251000" />
       <workItem from="1683246308809" duration="3690000" />
-      <workItem from="1683251700248" duration="7920000" />
-    </task>
-    <task id="LOCAL-00050" summary="fix:Setmeal 模块中，分页查询的两个 Maper 层方法:selectAll 和 selectByCondition(name 模糊搜索) 修复，多关联了 category 表">
-      <created>1682147876924</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1682147876927</updated>
+      <workItem from="1683251700248" duration="11013000" />
     </task>
     <task id="LOCAL-00051" summary="fix:Setmeal 模块中，分页查询的两个 Maper 层方法:selectAll 和 selectByCondition 的 select 列补上 status">
       <created>1682148237644</created>
@@ -625,7 +615,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683194392512</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="fix:com.sky.mapper.OrderMapper.selectOrderCounts 方法修复：加了时间判断">
+      <created>1683270514079</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1683270514079</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -654,7 +651,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="backup:备份" />
     <MESSAGE value="add:订单搜索 功能完成" />
     <MESSAGE value="fix:订单搜索 功能修复：菜品字符串形式显示" />
     <MESSAGE value="add:取消订单 功能完成" />
@@ -679,7 +675,8 @@
     <MESSAGE value="add:数据统计相关接口 ReportController 中，营业额统计(turnoverStatics 方法) 功能完成" />
     <MESSAGE value="add:数据统计相关接口 ReportController 中，订单统计(ordersStatistics 方法) 功能完成" />
     <MESSAGE value="add:数据统计相关接口 ReportController 中，查询销量排名top10(top10 方法) 功能完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:数据统计相关接口 ReportController 中，查询销量排名top10(top10 方法) 功能完成" />
+    <MESSAGE value="fix:com.sky.mapper.OrderMapper.selectOrderCounts 方法修复：加了时间判断" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:com.sky.mapper.OrderMapper.selectOrderCounts 方法修复：加了时间判断" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

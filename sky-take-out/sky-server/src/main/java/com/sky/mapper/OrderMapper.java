@@ -97,4 +97,12 @@ public interface OrderMapper {
      * @return
      */
     List<Map<String, Object>> top10(LocalDateTime begin, LocalDateTime end);
+
+    /**
+     * 计算时间段内营业额
+     *
+     * @param map
+     * @return
+     */
+    Double sumMap(Map<String, LocalDateTime> map);
 }
